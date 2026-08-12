@@ -49,6 +49,13 @@ myst_enable_extensions = ["colon_fence", "substitution"]
 # templates_path = ['_templates']
 exclude_patterns = []
 
+# Read the Docs runs `sphinx-build -j auto` by default. On RTD's CPU-throttled
+# free-tier containers the parallel worker pool can be far slower than a single
+# process (and occasionally runs into the 15-minute build limit). Force Sphinx
+# to run single-process so -j auto is effectively ignored and builds stay fast.
+parallel_read_safe = False
+parallel_write_safe = False
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
