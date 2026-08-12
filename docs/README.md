@@ -43,3 +43,22 @@ python3 -m http.server -d build/html_zh/
 Only the strings that have a non-empty translation in the `.po` files will be
 localized; the remaining pages fall back to the English source. Add or edit
 entries in `docs/source/_locale/zh_CN/LC_MESSAGES/*.po` to translate more pages.
+
+## Read the Docs (dual-language) build
+
+The `.readthedocs.yaml` at the repo root drives a custom build that produces
+**both** languages from one build. Each language is a self-contained site
+under its own subdirectory so relative links resolve correctly:
+
+- `/`      - landing page (choose your language)
+- `/en/`   - English site
+- `/zh/`   - Chinese (zh_CN) site
+
+Local sanity check (reproduces what Read the Docs will run):
+
+```bash
+sphinx-intl build -l zh_CN -d docs/source/_locale
+DOCS_LANGUAGE=en   sphinx-build -b html -c docs/source docs/source build/en
+DOCS_LANGUAGE=zh_CN sphinx-build -b html -c docs/source docs/source build/zh
+cp docs/source/_static/landing.html build/index.html
+```
