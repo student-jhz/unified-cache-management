@@ -47,7 +47,7 @@
 .git/**
 **/build/**
 **/output/**
-**_locale/**/*.mo
+**/_locale/**/*.mo
 .venv/**
 **/__pycache__/**
 *.egg-info/**

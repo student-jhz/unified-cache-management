@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
+"Last-Translator: UCM Documentation Team <docs@unified-cache-manager.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,13 +21,14 @@ msgstr ""
 
 #: ../../source/user-guide/prefix-cache/index.md:1
 msgid "Prefix Cache"
-msgstr ""
+msgstr "前缀缓存"
 
 #: ../../source/user-guide/prefix-cache/index.md:3
 msgid ""
 "Prefix Cache: A Fundamental Acceleration Component for KVCache and Its "
 "Architectural Considerations in Large Language Model Inference"
 msgstr ""
+"前缀缓存：KVCache 的基础加速组件及其在大语言模型推理中的架构考量"
 
 #: ../../source/user-guide/prefix-cache/index.md:5
 msgid ""
@@ -41,6 +41,7 @@ msgid ""
 "the foundation for the PD disaggregation by UCM. Concurrently, it imposes"
 " a requirement that sparse algorithms must support Prefix Cache."
 msgstr ""
+"作为 KVCache 最简单、最基础的加速特性，前缀缓存（Prefix Cache）已在行业内达成广泛共识。随着大语言模型（LLM）应用范围的扩大、序列长度的增长以及基于 Agent 应用的普及，前缀缓存的性能收益愈发显著。作为 KVCache 应用的默认能力，前缀缓存也为 UCM 实现 PD 分离（PD disaggregation）奠定了基础。同时，它也要求稀疏算法必须支持前缀缓存。"
 
 #: ../../source/user-guide/prefix-cache/index.md:11
 msgid ""
@@ -52,6 +53,7 @@ msgid ""
 "primarily demands bandwidth-intensive IO, making it well-suited for "
 "storage on Solid-State Drives (SSDs)."
 msgstr ""
+"前缀缓存的核心性能指标是命中率，而缓存容量与命中率之间存在直接的正相关关系。以 DeepSeek 和 Kimi 公开发布的数据为例，要达到“命中率最佳区间”需要相当大的缓存容量。从输入/输出（IO）特性来看，前缀缓存主要依赖带宽密集型 IO，因此非常适合存储在固态硬盘（SSD）上。"
 
 #: ../../source/user-guide/prefix-cache/index.md:16
 msgid ""
@@ -63,6 +65,7 @@ msgid ""
 "SSDs, and remote storage. In practice, the implementation of this "
 "hierarchy can be roughly categorized into two architectural directions:"
 msgstr ""
+"前缀缓存可以利用多种存储介质，包括高带宽内存（HBM）、动态随机存取存储器（DRAM）、SSD，以及专用存储系统（例如 DeepSeek 的 3fs，一个专为 KVCache 开发的存储系统）。其基本设计理念是利用 HBM、DRAM、本地 SSD 和远程存储构建**多级缓存**层级结构。在实践中，这种层级结构的实现大致可分为两种架构方向："
 
 #: ../../source/user-guide/prefix-cache/index.md:22
 msgid ""
@@ -74,6 +77,7 @@ msgid ""
 " instances with higher KVCache hit rates, thereby maximizing overall "
 "system performance."
 msgstr ""
+"**去中心化架构（Decentralized Architecture）**：KVCache 以孤立的方式为每个推理实例进行部署，每个 KVCache 分区归属于不同的推理实例（或服务器）。这种分布式的 KVCache 部署通常与上层 KVCache 感知的亲和性调度相配合。此类调度的目标是将推理请求路由到 KVCache 命中率更高的实例，从而最大化系统整体性能。"
 
 #: ../../source/user-guide/prefix-cache/index.md:27
 msgid ""
@@ -83,12 +87,14 @@ msgid ""
 " and the Prefix Cache module in UCM also tends to prioritize this "
 "centralized approach."
 msgstr ""
+"**中心化架构（Centralized Architecture）**：KVCache 存储在中心化的外部存储系统中，并在所有计算节点间共享。这种架构天然具备简洁性；DeepSeek 的 3fs 采用了这种设计范式，UCM 中的前缀缓存模块也更倾向于优先采用这种中心化的方案。"
 
 #: ../../source/user-guide/prefix-cache/index.md:37
 msgid ""
 "Rationale for Adopting DeepSeek’s Centralized Approach Over Dynamo’s "
 "Decentralized Design"
 msgstr ""
+"采用 DeepSeek 中心化方案而非 Dynamo 去中心化设计的理由"
 
 #: ../../source/user-guide/prefix-cache/index.md:39
 msgid ""
@@ -96,6 +102,7 @@ msgid ""
 "Dynamo’s decentralized scheme) is driven by the following key "
 "considerations, which align with UCM’s core design principles:"
 msgstr ""
+"决定采用 DeepSeek 的中心化架构（而非 Dynamo 的去中心化方案）是出于以下关键考量，这些考量与 UCM 的核心设计原则相一致："
 
 #: ../../source/user-guide/prefix-cache/index.md:42
 msgid ""
@@ -109,6 +116,7 @@ msgid ""
 "scheduler must balance these hit rates against the load of each instance,"
 " introducing significant complexity."
 msgstr ""
+"**遵循 UCM 的第一条基础原则：“简洁性”（Simplicity）**。指导 UCM 设计的一项核心宗旨是“避免在不能带来实质性收益的功能上投入不必要的精力”。然而，亲和性调度并不是一个易于实现的模块。大多数去中心化实现要求每个推理实例向调度器反馈 KVCache 管理状态，以便调度器预测路由到不同实例的请求的命中率。此外，调度器还必须在这些命中率与各实例的负载之间进行平衡，这会引入显著的复杂性。"
 
 #: ../../source/user-guide/prefix-cache/index.md:49
 msgid ""
@@ -121,6 +129,7 @@ msgid ""
 "by only two principles: \" Simplicity\" serves as the only axiom, while "
 "\"Decoupling\" is regarded as the first derived theorem."
 msgstr ""
+"**遵循 UCM 的第一条衍生原则：“解耦”（Decoupling）**。在去中心化架构中，推理实例需要向调度器上报 KVCache 状态。这会破坏各实例的独立性，在上层调度与下层推理组件之间引入耦合——而这是 UCM 设计中明确避免的结果。需要强调的是，UCM 的设计仅受两条原则支配：“简洁性”作为唯一的公理，而“解耦”被视为第一条衍生的定理。"
 
 #: ../../source/user-guide/prefix-cache/index.md:55
 msgid ""
@@ -134,6 +143,7 @@ msgid ""
 "when compared to improvements in Time-to-First-Token (TTFT), the latency "
 "reduction benefits of decentralization are marginal."
 msgstr ""
+"**成本-收益分析：收益不足以证明违背原则是合理的**。UCM 的评估表明，去中心化的 KVCache 所带来的收益不足以抵消违背“简洁性”和“解耦”原则所付出的代价。去中心化 KVCache 宣称的主要优势是降低 KVCache 网络带宽消耗和更低的延迟。然而在 PD 分离架构下，这两项优势很难实现。此外，与首Token时间（TTFT）的改善相比，去中心化带来的延迟降低收益十分有限（marginal）。"
 
 #: ../../source/user-guide/prefix-cache/index.md:62
 msgid ""
@@ -143,6 +153,7 @@ msgid ""
 " viable inference solution\", UCM prioritizes architectures that are "
 "structurally simple and robust to anomalies."
 msgstr ""
+"**促进商用级推理方案的落地**。去中心化 KVCache 在实现容错以及支持多实例部署方面会引入额外的复杂性。为了推进“可商用的推理方案”，UCM 优先选择结构简单且对异常鲁棒性强的架构。"
 
 #: ../../source/user-guide/prefix-cache/index.md:65
 msgid ""
@@ -151,6 +162,7 @@ msgid ""
 " and the limited capacity of individual silos constrains the overall "
 "Prefix Cache hit rate, undermining a key performance objective."
 msgstr ""
+"**缓解数据孤岛问题**。去中心化 KVCache 本质上会制造数据孤岛：冗余的 KVCache 数据在相互隔离的实例间不断累积，而单个孤岛的有限容量又会制约整体前缀缓存命中率，从而削弱一个关键的性能目标。"
 
 #: ../../source/user-guide/prefix-cache/index.md:69
 msgid ""
@@ -160,6 +172,7 @@ msgid ""
 " large-scale inference deployments, a critical requirement for "
 "industrial-grade LLM applications."
 msgstr ""
+"**增强与 PD 分离及大规模部署的兼容性**。中心化架构与 PD 分离范式具备更优越的兼容性，并且更易于扩展到大规模推理部署，而这是工业级 LLM 应用的一项关键需求。"
 
 #: ../../source/user-guide/prefix-cache/index.md:73
 msgid ""
@@ -173,4 +186,5 @@ msgid ""
 "affinity scheduling is demoted to a low-priority consideration, affecting"
 " only TTFT rather than core hit rate performance."
 msgstr ""
+"需要指出的是，去中心化架构与中心化架构之间的区别并非绝对的。例如，一些去中心化实现会集成远程存储以扩充容量，而 UCM 同样利用 DRAM 作为高速缓存层级。核心区别在于架构优先级：在去中心化设计中，亲和性调度是一项高优先级需求（因为它直接影响 KVCache 命中率）；而在中心化设计中，亲和性调度被降级为低优先级考量，仅影响 TTFT，而不会影响核心的命中率性能。"
 

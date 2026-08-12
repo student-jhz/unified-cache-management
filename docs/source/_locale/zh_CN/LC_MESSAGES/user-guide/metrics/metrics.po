@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 +0800\n"
+"Last-Translator: UCM zh_CN <zh_CN@unified-cache-manager.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,7 +21,7 @@ msgstr ""
 
 #: ../../source/user-guide/metrics/metrics.md:1
 msgid "UCM Metrics Observability"
-msgstr ""
+msgstr "UCM 指标可观测性"
 
 #: ../../source/user-guide/metrics/metrics.md:3
 msgid ""
@@ -30,12 +29,15 @@ msgid ""
 "Prometheus `/metrics` endpoint. No separate exporter, export mode, or "
 "service port is required."
 msgstr ""
+"UCM 通过 vLLM 连接器导出指标，并复用 vLLM 的 Prometheus `/metrics` 端点。"
+"无需单独的外部导出器、导出模式或服务端口。"
 
 #: ../../source/user-guide/metrics/metrics.md:5
 msgid ""
 "We recommend using Prometheus to scrape vLLM metrics and Grafana to "
 "visualize the collected data."
 msgstr ""
+"建议使用 Prometheus 抓取 vLLM 指标，并使用 Grafana 对收集的数据进行可视化。"
 
 #: ../../source/user-guide/metrics/metrics.md:7
 msgid ""
@@ -44,6 +46,8 @@ msgid ""
 " use 5 seconds. A shorter interval usually does not make UCM metrics "
 "update faster."
 msgstr ""
+"UCM 指标的抓取和仪表盘刷新间隔请使用**至少 5 秒**。本指南中的 Prometheus 与 "
+"Metrics-view 示例均使用 5 秒。较短的间隔通常不会让 UCM 指标更新得更快。"
 
 #: ../../source/user-guide/metrics/metrics.md:9
 msgid ""
@@ -54,10 +58,13 @@ msgid ""
 " are no inference requests, vLLM does not call this method and UCM "
 "metrics do not update.**"
 msgstr ""
+"实际刷新频率还取决于 vLLM。UCM 首先在内部累积指标。只有在 vLLM 处理请求并调用"
+"连接器的 `get_kv_connector_stats()` 方法后，新数据才会同步到 vLLM 暴露的 "
+"Prometheus 指标中。**当没有推理请求时，vLLM 不会调用此方法，UCM 指标也就不会更新。**"
 
 #: ../../source/user-guide/metrics/metrics.md:11
 msgid "Metrics workflow"
-msgstr ""
+msgstr "指标工作流"
 
 #: ../../source/user-guide/metrics/metrics.md:13
 msgid ""
@@ -65,6 +72,8 @@ msgid ""
 "Store and one scheduler Store, and the two DPs process their own requests"
 " or batches."
 msgstr ""
+"以下示例使用 DP=2 和 TP=1。每个 DP 包含一个 worker Store 和一个 scheduler "
+"Store，两个 DP 分别处理各自的请求或批次。"
 
 #: ../../source/user-guide/metrics/metrics.md:50
 msgid ""
@@ -75,6 +84,10 @@ msgid ""
 "and vLLM Prometheus metrics write them to the corresponding series with "
 "the `model_name`, `engine`, and `worker_rank` labels."
 msgstr ""
+"UCM 在进行每次 Lookup、Load、Save 或健康探活的过程中累积 Counter、Gauge 和 "
+"Histogram。在处理请求时，vLLM 会从 worker 和 scheduler 连接器获取累积的 UCM "
+"指标。这些指标随每个 DP 的引擎统计信息一起返回，vLLM 的 Prometheus 指标会将它们"
+"写入带有 `model_name`、`engine` 和 `worker_rank` 标签的对应序列。"
 
 #: ../../source/user-guide/metrics/metrics.md:52
 msgid ""
@@ -86,14 +99,18 @@ msgid ""
 "data appears in `/metrics` only after the next vLLM request triggers "
 "synchronization."
 msgstr ""
+"vLLM 的 `/metrics` 端点和 Prometheus 注册表位于 API Server 进程中。Prometheus "
+"直接抓取该端点；API Server 的 HTTP 路由只返回已同步到注册表中的数据，并不会调用 "
+"`get_kv_connector_stats()`。即使没有推理请求，UCM 仍可能在内部产生新数据，但这些"
+"数据只有在下一次 vLLM 请求触发同步后才会出现在 `/metrics` 中。"
 
 #: ../../source/user-guide/metrics/metrics.md:54
 msgid "1. Enable or Disable Metrics"
-msgstr ""
+msgstr "1. 启用或禁用指标"
 
 #: ../../source/user-guide/metrics/metrics.md:56
 msgid "1.1 Use the Built-in Configuration"
-msgstr ""
+msgstr "1.1 使用内置配置"
 
 #: ../../source/user-guide/metrics/metrics.md:58
 msgid ""
@@ -101,42 +118,49 @@ msgid ""
 "omitted, UCM uses the complete built-in metric set. Metrics can also be "
 "enabled explicitly:"
 msgstr ""
+"UCM 指标**默认启用**。当省略 `metrics_config_path` 时，UCM 会使用完整的内置指标集。"
+"也可以显式启用指标："
 
 #: ../../source/user-guide/metrics/metrics.md:64
 msgid "To disable all UCM metrics:"
-msgstr ""
+msgstr "禁用所有 UCM 指标："
 
 #: ../../source/user-guide/metrics/metrics.md:70
 msgid "1.2 Use a Custom Configuration"
-msgstr ""
+msgstr "1.2 使用自定义配置"
 
 #: ../../source/user-guide/metrics/metrics.md:72
 msgid ""
 "To restrict the exported metric set or customize Histogram buckets, set "
 "the following top-level UCM options:"
 msgstr ""
+"若要限制导出的指标集或自定义 Histogram 分桶，请设置以下 UCM 顶层选项："
 
 #: ../../source/user-guide/metrics/metrics.md:79
 msgid ""
 "Once `metrics_config_path` is set, the file becomes the metric enable-"
 "list. Only metrics defined in that file are registered."
 msgstr ""
+"一旦设置了 `metrics_config_path`，该文件即成为指标的启用列表。只有该文件中定义的"
+"指标才会被注册。"
 
 #: ../../source/user-guide/metrics/metrics.md:81
 msgid ""
 "The metrics file must exist and be readable by the vLLM process. "
 "Otherwise, UCM metrics are not exposed."
 msgstr ""
+"指标文件必须存在且可被 vLLM 进程读取。否则 UCM 指标将不会被暴露。"
 
 #: ../../source/user-guide/metrics/metrics.md:83
 msgid "2. Access Metrics"
-msgstr ""
+msgstr "2. 访问指标"
 
 #: ../../source/user-guide/metrics/metrics.md:85
 msgid ""
 "Start vLLM with the UCM connector and send at least one inference "
 "request. Then verify that UCM metrics are available:"
 msgstr ""
+"使用 UCM 连接器启动 vLLM，并发送至少一个推理请求。然后验证 UCM 指标是否可用："
 
 #: ../../source/user-guide/metrics/metrics.md:91
 msgid ""
@@ -144,48 +168,50 @@ msgid ""
 " When there is no external-storage hit, only a small subset of metrics "
 "may be present."
 msgstr ""
+"大多数 UCM 指标只会在相应的代码路径执行后出现。当没有外部存储命中时，可能只有"
+"一小部分指标存在。"
 
 #: ../../source/user-guide/metrics/metrics.md:93
 msgid "2.1 UCM Metric Labels"
-msgstr ""
+msgstr "2.1 UCM 指标标签"
 
 #: ../../source/user-guide/metrics/metrics.md:95
 msgid "Each metric exported through the vLLM connector carries these labels:"
-msgstr ""
+msgstr "通过 vLLM 连接器导出的每个指标都带有以下标签："
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Label"
-msgstr ""
+msgstr "标签"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Meaning"
-msgstr ""
+msgstr "含义"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Example"
-msgstr ""
+msgstr "示例"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`model_name`"
-msgstr ""
+msgstr "`model_name`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Model name served by vLLM, taken from the vLLM model configuration"
-msgstr ""
+msgstr "由 vLLM 提供服务的模型名称，取自 vLLM 的模型配置"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`Qwen3-32B`"
-msgstr ""
+msgstr "`Qwen3-32B`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`engine`"
-msgstr ""
+msgstr "`engine`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid ""
 "vLLM engine that produced the metric; distinguishes DP instances in the "
 "same service"
-msgstr ""
+msgstr "产生该指标的 vLLM 引擎；用于区分同一服务中的 DP 实例"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`engine-0`"

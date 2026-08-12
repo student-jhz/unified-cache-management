@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
+"Last-Translator: UCM zh_CN Team <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,7 +21,7 @@ msgstr ""
 
 #: ../../source/user-guide/pd-disaggregation/index.md:1
 msgid "PD Disaggregation"
-msgstr ""
+msgstr "PD 分离（PD Disaggregation）"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:3
 msgid ""
@@ -38,6 +37,12 @@ msgid ""
 "storage and transmission, thereby enabling more rational scheduling "
 "strategies."
 msgstr ""
+"Prefill 与 Decode 的分离（PD Disaggregation）基本上已成为大规模推理集群部署"
+"的共识方案，其优势尤其体现在混合专家（Mixture of Experts，MOE）模型上。PD "
+"分离主要包括三个核心组件：**Prefill 和 Decode 的独立部署策略**、**KV 缓存存"
+"储与传输策略**以及**调度策略**。值得注意的是，调度策略依赖于 KV 缓存存储与"
+"传输策略。UCM 中的 PD 分离设计主要着眼于优化 KV 缓存的存储与传输，从而支持"
+"更合理的调度策略。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:11
 msgid ""
@@ -48,10 +53,14 @@ msgid ""
 "more significant. The PD Disaggregation in UCM takes Prefix Cache as a "
 "foundational assumption and is inherently dependent on its functionality."
 msgstr ""
+"前缀缓存（Prefix Cache）已成为推理系统中的标准组件。随着大型语言模型"
+"（LLM）应用范围的扩大、序列长度的增加以及基于 Agent 的应用程序日益普及，前"
+"缀缓存的性能优势将变得更加显著。UCM 中的 PD 分离以前缀缓存为基础假设，并天"
+"然地依赖于其功能。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:16
 msgid "Transmission Modes of KV Cache Between Prefill and Decode Nodes"
-msgstr ""
+msgstr "Prefill 与 Decode 节点之间 KV 缓存的传输模式"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:18
 msgid ""
@@ -59,6 +68,8 @@ msgid ""
 "(P) and Decode (D) nodes, each with distinct characteristics and "
 "application scenarios:"
 msgstr ""
+"Prefill（P）与 Decode（D）节点之间的 KV 缓存传输模式大致有三种，各自具有不"
+"同的特性与应用场景："
 
 #: ../../source/user-guide/pd-disaggregation/index.md:21
 msgid ""
@@ -72,6 +83,11 @@ msgid ""
 "initiation of a request to enable layer-wise KV transmission during the "
 "Prefill phase."
 msgstr ""
+"**直接传输**。KV 缓存直接从 Prefill 节点的高带宽内存（HBM）传输到 Decode 节"
+"点的 HBM，通常借助高速 HBM 间网络或直接穿透协议实现。这种方式简单高效，非常"
+"适合 Prefill 与 Decode 比例为 1:1（1P1D）且 P/D 节点同构的场景。在调度方面，"
+"通常需要协调：在请求发起时为 Prefill 和 Decode 节点分配资源，以便在 Prefill "
+"阶段实现逐层 KV 传输。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:26
 msgid ""
@@ -84,6 +100,11 @@ msgid ""
 "occupied for the shortest duration in the entire process, effectively "
 "reducing HBM resource consumption."
 msgstr ""
+"**通过 DRAM 间接传输**。首先，在 Prefill 阶段产生的 KV 缓存被卸载到动态随机"
+"存取内存（DRAM）。随后，KV 缓存从 Prefill 节点的 DRAM 传输到 Decode 节点的 "
+"DRAM，最后从 Decode 节点的 DRAM 加载到其 HBM 中进行推理。在此模式下，DRAM "
+"充当逻辑缓存，更便于与调度逻辑兼容。关键的一点是，HBM 在整个过程中被占用的"
+"时间最短，从而有效降低了 HBM 资源消耗。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:31
 msgid ""
@@ -97,10 +118,15 @@ msgid ""
 "highest degree of decoupling in the entire system, even eliminating the "
 "need for a strict distinction between Prefill and Decode nodes."
 msgstr ""
+"**通过统一存储池传输（利用前缀缓存逻辑）**。该模式充分利用前缀缓存逻辑，以"
+"统一存储池作为 KV 缓存传输的中间媒介。具体而言，Prefill 节点将 KV 缓存放至"
+"存储，而 Decode 节点以前缀缓存的高命中率进行推理。与前两种模式相比，该方案"
+"在逻辑与实现上最为“简单”，并在整个系统中实现了最高程度的解耦，甚至可以消"
+"除对 Prefill 与 Decode 节点的严格区分需求。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:43
 msgid "Rationale for UCM’s Adoption of the Third Transmission Mode"
-msgstr ""
+msgstr "UCM 选择第三种传输模式的理由"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:45
 msgid ""
@@ -108,12 +134,16 @@ msgid ""
 " make it the preferred choice for UCM. In practical implementations, "
 "additional advantages have been identified:"
 msgstr ""
+"第三种模式的“简单”与“解耦”足以使其成为 UCM 的优先选择。在实际实现中，还发现"
+"了额外的优势："
 
 #: ../../source/user-guide/pd-disaggregation/index.md:48
 msgid ""
 "**Complete Decoupling of Prefill and Decode**: This not only simplifies "
 "scheduling logic but also greatly streamlines exception handling."
 msgstr ""
+"**Prefill 与 Decode 的完全解耦**：这不仅简化了调度逻辑，还大大简化了异常处"
+"理。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:50
 msgid ""
@@ -122,6 +152,9 @@ msgid ""
 " added. Consequently, there is no need to address the cumbersome "
 "exception handling issues associated with custom logic."
 msgstr ""
+"**前缀缓存代码的充分复用**：这对开发者来说是一种“省时的做法”，因为无需新增"
+"任何 PD 分离特有的逻辑。因此，也无需处理与自定义逻辑相关的繁琐异常处理问"
+"题。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:53
 msgid ""
@@ -129,6 +162,8 @@ msgid ""
 "inference instances completely stateless, significantly enhancing the "
 "robustness of the entire system."
 msgstr ""
+"**统一存储作为推理实例状态**：该设计使推理实例完全无状态化，显著增强了整个系"
+"统的健壮性。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:55
 msgid ""
@@ -142,6 +177,11 @@ msgid ""
 " time, large inference clusters composed of new and old GPUs with diverse"
 " architectures will naturally become a mainstream trend."
 msgstr ""
+"**接近零成本的异构推理**：由于 Prefill 与 Decode 任务之间存在固有差异，可以"
+"通过选择不同的图形处理器（GPU）、精度级别、实例启动方式以及优化算法来实现成"
+"本优化。虽然直接跨 GPU 传输在异构环境中变得更加复杂，但 KV 缓存与计算的分离开"
+"发要么原生支持此类场景，要么只需添加一个完全解耦的模块。随着时间的推移，由"
+"架构各异的新旧 GPU 组成的大型推理集群自然将成为主流趋势。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:63
 msgid ""
@@ -152,10 +192,14 @@ msgid ""
 "scalable size of the cluster. In contrast, larger and more unified "
 "clusters are more conducive to improving overall throughput."
 msgstr ""
+"在大规模集群中，直接传输模式（模式 1）要求 Prefill 与 Decode 节点之间全互连，"
+"或者需要将节点进一步划分为更小的组。这不但增加了网络设计与调度的复杂度，还"
+"限制了集群可扩展的最大规模。相比之下，更大且更统一的集群更有利于提升整体吞"
+"吐量。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:68
 msgid "Enhanced Scheduling Flexibility Enabled by PD Disaggregation"
-msgstr ""
+msgstr "PD 分离带来的更强调度灵活性"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:70
 msgid ""
@@ -163,10 +207,11 @@ msgid ""
 " for scheduling optimization. Key application scenarios include the "
 "following:"
 msgstr ""
+"PD 分离的灵活解耦为调度优化提供了更大的灵活性。主要应用场景包括以下方面："
 
 #: ../../source/user-guide/pd-disaggregation/index.md:73
 msgid "**1. Reducing GPU Compute Idle Time and Maximizing Compute Utilization**"
-msgstr ""
+msgstr "**1. 减少 GPU 计算空闲时间并最大化计算利用率**"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:75
 msgid ""
@@ -174,12 +219,14 @@ msgid ""
 "sequences of different lengths to reduce idle time caused by DP, with "
 "task migration performed midway if necessary."
 msgstr ""
+"在动态批处理（Dynamic Batching）的数据并行（DP）下，调度器会合并不同长度的序"
+"列以减少 DP 造成的空闲时间，并在必要时中途迁移任务。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:77
 msgid ""
 "The scheduler leverages Chunked Prefill to utilize residual compute "
 "resources on Decode instances."
-msgstr ""
+msgstr "调度器利用分块预填充（Chunked Prefill）来利用 Decode 实例上的剩余计算资源。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:78
 msgid ""
@@ -188,34 +235,42 @@ msgid ""
 "case of exceptions but also maximizes system-wide compute utilization "
 "through mid-task migration."
 msgstr ""
+"默认情况下，调度器将每次推理任务产生的 KV 缓存存储在统一的外部内存中。这不仅"
+"能在出现异常时避免重新计算，还能通过任务中途迁移来最大化全系统的计算利用"
+"率。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:81
 msgid ""
 "The scheduler automatically switches the roles of Prefill and Decode "
 "nodes to further exploit underutilized compute resources."
 msgstr ""
+"调度器自动切换 Prefill 与 Decode 节点的角色，以进一步利用未被充分利用的计算资"
+"源。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:83
 msgid ""
 "When system bandwidth is insufficient, the scheduler triggers additional "
 "recomputation to avoid bandwidth bottlenecks."
 msgstr ""
+"当系统带宽不足时，调度器会触发额外的重新计算，以避免带宽瓶颈。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:84
 msgid ""
 "The scheduler balances the load across all instances, maximizing compute "
 "utilization while improving user experience."
 msgstr ""
+"调度器在所有实例之间平衡负载，在最大化计算利用率的同时改善用户体验。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:85
 msgid ""
 "During high-priority task preemption, the scheduler enables seamless "
 "migration of existing tasks to new instances."
 msgstr ""
+"在高优先级任务抢占期间，调度器支持将现有任务无缝迁移到新实例。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:87
 msgid "**2. Improving User Experience**"
-msgstr ""
+msgstr "**2. 改善用户体验**"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:89
 msgid ""
@@ -224,6 +279,8 @@ msgid ""
 "improving average Time to First Token (TTFT) and Time per Output Token "
 "(TPOT)."
 msgstr ""
+"调度器防止长序列拖慢短序列（这会降低短序列任务的体验），从而改善平均首 Token "
+"时间（TTFT）和每个输出 Token 的时间（TPOT）。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:91
 msgid ""
@@ -231,16 +288,19 @@ msgid ""
 "the same instance as much as possible, increasing the local hit rate of "
 "KV cache and reducing both TTFT and bandwidth consumption."
 msgstr ""
+"调度器使用简单哈希尽可能将同一用户的请求映射到同一实例，从而提高 KV 缓存的局"
+"部命中率，并同时降低 TTFT 和带宽消耗。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:94
 msgid "**3. Enhancing Exception Handling**"
-msgstr ""
+msgstr "**3. 增强异常处理**"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:96
 msgid ""
 "The scheduler implements mechanisms such as retries and checkpoint-based "
 "resumption to handle exceptions, preventing task errors and failures."
 msgstr ""
+"调度器实现了重试、基于检查点恢复等机制来处理异常，防止任务出错和失败。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:98
 msgid ""
@@ -248,10 +308,11 @@ msgid ""
 "redundancy, eliminating single points of failure and reducing system-"
 "level risks."
 msgstr ""
+"调度器本身采用弱状态和多实例冗余设计，消除了单点故障，并降低了系统级风险。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:101
 msgid "Evolution and Future Outlook of PD Disaggregation"
-msgstr ""
+msgstr "PD 分离的演进与未来展望"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:103
 msgid ""
@@ -263,6 +324,10 @@ msgid ""
 "can further reduce compute idle time (e.g., idle time caused by DP) and "
 "fully exploit compute resources."
 msgstr ""
+"自最初提出以来，随着 Deepseek MLA MOE 模型的广泛采用，PD 分离已朝着更复杂的方"
+"向演进。这一演进引发了关于更细粒度分离策略的讨论，例如 Activation-Feedforward"
+"（AF）分离和逐层（layer-wise）分离。不可否认，这些更复杂的方法能够进一步减少"
+"计算空闲时间（例如由 DP 引起的空闲时间），并充分利用计算资源。"
 
 #: ../../source/user-guide/pd-disaggregation/index.md:108
 msgid ""

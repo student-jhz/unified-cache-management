@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
+"Last-Translator: UCM Documentation Team <docs@unified-cache-manager.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,7 +21,7 @@ msgstr ""
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:1
 msgid "UCM prefix-KVcache Compress User Guide"
-msgstr ""
+msgstr "UCM 前缀-KV 缓存压缩（Compress Store）用户指南"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:3
 msgid ""
@@ -34,20 +33,22 @@ msgid ""
 "UCM storage pipeline. By reducing disk I/O overhead, it significantly "
 "optimizes Time-To-First-Token (TTFT) in SSD cache hit scenarios."
 msgstr ""
+"本文档为 UCM 存储压缩模块（Compress Store）提供完整的使用示例、配置说明、性能参考以及最佳实践。该模块基于 KVfold 压缩算法，实现了 KV 缓存张量的压缩/解压能力，可无缝集成到现有的 UCM 存储流水线中。通过减少磁盘 I/O 开销，它在 SSD 缓存命中场景下显著优化了首Token时间（TTFT）。"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:7
 msgid "1. Core Features"
-msgstr ""
+msgstr "1. 核心功能"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:9
 msgid "The Compress Store supports the following core capabilities:"
-msgstr ""
+msgstr "Compress Store 支持以下核心能力："
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:10
 msgid ""
 "Full KV cache compression/decompression pipeline based on KVfold coding, "
 "with current version supporting 2.0x compression for BF16 tensors"
 msgstr ""
+"基于 KVfold 编码的完整 KV 缓存压缩/解压流水线，当前版本支持对 BF16 张量实现 2.0 倍压缩"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:11
 msgid ""
@@ -55,28 +56,32 @@ msgid ""
 "configurable thread counts to adapt to different hardware environments "
 "and business scenarios"
 msgstr ""
+"支持多线程并行解压能力，线程数可灵活配置，以适应不同的硬件环境和业务场景"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:12
 msgid ""
 "Seamless integration with the existing UCM storage pipeline, one-click "
 "enable/disable of compression function via Pipeline configuration"
 msgstr ""
+"与现有 UCM 存储流水线无缝集成，可通过 Pipeline 配置一键开启/关闭压缩功能"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:13
 msgid ""
 "Full parametric YAML configuration support, flexible tuning of "
 "compression parameters to adapt to different deployment environments"
 msgstr ""
+"支持完整的参数化 YAML 配置，可灵活调优压缩参数以适应不同的部署环境"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:14
 msgid ""
 "Compatible with both layer-wise and block-wise cache modes, adapting to "
 "different inference business scenarios"
 msgstr ""
+"兼容层式（layer-wise）和块式（block-wise）两种缓存模式，以适应不同的推理业务场景"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:18
 msgid "2. Configuration Guide"
-msgstr ""
+msgstr "2. 配置指南"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:19
 msgid ""
@@ -85,26 +90,27 @@ msgid ""
 "directly modify based on the sample configuration file: <br> `unified-"
 "cache-management/examples/ucm_config_example.yaml`"
 msgstr ""
+"修改 UCM 配置文件，通过 Pipeline 配置启用压缩模块并调整相关参数。可直接基于示例配置文件进行修改：<br> `unified-cache-management/examples/ucm_config_example.yaml`"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:22
 msgid "2.1 Full Configuration Example"
-msgstr ""
+msgstr "2.1 完整配置示例"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:49
 msgid "2.2 Mandatory Parameters"
-msgstr ""
+msgstr "2.2 必选参数"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "Parameter Name"
-msgstr ""
+msgstr "参数名"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "Configuration Description"
-msgstr ""
+msgstr "配置说明"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "`store_pipeline`"
-msgstr ""
+msgstr "`store_pipeline`"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid ""
@@ -112,18 +118,19 @@ msgid ""
 "pipeline. The compression function will not take effect without this "
 "configuration."
 msgstr ""
+"固定配置为 `Cache|Compress|Posix` 以启用压缩流水线。缺少此配置时，压缩功能将不会生效。"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md:55
 msgid "2.3 Compression-Specific Optional Parameters"
-msgstr ""
+msgstr "2.3 压缩相关的可选参数"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "Default Value"
-msgstr ""
+msgstr "默认值"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "Configuration Description and Notes"
-msgstr ""
+msgstr "配置说明及注意事项"
 
 #: ../../source/user-guide/prefix-cache/compress_store.md
 msgid "`compress_ratio`"

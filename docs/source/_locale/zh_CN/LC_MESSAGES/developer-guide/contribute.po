@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
+"Last-Translator: Unified Cache Manager Team <team@ucm.local>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,7 +21,7 @@ msgstr ""
 
 #: ../../source/developer-guide/contribute.md:1
 msgid "UCM Contributing Guide"
-msgstr ""
+msgstr "UCM 贡献指南"
 
 #: ../../source/developer-guide/contribute.md:3
 msgid ""
@@ -30,22 +29,27 @@ msgid ""
 "community is open to all, and we welcome various contributions—your "
 "efforts help the project grow and benefit more users."
 msgstr ""
+"感谢您对参与 UCM 项目的兴趣！我们的社区向所有人开放，并且我们欢迎各种贡献——您"
+"的努力有助于项目发展并惠及更多用户。"
 
 #: ../../source/developer-guide/contribute.md:4
 msgid "🧩 Ways to Contribute"
-msgstr ""
+msgstr "🧩 参与方式"
 
 #: ../../source/developer-guide/contribute.md:5
 msgid ""
 "You can contribute in the following ways, and we value each type of "
 "participation:"
 msgstr ""
+"您可以通过以下方式做出贡献，我们珍视每一种形式的参与："
 
 #: ../../source/developer-guide/contribute.md:6
 msgid ""
 "**🐛 Report issues or bugs**   Report any issues or unexpected behavior "
 "you encounter. Your feedback helps us improve stability and performance."
 msgstr ""
+"**🐛 报告问题或缺陷**   报告您遇到的任何问题或异常行为。您的反馈有助于我们"
+"提升稳定性和性能。"
 
 #: ../../source/developer-guide/contribute.md:8
 msgid ""
@@ -53,36 +57,44 @@ msgid ""
 "devices or platforms by proposing requirements or submitting "
 "implementations. All ideas and contributions are welcome."
 msgstr ""
+"**⚙️ 添加对新硬件或组件的支持**   通过提出需求或提交实现，将 UCM 扩展到"
+"新的设备或平台。欢迎所有想法和贡献。"
 
 #: ../../source/developer-guide/contribute.md:10
 msgid ""
 "**✨ Suggest or implement new features**   Share feature ideas or "
 "contribute code to help UCM better meet user needs."
 msgstr ""
+"**✨ 提出或实现新功能**   分享功能创意或贡献代码，帮助 UCM 更好地满足"
+"用户需求。"
 
 #: ../../source/developer-guide/contribute.md:12
 msgid ""
 "**📚 Improve documentation and guides**   Enhance existing documentation "
 "or create new guides to help others get started quickly and effectively."
 msgstr ""
+"**📚 改进文档和指南**   完善现有文档或创建新指南，帮助其他人快速、有效地"
+"上手。"
 
 #: ../../source/developer-guide/contribute.md:15
 msgid "Every contribution matters—thank you for being part of the UCM community."
-msgstr ""
+msgstr "每一份贡献都很重要——感谢您成为 UCM 社区的一员。"
 
 #: ../../source/developer-guide/contribute.md:18
 msgid "📄 License"
-msgstr ""
+msgstr "📄 许可证"
 
 #: ../../source/developer-guide/contribute.md:20
 msgid ""
 "License information is available in the [LICENSE](https://github.com"
 "/ModelEngine-Group/unified-cache-management/blob/develop/LICENSE) file."
 msgstr ""
+"[LICENSE](https://github.com/ModelEngine-Group/unified-cache-"
+"management/blob/develop/LICENSE) 文件中提供了许可证信息。"
 
 #: ../../source/developer-guide/contribute.md:23
 msgid "🐞 How to Submit an Issue"
-msgstr ""
+msgstr "🐞 如何提交 Issue"
 
 #: ../../source/developer-guide/contribute.md:25
 msgid ""
@@ -92,84 +104,97 @@ msgid ""
 "issue](https://github.com/ModelEngine-Group/unified-cache-"
 "management/issues/new/choose   ) and include the following information:"
 msgstr ""
+"如果您发现缺陷或想提出新功能建议，请先查阅[已有的 "
+"issue](https://github.com/ModelEngine-Group/unified-cache-management/"
+"issues)。如果是新问题，请[提交一个新 "
+"issue](https://github.com/ModelEngine-Group/unified-cache-management/"
+"issues/new/choose   )，并包含以下信息："
 
 #: ../../source/developer-guide/contribute.md:27
 msgid "**Title**: A clear and concise summary of the issue."
-msgstr ""
+msgstr "**标题**：对问题的清晰、简洁的概括。"
 
 #: ../../source/developer-guide/contribute.md:28
 msgid ""
 "**Environment**: Device, inference framework version, package version, "
 "OS, etc."
 msgstr ""
+"**环境**：设备、推理框架版本、软件包版本、操作系统等。"
 
 #: ../../source/developer-guide/contribute.md:29
 msgid ""
 "**Steps to Reproduce**: Clear, numbered steps to reliably trigger the "
 "issue."
 msgstr ""
+"**复现步骤**：清晰、编号的步骤，能够可靠地触发该问题。"
 
 #: ../../source/developer-guide/contribute.md:30
 msgid ""
 "**Expected vs. Actual Behavior**: What should happen versus what actually"
 " happens."
 msgstr ""
+"**预期行为与实际行为**：应该发生什么与实际发生了什么。"
 
 #: ../../source/developer-guide/contribute.md:31
 msgid "**Error Messages / Logs**: Relevant console output or log snippets."
-msgstr ""
+msgstr "**错误信息 / 日志**：相关的控制台输出或日志片段。"
 
 #: ../../source/developer-guide/contribute.md:32
 msgid "**Visual Evidence** (if helpful): Screenshots or short screen recordings."
-msgstr ""
+msgstr "**可视化证据**（如果有帮助）：截图或简短的屏幕录制。"
 
 #: ../../source/developer-guide/contribute.md:33
 msgid "**Severity**: Indicate impact level (*Critical*, *High*, *Medium*, *Low*)."
-msgstr ""
+msgstr "**严重程度**：标明影响级别（*严重*、*高*、*中*、*低*）。"
 
 #: ../../source/developer-guide/contribute.md:35
 msgid ""
 "Keep your report clear, factual, and concise—this helps us address your "
 "issue faster!"
 msgstr ""
+"请确保您的报告清晰、客观、简洁——这将帮助我们更快地解决您的问题！"
 
 #: ../../source/developer-guide/contribute.md:38
 msgid "💻 Submitting Code Changes"
-msgstr ""
+msgstr "💻 提交代码更改"
 
 #: ../../source/developer-guide/contribute.md:39
 msgid ""
 "**To submit your code changes, please follow the workflow outlined "
 "below.**"
 msgstr ""
+"**要提交您的代码更改，请遵循下面概述的工作流程。**"
 
 #: ../../source/developer-guide/contribute.md:40
 msgid "Step 1: Fork the Repository"
-msgstr ""
+msgstr "第 1 步：Fork 仓库"
 
 #: ../../source/developer-guide/contribute.md:42
 msgid ""
 "Fork the [UCM repository](https://github.com/ModelEngine-Group/unified-"
 "cache-management) to your GitHub account."
 msgstr ""
+"将 [UCM 仓库](https://github.com/ModelEngine-Group/unified-cache-"
+"management) fork 到您的 GitHub 账户。"
 
 #: ../../source/developer-guide/contribute.md:44
 msgid "Step 2: Create a Branch"
-msgstr ""
+msgstr "第 2 步：创建分支"
 
 #: ../../source/developer-guide/contribute.md:46
 msgid "Create a new branch with a clear and descriptive name."
-msgstr ""
+msgstr "创建一个名称清晰且具有描述性的新分支。"
 
 #: ../../source/developer-guide/contribute.md:48
 msgid "Step 3: Implement Your Changes"
-msgstr ""
+msgstr "第 3 步：实现您的更改"
 
 #: ../../source/developer-guide/contribute.md:50
 msgid ""
 "Make your code or documentation changes in the branch, keeping them "
 "focused and consistent with the project’s style and conventions."
 msgstr ""
+"在分支中进行代码或文档更改，保持更改聚焦并符合项目的风格和约定。"
 
 #: ../../source/developer-guide/contribute.md:52
 msgid "Step 4: Run Lint Checks"
