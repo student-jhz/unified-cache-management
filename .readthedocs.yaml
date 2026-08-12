@@ -4,25 +4,22 @@
 # Required
 version: 2
 
-# Read the Docs runs our custom build commands below so that a single build
-# produces both the English and the Chinese (zh_CN) site, each under its own
-# subdirectory (/en and /zh), plus a landing index that links to both.
+# Build documentation in the "docs/" directory with Sphinx.
+# Multi-language (English + Chinese) is handled through Read the Docs' native
+# "translations" model: each language is its own version, and this same config
+# builds every one of them. conf.py reads READTHEDOCS_LANGUAGE to select the
+# language for the version being built, and Sphinx auto-compiles the .po
+# catalogs in docs/source/_locale/zh_CN/ (gettext_auto_build defaults to true).
 build:
    os: ubuntu-22.04
    tools:
       python: "3.12"
-   commands:
-      - python -m pip install --upgrade pip
-      - python -m pip install -r docs/requirements-docs.txt
 
-      # Compile the gettext catalogs (only the .po sources are tracked).
-      - sphinx-intl build -l zh_CN -d docs/source/_locale
+sphinx:
+   configuration: docs/source/conf.py
 
-      # English build.
-      - DOCS_LANGUAGE=en sphinx-build -b html -c docs/source docs/source $READTHEDOCS_OUTPUT/en
-
-      # Chinese build.
-      - DOCS_LANGUAGE=zh_CN sphinx-build -b html -c docs/source docs/source $READTHEDOCS_OUTPUT/zh
-
-      # Minimal language landing page (links to /en and /zh).
-      - cp docs/source/_static/landing.html $READTHEDOCS_OUTPUT/index.html
+# Packages required to build the docs (sphinx-intl is not needed at build time
+# because Sphinx auto-builds the gettext catalogs, but we keep it for tooling).
+python:
+   install:
+      - requirements: docs/requirements-docs.txt

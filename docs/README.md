@@ -44,21 +44,25 @@ Only the strings that have a non-empty translation in the `.po` files will be
 localized; the remaining pages fall back to the English source. Add or edit
 entries in `docs/source/_locale/zh_CN/LC_MESSAGES/*.po` to translate more pages.
 
-## Read the Docs (dual-language) build
+## Read the Docs (multi-language) build
 
-The `.readthedocs.yaml` at the repo root drives a custom build that produces
-**both** languages from one build. Each language is a self-contained site
-under its own subdirectory so relative links resolve correctly:
+The `.readthedocs.yaml` at the repo root uses the standard Sphinx build model.
+Multi-language (English + Chinese) is provided by Read the Docs' native
+"translations" model: each language is its own **version** of the project,
+and the same conf builds every one of them.
 
-- `/`      - landing page (choose your language)
-- `/en/`   - English site
-- `/zh/`   - Chinese (zh_CN) site
+`docs/source/conf.py` reads the `READTHEDOCS_LANGUAGE` variable that Read the
+Docs sets for each version and maps it to the matching Sphinx locale
+(`zh-cn` -> `zh_CN`). Sphinx auto-compiles the `.po` catalogs
+(`docs/source/_locale/zh_CN/`) at build time, so no manual `sphinx-intl` step
+is required on Read the Docs.
 
-Local sanity check (reproduces what Read the Docs will run):
+Local sanity checks (reproduce what Read the Docs will run per version):
 
 ```bash
-sphinx-intl build -l zh_CN -d docs/source/_locale
-DOCS_LANGUAGE=en   sphinx-build -b html -c docs/source docs/source build/en
-DOCS_LANGUAGE=zh_CN sphinx-build -b html -c docs/source docs/source build/zh
-cp docs/source/_static/landing.html build/index.html
+# English
+DOCS_LANGUAGE=en sphinx-build -b html docs/source build/en
+
+# Chinese
+DOCS_LANGUAGE=zh_CN sphinx-build -b html docs/source build/zh
 ```

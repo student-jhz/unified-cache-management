@@ -18,7 +18,13 @@ release = ""
 
 locale_dirs = ["_locale/"]  # path relative to this source directory
 gettext_compact = False
-language = os.environ.get("DOCS_LANGUAGE", "en")
+
+# Read the Docs sets READTHEDOCS_LANGUAGE for each version (its locale codes
+# use the "zh-cn" style). Normalise it to the Sphinx/Babel "zh_CN" form that
+# matches our compiled catalogs under _locale/zh_CN/.
+_rtd_language = os.environ.get("READTHEDOCS_LANGUAGE", "").lower()
+_lang_map = {"zh-cn": "zh_CN", "zh_cn": "zh_CN", "zh": "zh_CN"}
+language = _lang_map.get(_rtd_language) or os.environ.get("DOCS_LANGUAGE", "en")
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
