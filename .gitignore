@@ -60,6 +60,7 @@ results/
 .cache/
 backup/
 $null
+temp_*.txt
 *__pycache__/
 .claude
 
