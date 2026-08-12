@@ -1,0 +1,602 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/metrics/metrics.md:1
+msgid "UCM Metrics Observability"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:3
+msgid ""
+"UCM exports metrics through the vLLM connector and reuses vLLM's "
+"Prometheus `/metrics` endpoint. No separate exporter, export mode, or "
+"service port is required."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:5
+msgid ""
+"We recommend using Prometheus to scrape vLLM metrics and Grafana to "
+"visualize the collected data."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:7
+msgid ""
+"Use a scrape and dashboard refresh interval of **at least 5 seconds** for"
+" UCM metrics. The Prometheus and Metrics-view examples in this guide both"
+" use 5 seconds. A shorter interval usually does not make UCM metrics "
+"update faster."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:9
+msgid ""
+"The effective refresh frequency also depends on vLLM. UCM first "
+"accumulates metrics internally. New data is synchronized to the "
+"Prometheus metrics exposed by vLLM only after vLLM processes a request "
+"and calls the connector's `get_kv_connector_stats()` method. **When there"
+" are no inference requests, vLLM does not call this method and UCM "
+"metrics do not update.**"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:11
+msgid "Metrics workflow"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:13
+msgid ""
+"The following example uses DP=2 and TP=1. Each DP contains one worker "
+"Store and one scheduler Store, and the two DPs process their own requests"
+" or batches."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:50
+msgid ""
+"UCM accumulates Counters, Gauges, and Histograms in the process that "
+"performs each Lookup, Load, Save, or health probe. While processing "
+"requests, vLLM obtains the accumulated UCM metrics from the worker and "
+"scheduler connectors. These metrics return with each DP's engine stats, "
+"and vLLM Prometheus metrics write them to the corresponding series with "
+"the `model_name`, `engine`, and `worker_rank` labels."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:52
+msgid ""
+"The vLLM `/metrics` endpoint and Prometheus registry reside in the API "
+"Server process. Prometheus scrapes that endpoint directly; the API "
+"Server's HTTP route only returns data that has already been synchronized "
+"to the registry and does not call `get_kv_connector_stats()`. With no "
+"inference requests, UCM may still produce new data internally, but that "
+"data appears in `/metrics` only after the next vLLM request triggers "
+"synchronization."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:54
+msgid "1. Enable or Disable Metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:56
+msgid "1.1 Use the Built-in Configuration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:58
+msgid ""
+"UCM metrics are **enabled by default**. When `metrics_config_path` is "
+"omitted, UCM uses the complete built-in metric set. Metrics can also be "
+"enabled explicitly:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:64
+msgid "To disable all UCM metrics:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:70
+msgid "1.2 Use a Custom Configuration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:72
+msgid ""
+"To restrict the exported metric set or customize Histogram buckets, set "
+"the following top-level UCM options:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:79
+msgid ""
+"Once `metrics_config_path` is set, the file becomes the metric enable-"
+"list. Only metrics defined in that file are registered."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:81
+msgid ""
+"The metrics file must exist and be readable by the vLLM process. "
+"Otherwise, UCM metrics are not exposed."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:83
+msgid "2. Access Metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:85
+msgid ""
+"Start vLLM with the UCM connector and send at least one inference "
+"request. Then verify that UCM metrics are available:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:91
+msgid ""
+"Most UCM metrics appear only after their corresponding code path has run."
+" When there is no external-storage hit, only a small subset of metrics "
+"may be present."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:93
+msgid "2.1 UCM Metric Labels"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:95
+msgid "Each metric exported through the vLLM connector carries these labels:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Label"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Example"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`model_name`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Model name served by vLLM, taken from the vLLM model configuration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`Qwen3-32B`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`engine`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"vLLM engine that produced the metric; distinguishes DP instances in the "
+"same service"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`engine-0`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`worker_rank`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"UCM process that produced the metric, corresponding to a TP instance; "
+"workers use their distributed rank and the scheduler uses `scheduler`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`0`, `1`, `scheduler`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:103
+msgid "For example:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:109
+msgid "Prometheus adds the following target labels when it scrapes the endpoint:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Source"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`job`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`job_name` in `prometheus.yml`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Scrape job name; `vllm` in this guide"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`instance`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Prometheus scrape target"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Scraped vLLM address and port, such as `10.0.0.8:8000`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:116
+msgid ""
+"Because Prometheus adds `job` and `instance`, they are normally absent "
+"from the raw output of `curl /metrics`. Histogram `_bucket` series also "
+"carry the `le` label, which represents the bucket upper bound and is not "
+"a UCM business label."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:118
+msgid "3. Prometheus and Grafana"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:120
+msgid ""
+"Prometheus and Grafana are the recommended combination for observing UCM."
+" Prometheus periodically scrapes the vLLM metrics endpoint, stores "
+"historical time-series data, and provides a query interface. Grafana "
+"queries Prometheus and displays the metrics as dashboards."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:122
+msgid "3.1 Install and Configure Prometheus"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:124
+msgid ""
+"If Prometheus already scrapes vLLM's `/metrics` endpoint, no additional "
+"scrape job is needed for UCM because both vLLM and UCM metrics are "
+"exposed through the same endpoint."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:126
+msgid ""
+"The following example installs Prometheus with Docker. For other "
+"installation methods, see the [Prometheus installation "
+"documentation](https://prometheus.io/docs/prometheus/latest/installation/)."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:128
+msgid ""
+"Create `prometheus.yml` and configure Prometheus to scrape the vLLM "
+"service:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:143
+msgid ""
+"Replace `<vllm-ip>:8000` with an address and port reachable from the "
+"Prometheus container. Do not use the container's own `127.0.0.1:8000`. If"
+" vLLM runs on the host, use the host's actual IP address. Docker Desktop "
+"users can also use `host.docker.internal:8000`."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:145
+msgid "Create a network and a persistent Prometheus volume:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:152
+msgid "From the directory containing `prometheus.yml`, start Prometheus:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:165
+msgid ""
+"Open `http://<prometheus-ip>:9090/targets` and verify that the `vllm` "
+"target is **UP**. Then search for `vllm:` and `ucm:` on the Prometheus "
+"query page to verify that both metric families are available."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:167
+msgid "3.2 Install Grafana"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:169
+msgid ""
+"The following example uses the official Grafana Docker image. For other "
+"installation methods, see the [Grafana installation "
+"documentation](https://grafana.com/docs/grafana/latest/setup-"
+"grafana/installation/)."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:171
+msgid "Create a persistent volume and start Grafana:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:185
+msgid ""
+"Open `http://<grafana-ip>:3000`. On the first login, use `admin` for both"
+" the username and password, then change the password when prompted."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:187
+msgid "3.3 Add the Prometheus Data Source"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:189
+msgid ""
+"In Grafana, go to **Connections** → **Add new connection**, search for "
+"**Prometheus**, and configure:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:191
+msgid "Prometheus server URL: `http://prometheus:9090`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:192
+msgid ""
+"Authentication: **No authentication** for an unauthenticated local "
+"deployment"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:193
+msgid "Select **Save & test** and verify that Grafana can query Prometheus"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:195
+msgid ""
+"The hostname `prometheus` works because both containers joined the `ucm-"
+"monitoring` network. For other deployment layouts, use the Prometheus URL"
+" reachable from the Grafana service. The Prometheus data source is built "
+"into Grafana and requires no additional plugin."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:197
+msgid "3.4 Import UCM Dashboards"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:199
+msgid ""
+"Go to **Dashboards** → **New** → **Import**, upload the required "
+"dashboard JSON file, select the Prometheus data source, and click "
+"**Import**."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:201
+msgid "UCM provides these dashboards:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "File"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "Purpose"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`examples/metrics/grafana_vllm.json`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "vLLM request latency, token throughput, scheduler state, and cache state"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`examples/metrics/grafana_ucm_overview.json`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"vLLM/UCM overview, input and output token counts, Store health, and probe"
+" trends"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`examples/metrics/grafana_connector.json`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"Connector Lookup/Load/Save request counts, block counts, durations, "
+"throughput, and errors"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`examples/metrics/grafana_pipeline_store.json`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"Cache, Posix, and Mooncake queueing, transfers, backend submission, "
+"bandwidth, and bottleneck analysis"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid "`examples/metrics/grafana_layerwise.json`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:15
+msgid ""
+"Per-layer load waits, submissions, and asynchronous save diagnostics when"
+" `use_layerwise=true`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:211
+msgid ""
+"The `job` selector defaults to **All**. UCM dashboards also provide "
+"Aggregated/Per Worker views and a `worker_rank` filter."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:213
+msgid "Use these aggregation rules:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:215
+msgid ""
+"For Counters, apply `rate()` or `increase()` to each series over the same"
+" time window, then sum across workers."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:216
+msgid ""
+"For ratios, divide the aggregated numerator by the aggregated "
+"denominator. Do not calculate per-worker ratios and then take their "
+"arithmetic mean."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:217
+msgid ""
+"Display Gauges by worker or aggregate them with `min`/`max`, depending on"
+" their semantics."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:218
+msgid ""
+"For Histograms, aggregate `_bucket` series across workers before "
+"calculating percentiles."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:220
+msgid "4. Metrics-view"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:222
+msgid ""
+"When Prometheus/Grafana or a graphical environment is unavailable, use "
+"the Metrics-view command-line tool from the UCM toolkit."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:224
+msgid ""
+"Metrics-view can inspect a single `/metrics` snapshot or collect samples "
+"in the background into SQLite and query a selected time window. It does "
+"not depend on Prometheus or Grafana."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:226
+msgid "Install the toolkit:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:233
+msgid "List built-in configurations:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:239
+msgid "4.1 Inspect the Current Snapshot"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:241
+msgid ""
+"`check` fetches the current `/metrics` snapshot and displays cumulative "
+"results since service startup:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:249
+msgid ""
+"GQA/MHA models use the default parameters. For MLA models, pass the "
+"actual service TP size. For example, for TP=8:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:258
+msgid ""
+"The GB/s value reported by `check` is cumulative bytes divided by "
+"cumulative service uptime. It is not suitable for instantaneous bandwidth"
+" analysis; use background collection for bandwidth analysis."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:260
+msgid "4.2 Background Collection and Queries"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:262
+msgid ""
+"Background collection does not require a query configuration. Pass "
+"`--url` multiple times to collect from multiple endpoints:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:271
+msgid ""
+"Each sample receives a `url=<full metrics URL>` label so that instances "
+"in a disaggregated prefill/decode deployment can be distinguished. A "
+"failure to scrape one URL does not block other URLs."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:273
+msgid "Check collection status or stop collection:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:280
+msgid ""
+"Query the last 10 minutes and aggregate into one-minute intervals. "
+"Continue to pass the actual TP size for MLA models:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:290
+msgid "Filter by Prometheus labels:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:299
+msgid ""
+"The default database, PID, and log files are `/tmp/ucm_metrics.db`, "
+"`/tmp/ucm_metrics.pid`, and `/tmp/terminal_metrics.log`. To clear the "
+"database:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:305
+msgid "5. FAQ"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:307
+msgid "5.1 No `ucm:` Metrics Appear in `/metrics`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:309
+msgid "Check the following:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:311
+msgid "`enable_metrics` is not set to false."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:312
+msgid ""
+"A custom `metrics_config_path` exists, is readable, and contains the "
+"required metrics."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:313
+msgid "vLLM has processed a request that exercises the corresponding UCM path."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:314
+msgid ""
+"`curl http://<vllm-ip>:<vllm-port>/metrics` can reach the service "
+"endpoint."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:316
+msgid "Related Documentation"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:318
+msgid ""
+"[UCM Health Metrics](health_metrics.md): health probes, circuit-breaker "
+"state, and aggregation."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics.md:319
+msgid "[UCM Metrics Reference](metrics_list.md): complete metric list."
+msgstr ""
+

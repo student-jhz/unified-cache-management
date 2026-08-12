@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:1
+msgid "Centralized PD Disaggregation"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:3
+msgid "Overview"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:4
+msgid ""
+"PD disaggregation can be implemented in two architectures: centralized "
+"and distributed. This document demonstrates how to run centralized PD "
+"disaggregation using UCM. In the centralized implementation, Prefill "
+"instances store KV Cache to a storage device accessible by all compute "
+"nodes via UCM, and Decode instances load KV Cache from that storage "
+"device to the GPU via UCM. No P2P communication is required between "
+"Prefill and Decode instances."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:6
+msgid "1p1d"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:8
+msgid ""
+"This example demonstrates how to run unified-cache-management with "
+"disaggregated prefill using PipelineStore on a single node with a 1 "
+"prefiller + 1 decoder setup."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:10
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:126
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:218
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:11
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:127
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:219
+msgid "UCM: Installed with reference to the Installation documentation."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:12
+msgid "Hardware: At least 2 GPUs or 2 NPUs"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:13
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:129
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:221
+msgid ""
+"File System: When Prefill and Decode instances run on different nodes, "
+"all nodes must mount the same shared file system (e.g., NFS)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:15
+msgid "Prepare UCM Configuration File"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:17
+msgid ""
+"Create a UCM configuration file (e.g., `ucm_config_example.yaml`) with "
+"PipelineStore:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:30
+msgid "Key configuration parameters:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:31
+msgid ""
+"**storage_backends**: The shared storage directory accessible from all "
+"nodes (e.g., NFS-mounted path)."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:33
+msgid ""
+"**Note**: For more configuration options, refer to [UCM PipelineStore "
+"Documentation](https://ucm.readthedocs.io/en/latest/user-guide/prefix-"
+"cache/pipeline_store.html)."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:35
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:131
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:223
+msgid "Start disaggregated service"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:36
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:224
+msgid ""
+"For illustration purposes, let us take GPU as an example and assume the "
+"model used is Qwen2.5-7B-Instruct.Using ASCEND_RT_VISIBLE_DEVICES instead"
+" of CUDA_VISIBLE_DEVICES to specify visible devices when starting service"
+" on Ascend platform."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:38
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:134
+msgid "Run prefill server"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:39
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:135
+msgid "Prefiller Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:58
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:155
+msgid "Run decode server"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:59
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:156
+msgid "Decoder Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:78
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:176
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:307
+msgid "Run proxy server"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:79
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:177
+msgid "Make sure prefill nodes and decode nodes can connect to each other."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:85
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:183
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:314
+msgid "Testing and Benchmarking"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:86
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:184
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:315
+msgid "Basic Test"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:87
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:185
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:316
+msgid "After running all servers , you can test with a simple curl command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:98
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:196
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:327
+msgid "Benchmark Test"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:99
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:197
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:328
+msgid "Use the benchmark scripts provided by vLLM."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:116
+msgid "1p1d with Different Platforms"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:118
+msgid ""
+"This document demonstrates how to run unified-cache-management with "
+"disaggregated prefill using PipelineStore on different platforms, with a "
+"setup of one prefiller node and one decoder node."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:120
+msgid ""
+"If you need additional nodes to support your PD-disaggregation system, "
+"please refer to the [XpYd](#xpYd) documentation."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:122
+msgid ""
+"When deploying your disaggregated PD system, please ensure the following "
+"needs:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:123
+msgid ""
+"Environment Variable: Using  `ASCEND_RT_VISIBLE_DEVICES` instead of "
+"`CUDA_VISIBLE_DEVICES` to specify visible devices when starting service "
+"on Ascend platform."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:124
+msgid ""
+"Data Type Consistency: All vLLM service instances must be configured with"
+" the same data type (`dtype`)."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:128
+msgid "Hardware: At least 1 GPU and 1 NPU"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:132
+msgid ""
+"For illustration purposes, let us assume that the model used is Qwen2.5"
+"-7B-Instruct and the prefill platform is ascend while decode platform is "
+"cuda."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:214
+msgid "XpYd"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:216
+msgid ""
+"This example demonstrates how to run unified-cache-management with "
+"disaggregated prefill using PipelineStore on with multiple prefiller + "
+"multiple decoder instances."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:220
+msgid ""
+"Hardware: At least 4 GPUs (At least 2 GPUs for prefiller + 2 for decoder "
+"in 2d2p setup or 2 NPUs for prefiller + 2 for decoder in 2d2p setup)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:226
+msgid "Run prefill servers"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:227
+msgid "Prefiller1 Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:246
+msgid "Prefiller2 Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:265
+msgid "Run decode servers"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:266
+msgid "Decoder1 Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:286
+msgid "Decoder2 Launch Command:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/centralized_pd.md:308
+msgid ""
+"Make sure prefill nodes and decode nodes can connect to each other. the "
+"number of prefill/decode hosts should be equal to the number of "
+"prefill/decode ports."
+msgstr ""
+

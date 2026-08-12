@@ -3,6 +3,8 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -10,6 +12,13 @@ project = "Unified Cache Manager"
 copyright = "2025, Unified Cache Manager Team"
 author = "Unified Cache Manager Team"
 release = ""
+
+# -- Internationalization ----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/advanced/intl.html
+
+locale_dirs = ["_locale/"]  # path relative to this source directory
+gettext_compact = False
+language = os.environ.get("DOCS_LANGUAGE", "en")
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

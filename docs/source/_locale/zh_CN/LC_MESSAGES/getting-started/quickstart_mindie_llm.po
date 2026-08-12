@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:1
+msgid "Quickstart-MindIE-LLM"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:3
+msgid ""
+"This guide shows how to install UCM with MindIE-LLM support, patch the "
+"required MindIE-LLM Python modules, configure `mindie_llm`, and launch "
+"`mindie_llm_server` with UCM as the KV cache backend on Ascend."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:5
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:7
+msgid "MindIE-LLM 2.3.0"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:8
+msgid "Python >= 3.10"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:9
+msgid ""
+"Ascend runtime/toolkit installed and available in the environment. For "
+"details, refer to the [MindIE-LLM official "
+"documentation](https://gitcode.com/Ascend/MindIE-"
+"LLM/blob/dev/docs/zh/user_guide/quick_start/quick_start.md)."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:11
+msgid "Step 1: Install UCM"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:13
+msgid "UCM can be installed in one of the following ways."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:15
+msgid "Option 1: Build from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:17
+msgid "Clone the repository and install UCM with MindIE-LLM support enabled:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:29
+msgid ""
+"**Note:** Packages built without `UCM_ENABLE_MINDIE=1` do **not** contain"
+" MindIE-LLM integration code."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:31
+msgid ""
+"**ABI requirement:** When `UCM_ENABLE_MINDIE=1`, you must also set "
+"`UCM_CXX11_ABI=0` or `1`. The value must match the target MindIE/PyTorch "
+"ABI."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:33
+msgid "Option 2: Build from Docker"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:35
+msgid "Build image from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:37
+msgid "Use the provided MindIE-LLM Dockerfile (Ascend base, MindIE-LLM 2.3.0):"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:43
+msgid ""
+"The Dockerfile automatically invokes the build script "
+"(`scripts/build_mindie.sh`) to compile the wheel, installs from the built"
+" package, and applies the MindIE patch."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:45
+msgid "This Dockerfile:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:47
+msgid ""
+"uses `swr.cn-"
+"south-1.myhuaweicloud.com/ascendhub/mindie:2.3.0-800I-A2-py311-openeuler24.03-lts`"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:48
+msgid "sets `UCM_ENABLE_MINDIE=1`"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:49
+msgid ""
+"sets `UCM_CXX11_ABI` (default `1`, override with `--build-arg "
+"UCM_CXX11_ABI=0|1` to match your target environment)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:50
+msgid "installs UCM with MindIE-LLM support"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:51
+msgid "applies the patch during image build"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:53
+msgid "Build image from pre-built package"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:55
+msgid ""
+"If you have a pre-built tar package (e.g. from CI), extract it and build "
+"the image in `package` mode:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:62
+msgid "Step 2: Prepare the UCM configuration"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:64
+msgid ""
+"UCM for MindIE-LLM provides Prefix Cache integration through patched "
+"MindIE-LLM modules. You can use the packaged config at "
+"`ucm/integration/mindie/ucm_config.json` or provide your own config file."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:66
+msgid "Minimal example:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:76
+msgid ""
+"Save this file as `ucm_config.json` and replace the example paths with "
+"paths from your environment."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:78
+msgid "Key notes:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:80
+msgid ""
+"By default, the patch is applied when `mindie_llm` is first imported "
+"after UCM is installed."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:81
+msgid ""
+"The hook copies the patched `uc_utils.py`, `unifiedcache_mempool.py`, and"
+" `prefix_cache_plugin.py` files into the installed `mindie_llm` package."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:82
+msgid ""
+"In the provided Docker image, the patch is already applied during image "
+"build, so runtime import uses the patched files directly."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:84
+msgid "Step 3: Launch MindIE-LLM with UCM"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:86
+msgid "Locate the installed `mindie_llm` package:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:92
+msgid "Then locate `conf/config.json` under that directory."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:94
+msgid "Ensure the service user can read the configuration file. For example:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:100
+msgid ""
+"In `config.json`, add or update the `kvPoolConfig` section under "
+"`BackendConfig`:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:112
+msgid ""
+"Update `config.json` with the service IP, port, model path, and any other"
+" required MindIE-LLM settings."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:114
+msgid "Run `mindie_llm_server` to start the service."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:116
+msgid ""
+"If the following message is displayed, the service has started "
+"successfully:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:122
+msgid ""
+"After startup, inspect the MindIE-LLM logs to confirm that the "
+"`unifiedcache` backend is loaded successfully."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:124
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:126
+msgid "MindIE-LLM code is not patched"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:128
+msgid "Confirm that `UCM_ENABLE_MINDIE=1` was set before installation."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:129
+msgid ""
+"Confirm that `UCM_CXX11_ABI=0` or `1` was set correctly before "
+"installation."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:130
+msgid "Reinstall UCM."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:131
+msgid "Verify that `mindie_llm` is already installed."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:133
+msgid "`configPath` not found"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:135
+msgid "Use an absolute path."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:136
+msgid "Ensure the file is readable by the service user."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:138
+msgid "Service starts but the UCM backend is not enabled"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:140
+msgid "Recheck `BackendConfig.kvPoolConfig`."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_mindie_llm.md:141
+msgid "Inspect MindIE-LLM startup logs."
+msgstr ""
+

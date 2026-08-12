@@ -1,0 +1,572 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/metrics/health_metrics.md:1
+msgid "UCM Health Metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:3
+msgid ""
+"UCM Pipeline Store can enable health probes and circuit breaking for "
+"individual Store stages. Health metrics answer two different questions:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:5
+msgid "How many health probes succeeded or failed during a time window?"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:6
+msgid ""
+"Is a Store currently blocked from accepting new requests by its circuit "
+"breaker?"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:8
+msgid ""
+"Counters and Gauges represent these two kinds of information and require "
+"different aggregation methods. This guide describes the Posix Store and "
+"Mooncake Store probes, metric semantics, and recommended PromQL "
+"aggregation."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:10
+msgid "1. Health Probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:12
+msgid ""
+"Each UCM connector instance independently probes and maintains a circuit "
+"breaker for every Store that supports health checks. A worker Store uses "
+"a numeric `worker_rank`, while a scheduler Store uses "
+"`worker_rank=\"scheduler\"`. Although the scheduler is not a distributed "
+"rank, it owns a Store and is therefore included in the Store count."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:14
+msgid ""
+"Only the following remote Stores currently implement health checks and "
+"circuit breaking. Other Stores are unaffected."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:16
+msgid "1.1 Posix Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:18
+msgid ""
+"A Posix health probe performs a complete small-file I/O operation on "
+"every health-check path: it creates a file, writes 4 KiB of test data, "
+"synchronizes the data when required, reads and verifies the data, and "
+"finally removes the file. A failure to open, read, write, synchronize, "
+"verify, or remove the file on any path causes the probe to fail."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:20
+msgid ""
+"The probe therefore validates the actual I/O path rather than only "
+"checking whether a directory exists. For a remote file system such as "
+"NFS, it can also detect mount, network, and remote-storage failures."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:22
+msgid "1.2 Mooncake Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:24
+msgid ""
+"A Mooncake health probe uses a dedicated temporary key to perform a small"
+" Put, Get, content verification, and Remove sequence. The probe fails "
+"when the client is unavailable, an operation fails, or the returned "
+"content does not match."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:26
+msgid "2. Health Metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:28
+msgid "The default configuration contains six health metrics:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Metric"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Type"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Update"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:posix_healthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Counter"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Successful Posix health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Incremented by 1 after a successful Posix probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:posix_unhealthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Failed or timed-out Posix health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Incremented by 1 after a failed Posix probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:posix_store_health`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Gauge"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Effective Posix circuit-breaker state: 1 is available and 0 is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Updated at startup and after every Posix probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:mooncake_healthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Successful Mooncake health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Incremented by 1 after a successful Mooncake probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:mooncake_unhealthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Failed or timed-out Mooncake health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Incremented by 1 after a failed Mooncake probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`ucm:mooncake_store_health`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Effective Mooncake circuit-breaker state: 1 is available and 0 is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Updated at startup and after every Mooncake probe"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:39
+msgid ""
+"Use the Gauge to determine whether a Store is currently fused. Use both "
+"the success and failure Counters to analyze probe quality over time. "
+"There is currently no dedicated Counter for fuse or recovery transitions."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:41
+msgid ""
+"Metric names distinguish Store types, while labels distinguish vLLM "
+"instances and UCM processes. Connector metrics carry `model_name`, "
+"`engine`, and `worker_rank`; Prometheus also adds `job` and `instance`. "
+"See [UCM Metrics Observability](metrics.md) for the complete label "
+"definitions."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:43
+msgid "2.1 Synchronization Delay in Connector Mode"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:45
+msgid ""
+"The health threads continue to run inside UCM at their configured "
+"interval, but connector metrics are synchronized to `/metrics` only when "
+"vLLM calls `get_kv_connector_stats()`. With no inference requests, the "
+"health metrics in Prometheus do not update even if the background probe "
+"result has changed."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:47
+msgid "3. Recommended Aggregation"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:49
+msgid ""
+"The examples below omit some selectors. In production, scope queries by "
+"at least `job`, `instance`, `model_name`, and `engine`, and filter "
+"`worker_rank` as needed."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:51
+msgid "Scheduler only: `worker_rank=\"scheduler\"`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:52
+msgid "Workers only: `worker_rank!=\"scheduler\"`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:53
+msgid "No `worker_rank` filter: include the scheduler and all workers"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:55
+msgid "3.1 View the Current State of Each Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:65
+msgid ""
+"A value of 1 means the Store corresponding to that `worker_rank` is "
+"available. A value of 0 means it is fused. This query is the most direct "
+"way to locate an unhealthy worker Store or scheduler Store."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:67
+msgid "3.2 Count Healthy and Fused Stores"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:69
+msgid ""
+"Because the Gauge is either 0 or 1, use `sum` to count healthy Stores and"
+" `count - sum` to count fused Stores:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:92
+msgid ""
+"This is also the basic aggregation used by the health-state count panels "
+"in the UCM Overview dashboard. Calculate Posix and Mooncake counts "
+"separately so their states are not mixed."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:94
+msgid "Understanding the Store Count"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Deployment"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Store count visible in metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Description"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "DP1, TP1"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "2"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "One worker Store and one scheduler Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "DP1, multiple TP ranks"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`TP + 1`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "TP worker Stores and one scheduler Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Multiple DP ranks"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "`DP × (TP + 1)`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Each DP rank creates its own worker Stores and scheduler Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:102
+msgid ""
+"For DeepSeek V4, each worker has two actual Stores, but their states are "
+"combined in the metrics and appear as one healthy or unhealthy value."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:104
+msgid "3.3 Calculate the Healthy Store Ratio"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:119
+msgid ""
+"The numerator is the number of healthy Stores, and the denominator is the"
+" total number of reported Stores. Because `posix_store_health` is either "
+"0 or 1, this expression is equivalent to applying `avg()` to the Gauge, "
+"but “healthy count divided by total count” makes the meaning explicit. "
+"For example, if two of eight Stores are fused, the result is 0.75."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:121
+msgid ""
+"Without a `worker_rank` filter, the scheduler Store is included in both "
+"the numerator and denominator. The two Stores in the DeepSeek V4/HMA/FAWA"
+" path are combined into one Gauge, so this query calculates the ratio of "
+"visible health states, not the exact health ratio of the underlying FA "
+"and WA Stores."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:123
+msgid "3.4 Calculate the Probe Failure Ratio"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:125
+msgid ""
+"Aggregate successful and failed probe counts first, then calculate the "
+"ratio. Do not calculate a failure ratio for each Store and then take the "
+"arithmetic mean."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:146
+msgid ""
+"This expression is weighted by the number of probes. The `or 0 * ...` "
+"term supplies zero before a failure series exists, preventing a healthy "
+"Store from displaying No data. To query Mooncake, replace the `posix` "
+"prefix with `mooncake`."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:148
+msgid "Use `increase()` to count failed probes over a time window:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:162
+msgid ""
+"`rate()` and `increase()` handle Counter resets caused by process "
+"restarts. Do not subtract raw Counter values or treat a Counter as the "
+"current health state."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:164
+msgid ""
+"The default probe interval is 10 seconds, but connector synchronization "
+"depends on requests. For low-traffic services, use a longer window, such "
+"as 5–15 minutes, to reduce fluctuations caused by delayed synchronization"
+" and small sample counts."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:166
+msgid "4. Multi-instance Aggregation"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Monitoring goal"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Recommended"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Not recommended"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Determine whether one Store is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Preserve `worker_rank` and inspect the Gauge"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Sum the Gauge and interpret it as a Boolean"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Determine whether any Store in an instance is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Apply `min` to the Gauge by instance"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Apply `avg` and only check whether it is greater than zero"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Count healthy/fused Stores in an instance"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Use `sum` and `count - sum`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Accumulate Gauge states over time"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Calculate the probe failure ratio over a window"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Aggregate the Counter numerator and denominator, then divide"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Calculate per-Store ratios and take their arithmetic mean"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Count independent physical-backend failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Deduplicate with backend identifiers, logs, or external monitoring"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md
+msgid "Directly sum failure Counters from all Stores"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:176
+msgid ""
+"To aggregate by cluster, node, or storage failure domain, add stable "
+"labels to the Prometheus target configuration:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:188
+msgid ""
+"Add these labels to `by (...)`. Aggregated results are meaningful only "
+"after confirming that the selected series belong to the same failure "
+"domain. UCM does not currently derive these labels from storage paths or "
+"endpoints."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:190
+msgid "5. Alerting Recommendations"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:192
+msgid "5.1 A Posix Circuit Breaker Remains Fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:200
+msgid ""
+"Configure a suitable `for` duration, such as 30 seconds, so a brief "
+"observation-side fluctuation does not immediately trigger a notification."
+" The circuit breaker already filters individual probe failures through "
+"its sliding window, so the alert delay should not replace the breaker "
+"logic."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:202
+msgid "5.2 The Probe Failure Ratio Remains High"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:204
+#, python-format
+msgid ""
+"Use the failure ratio from section 3.4 and require enough failure samples"
+" in the window. For example, alert when the failure ratio exceeds 20% "
+"over 15 minutes and there are at least three failed probes. Tune the "
+"thresholds for the Store probe interval, Store count, and service "
+"tolerance."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:206
+msgid "6. Troubleshooting"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:208
+msgid "When a Gauge is 0 or a failure Counter increases:"
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:210
+msgid "Locate the affected process by `instance`, `engine`, and `worker_rank`."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:211
+msgid ""
+"Search UCM logs for `Store health check` and `transitioned to "
+"UNHEALTHY/HEALTHY`."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:212
+msgid ""
+"For Posix, check mount state, directory permissions, free space, and "
+"read/write/remove operations."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:213
+msgid ""
+"For Mooncake, check the client, metadata/master services, network, and "
+"Put/Get/Remove path."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:214
+msgid ""
+"Confirm that requests are triggering connector metric synchronization and"
+" that the Prometheus target is UP."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:215
+msgid ""
+"After the backend recovers, verify consecutive successful probes and "
+"confirm that the Gauge returns to 1."
+msgstr ""
+
+#: ../../source/user-guide/metrics/health_metrics.md:217
+msgid ""
+"Import `examples/metrics/grafana_ucm_overview.json` in Grafana to view "
+"healthy/fused Store counts and Posix/Mooncake probe trends."
+msgstr ""
+

@@ -1,0 +1,373 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer-guide/contribute.md:1
+msgid "UCM Contributing Guide"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:3
+msgid ""
+"Thank you for your interest in contributing to the UCM project! Our "
+"community is open to all, and we welcome various contributions—your "
+"efforts help the project grow and benefit more users."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:4
+msgid "🧩 Ways to Contribute"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:5
+msgid ""
+"You can contribute in the following ways, and we value each type of "
+"participation:"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:6
+msgid ""
+"**🐛 Report issues or bugs**   Report any issues or unexpected behavior "
+"you encounter. Your feedback helps us improve stability and performance."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:8
+msgid ""
+"**⚙️ Add support for new hardware or components**   Extend UCM to new "
+"devices or platforms by proposing requirements or submitting "
+"implementations. All ideas and contributions are welcome."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:10
+msgid ""
+"**✨ Suggest or implement new features**   Share feature ideas or "
+"contribute code to help UCM better meet user needs."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:12
+msgid ""
+"**📚 Improve documentation and guides**   Enhance existing documentation "
+"or create new guides to help others get started quickly and effectively."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:15
+msgid "Every contribution matters—thank you for being part of the UCM community."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:18
+msgid "📄 License"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:20
+msgid ""
+"License information is available in the [LICENSE](https://github.com"
+"/ModelEngine-Group/unified-cache-management/blob/develop/LICENSE) file."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:23
+msgid "🐞 How to Submit an Issue"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:25
+msgid ""
+"If you find a bug or want to suggest a new feature, please first check "
+"[existing issues](https://github.com/ModelEngine-Group/unified-cache-"
+"management/issues). If it’s a new issue, please [open a new "
+"issue](https://github.com/ModelEngine-Group/unified-cache-"
+"management/issues/new/choose   ) and include the following information:"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:27
+msgid "**Title**: A clear and concise summary of the issue."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:28
+msgid ""
+"**Environment**: Device, inference framework version, package version, "
+"OS, etc."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:29
+msgid ""
+"**Steps to Reproduce**: Clear, numbered steps to reliably trigger the "
+"issue."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:30
+msgid ""
+"**Expected vs. Actual Behavior**: What should happen versus what actually"
+" happens."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:31
+msgid "**Error Messages / Logs**: Relevant console output or log snippets."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:32
+msgid "**Visual Evidence** (if helpful): Screenshots or short screen recordings."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:33
+msgid "**Severity**: Indicate impact level (*Critical*, *High*, *Medium*, *Low*)."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:35
+msgid ""
+"Keep your report clear, factual, and concise—this helps us address your "
+"issue faster!"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:38
+msgid "💻 Submitting Code Changes"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:39
+msgid ""
+"**To submit your code changes, please follow the workflow outlined "
+"below.**"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:40
+msgid "Step 1: Fork the Repository"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:42
+msgid ""
+"Fork the [UCM repository](https://github.com/ModelEngine-Group/unified-"
+"cache-management) to your GitHub account."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:44
+msgid "Step 2: Create a Branch"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:46
+msgid "Create a new branch with a clear and descriptive name."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:48
+msgid "Step 3: Implement Your Changes"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:50
+msgid ""
+"Make your code or documentation changes in the branch, keeping them "
+"focused and consistent with the project’s style and conventions."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:52
+msgid "Step 4: Run Lint Checks"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:54
+msgid "**UCM adheres to standard style conventions:**"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:56
+msgid "Python code: [PEP 8](https://peps.python.org/pep-0008/)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:57
+msgid ""
+"C++ code: [Google C++ Style "
+"Guide](https://google.github.io/styleguide/cppguide.html)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:59
+msgid ""
+"**The following tools help keep the codebase clean and consistently "
+"formatted:**"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:61
+msgid ""
+"Python linting and formatting: "
+"[black](https://black.readthedocs.io/en/stable/the_black_code_style) and "
+"[isort](https://pycqa.github.io/isort/)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:62
+msgid ""
+"Spell checking: [codespell](https://github.com/codespell-"
+"project/codespell)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:63
+msgid ""
+"C++ formatting: [clang-"
+"format](https://clang.llvm.org/docs/ClangFormat.html)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:65
+msgid ""
+"It’s recommended to set up a local development environment and run the "
+"linter before submitting a PR to help ensure consistent code style."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:67
+msgid "**Run lint locally:** run code style checks and fix any issues."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:89
+msgid "Step 5: Open a Pull Request (PR)"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:91
+msgid ""
+"Push your changes to your fork and open a PR in the main repository. "
+"Include:"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:93
+msgid "A **clear title** and **description** of your changes."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:94
+msgid "A reference to the related issue."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:95
+msgid "Any additional context or screenshots."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:97
+msgid ""
+"The PR title is prefixed appropriately to indicate the type of change, "
+"according to the following categories:"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:99
+msgid ""
+"💡 **Reminder:** If your PR spans multiple categories, include all "
+"relevant prefixes (e.g., `[Feat][Test]`)."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:101
+msgid "[Feat] for new features or enhancements"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:102
+msgid "[Bugfix] for bug fixes"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:103
+msgid ""
+"[Opt] for code optimizations that improve performance, efficiency, or "
+"resource usage without changing functionality"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:104
+msgid ""
+"[Build] for build system changes, dependency updates, or tooling "
+"improvements"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:105
+msgid "[CI] for continuous integration configuration and workflow updates"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:106
+msgid "[Doc] for documentation improvements or corrections"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:107
+msgid "[Test] for adding, updating, or refactoring tests"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:108
+msgid "[Misc] for PRs that do not fit other categories — please use sparingly"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:110
+msgid "Step 6: Code Review Process"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:112
+msgid ""
+"All pull requests targeting protected branches (e.g., `develop;release`) "
+"must adhere to the following review policy:"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:114
+msgid ""
+"**Code Owner Approval Required**: Pull requests automatically request "
+"reviews from relevant code owners based on the files changed. You cannot "
+"approve your own pull request, and approval from at least one designated "
+"code owner is mandatory."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:115
+msgid ""
+"**Additional Approvals**: The pull request must receive sufficient peer "
+"review beyond the author, including validation from maintainers or "
+"experienced contributors familiar with the affected code."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:116
+msgid ""
+"**Passing CI Checks**: All continuous integration checks—including "
+"linting, unit tests, and builds—must pass before merging."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:117
+msgid ""
+"**No Bypassing**: Direct pushes to protected branches are disabled, and "
+"force merges or self-approvals are not permitted."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:119
+msgid ""
+"Once all requirements are satisfied, the “Squash and merge” button will "
+"become available. Please ensure your changes are well-documented, tested,"
+" and aligned with the project’s coding standards before requesting "
+"review."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:121
+msgid "📚 Improving Documentation"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:123
+msgid "**Great docs grow stronger together. You can help by:**"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:125
+msgid "Fixing typos or clarifying unclear text."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:126
+msgid "Documenting missing features or setup steps."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:127
+msgid "Improving examples or adding practical use cases."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:129
+msgid "Building the docs"
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:143
+msgid "Review the documentation in your browser before submitting a pull request."
+msgstr ""
+
+#: ../../source/developer-guide/contribute.md:145
+msgid "English version: [http://localhost:8000](http://localhost:8000/)"
+msgstr ""
+

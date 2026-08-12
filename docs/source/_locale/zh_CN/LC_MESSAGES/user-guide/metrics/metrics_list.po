@@ -1,0 +1,1241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/metrics/metrics_list.md:1
+msgid "UCM Metrics Reference"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:3
+msgid "3. Metrics Exported by Default"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:5
+msgid ""
+"The tables below use the default `ucm:` prefix. The default configuration"
+" contains 67 Counters, 4 Gauges, and 70 Histograms. Unless a metric name "
+"or description states otherwise, duration metrics use milliseconds, "
+"bandwidth metrics use GB/s, and accumulated byte counts use bytes."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:7
+msgid "3.1 Counters"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:9
+#: ../../source/user-guide/metrics/metrics_list.md:123
+msgid "Cache Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Metric"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Description"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_lookup_hit_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks served directly by Cache Lookup without descending to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_lookup_miss_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks missed by Cache Lookup and passed to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total blocks processed by Cache Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total blocks processed by Cache Dump"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total shards dispatched by Cache Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_backend_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Shards that actually descend to the backend during Cache buffer allocation"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total shards dispatched by Cache Dump"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_backend_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Owner shards actually written to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_queue_full_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cache Load submissions rejected because the waiting queue is full"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_queue_full_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cache Dump submissions rejected because the waiting queue is full"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_backend_load_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures when Cache submits a Load to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_backend_load_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures while Cache waits for a backend Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_backend_dump_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures when Cache submits a Dump to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_backend_dump_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures while Cache waits for a backend Dump"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_h2d_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cache H2D transfer or stream synchronization failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_d2h_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cache D2H transfer, event wait, or stream synchronization failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes loaded through the Cache stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes dumped through the Cache stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:32
+#: ../../source/user-guide/metrics/metrics_list.md:145
+msgid "Posix Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_s2h_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes read from Posix storage into host buffers"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_h2s_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes written from host buffers to Posix storage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_lookup_query_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total blocks submitted to Posix Lookup"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_lookup_hit_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks found by Posix Lookup"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_healthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Successful Posix health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_unhealthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failed Posix health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_aio_timeout_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Posix AIO task or submission timeouts"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_io_timeout_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Posix synchronous I/O worker task timeouts"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_open_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Posix file-open failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_io_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Posix read, write, or AIO completion failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:47
+#: ../../source/user-guide/metrics/metrics_list.md:156
+msgid "Mooncake Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total blocks processed by the Mooncake Load stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total blocks processed by the Mooncake Dump stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_lookup_hit_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks found directly by Mooncake Lookup before descending to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_healthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Successful Mooncake health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_unhealthy_count_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failed Mooncake health probes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes loaded through the Mooncake stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes dumped through the Mooncake stage"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_hit_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Load shards served directly by Mooncake"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_miss_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Load shards that miss Mooncake and descend to the backend or are "
+"recomputed"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_backend_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Load shards submitted to the backend after a Mooncake miss"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_existing_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Dump shards already present in Mooncake"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_missing_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Missing Dump shards written to Mooncake"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_backend_shards_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Dump shards archived to the backend"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_queue_full_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake Load submissions rejected because the waiting queue is full"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_queue_full_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake Dump submissions rejected because the waiting queue is full"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_get_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake batch-get failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_put_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake batch-put failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_backend_load_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake backend Load submission failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_backend_load_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures while waiting for a Mooncake backend Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_backend_dump_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake backend Dump submission failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_backend_dump_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Failures while waiting for a Mooncake backend Dump"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_h2d_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake H2D transfer or synchronization failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_d2h_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake D2H transfer, event wait, or synchronization failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_h2d_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes copied from host to device by Mooncake"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_d2h_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes copied from device to host by Mooncake"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:77
+msgid "Connector"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:load_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes loaded by all `start_load_kv` calls"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:save_bytes_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cumulative bytes saved by all `wait_for_save` calls"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:total_prefix_query_tokens_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total prefix-cache query tokens observed by the UCM connector"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:gpu_hbm_hit_tokens_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Prefix tokens already found in GPU/HBM before UCM Lookup"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:ucm_hit_tokens_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Prefix tokens hit by the UCM connector"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:total_prefix_query_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total complete prefix blocks queried by the UCM connector"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:gpu_hbm_hit_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Complete prefix blocks already found in GPU/HBM before UCM Lookup"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_lookup_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Connector Lookup errors handled as cache misses"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_load_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Connector Load submission failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_load_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Connector Load wait failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_load_invalid_requests_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Events in which a Load failure invalidates request blocks"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_load_invalid_blocks_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Newly invalidated vLLM block IDs caused by Load failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_dump_submit_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Connector Dump submission failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:connector_dump_wait_errors_total`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Connector Dump wait failures"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:96
+msgid "3.2 Gauges"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:98
+msgid ""
+"See [UCM Health Metrics](health_metrics.md) for Store health Counters, "
+"Gauges, and recommended aggregation."
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_lookup_hit_rate`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Instantaneous hit rate of the most recent Cache Lookup"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_store_health`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective Posix circuit-breaker state: 1 is available and 0 is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_store_health`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective Mooncake circuit-breaker state: 1 is available and 0 is fused"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_gc_running`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Posix garbage collection state: 1 is running and 0 is idle"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:107
+msgid "3.3 Histograms"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:109
+msgid "Connector Base Metrics"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:load_requests_num`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Requests involved in one UCM Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:load_blocks_num`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks involved in one UCM Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:load_duration`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "UCM Connector Load duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:load_speed`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "UCM Connector Load throughput in GB/s"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:save_requests_num`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Requests involved in one UCM Save"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:save_blocks_num`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Blocks involved in one UCM Save"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:save_duration`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Duration from entering `wait_for_save` until asynchronous Dump completion"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:save_completion_wait_duration`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time actually blocked while confirming asynchronous Dump completion"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:interval_lookup_hit_rates`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Per-request UCM Lookup hit-rate distribution"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_lookup_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Wall-clock time of one Cache buffer `Lookup`/`LookupOnPrefix` call"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_lookup_backend_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Backend Lookup wall-clock time when there is no buffer or the buffer "
+"misses"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "End-to-end Cache-stage Load task duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "End-to-end Cache-stage Dump task duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective bandwidth over the complete Cache Load task lifecycle"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective bandwidth over the complete Cache Dump task lifecycle"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Cache Load task waits before a dispatch worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Cache Dump task waits before a dispatch worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_load_backend_submit_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to allocate a Cache buffer and synchronously submit the backend Load"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_shard_backend_wait_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time one shard waits for the backend to become ready before H2D submission"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_h2d_submit_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"CPU overhead of one asynchronous shard H2D submission, excluding transfer"
+" time"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_h2d_sync_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Remaining H2D stream drain time after the final shard submission"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_mkbuf_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Cache Dump buffer allocation/reuse and asynchronous D2H submission time"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_prereq_wait_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time waiting for the layer KV-ready compute event before D2H starts"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_d2h_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Cache Dump stream synchronization time, including prerequisite compute "
+"wait and D2H copy"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_backend_submit_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to synchronously submit the buffer to the lower Store"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:cache_dump_backend_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time waiting for the lower Store to complete the write"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_load_task_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"End-to-end Posix Load task duration from submission until the final shard"
+" completes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_dump_task_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"End-to-end Posix Dump task duration from submission until the final shard"
+" completes"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_s2h_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Per-task Posix read bandwidth"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_h2s_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Per-task Posix write bandwidth"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_load_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Posix Load task waits before the first worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:posix_dump_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Posix Dump task waits before the first worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "End-to-end Mooncake Load task duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "End-to-end Mooncake Dump task duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective Mooncake-stage Load bandwidth"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_bandwidth_gbps`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Effective Mooncake-stage Dump bandwidth"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Mooncake Load task waits before a dispatch worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_queue_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time a Mooncake Dump task waits before a dispatch worker picks it up"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_get_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake batch-get duration on the Load path"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_exists_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake batch-exists check duration on the Dump path"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_put_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake batch-put duration on the Dump path"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_load_backend_submit_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to submit a backend Load after a Mooncake miss"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_backend_load_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time waiting for the backend to load missing shards"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_h2d_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake Load H2D stream drain time"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_prereq_wait_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time waiting for the prerequisite compute event before a Mooncake put"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_d2h_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Mooncake D2H stream drain time required for backend archival"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_backend_submit_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to submit a backend Dump after the D2H archival copy"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:mooncake_dump_backend_wait_duration_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time waiting for backend archival to complete"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:177
+msgid "Layerwise"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_total_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Total batch wall-clock time from entering `start_load_kv` until "
+"`wait_for_save` returns"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_total_load_only_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total wall-clock time of a load-only layerwise batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_total_save_only_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total wall-clock time of a save-only layerwise batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_total_load_save_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total wall-clock time of a layerwise batch containing Load and Save"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_total_no_transfer_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total wall-clock time of a layerwise batch with no Load or Save transfer"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_load_wait_total_load_only_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Sum of all `wait_for_layer_load` blocking time in a load-only batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_load_wait_total_load_save_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Sum of all `wait_for_layer_load` blocking time in a load-and-save batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_save_tail_save_only_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`wait_for_save` tail duration in a save-only batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_batch_save_tail_load_save_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`wait_for_save` tail duration in a load-and-save batch"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_wait_blocking_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Time blocked by one `wait_for_layer_load`; values near zero indicate good"
+" overlap"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_wait_tasks_count`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Request Load tasks awaited by one layer wait"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_inter_wait_interval_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Interval between consecutive `wait_for_layer_load` calls"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_next_layer_submit_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to submit the next layer's Load task in `wait_for_layer_load`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_first_layer_submit_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to submit the first layer's Load task in `start_load_kv`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_first_layer_requests`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Requests whose first-layer Load is submitted in `start_load_kv`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_save_submit_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Time to submit one layer's Dump task in `save_kv_layer`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:layerwise_save_tail_total_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid ""
+"Compatibility metric; Layerwise no longer waits for Dump completion in "
+"`wait_for_save`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md:199
+msgid "FAWA"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:fawa_scheduler_lookup_external_hit_blocks_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Scheduler Store Lookup duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:fawa_scheduler_get_num_new_matched_tokens_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Total Store Lookup and block-hash generation duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:fawa_worker_wait_wait_all_load_task_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Worker Store Load wait duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:fawa_worker_start_load_kv_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Worker Store Load task construction and submission duration"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "`ucm:fawa_worker_wait_for_save_ms`"
+msgstr ""
+
+#: ../../source/user-guide/metrics/metrics_list.md
+msgid "Worker Store Dump duration"
+msgstr ""
+

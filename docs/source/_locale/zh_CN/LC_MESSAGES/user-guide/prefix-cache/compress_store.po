@@ -1,0 +1,1503 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:1
+msgid "UCM prefix-KVcache Compress User Guide"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:3
+msgid ""
+"This document provides a complete usage example, configuration "
+"instructions, performance reference, and best practices for the UCM "
+"Storage Compression Module (Compress Store). Based on KVfold compression "
+"algorithm, this module implements compression/decompression capabilities "
+"for KV cache tensors, and can be seamlessly integrated into the existing "
+"UCM storage pipeline. By reducing disk I/O overhead, it significantly "
+"optimizes Time-To-First-Token (TTFT) in SSD cache hit scenarios."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:7
+msgid "1. Core Features"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:9
+msgid "The Compress Store supports the following core capabilities:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:10
+msgid ""
+"Full KV cache compression/decompression pipeline based on KVfold coding, "
+"with current version supporting 2.0x compression for BF16 tensors"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:11
+msgid ""
+"Multi-threaded parallel decompression capability, with flexibly "
+"configurable thread counts to adapt to different hardware environments "
+"and business scenarios"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:12
+msgid ""
+"Seamless integration with the existing UCM storage pipeline, one-click "
+"enable/disable of compression function via Pipeline configuration"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:13
+msgid ""
+"Full parametric YAML configuration support, flexible tuning of "
+"compression parameters to adapt to different deployment environments"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:14
+msgid ""
+"Compatible with both layer-wise and block-wise cache modes, adapting to "
+"different inference business scenarios"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:18
+msgid "2. Configuration Guide"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:19
+msgid ""
+"Modify the UCM configuration file to enable the compression module "
+"through Pipeline configuration and adjust relevant parameters. You can "
+"directly modify based on the sample configuration file: <br> `unified-"
+"cache-management/examples/ucm_config_example.yaml`"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:22
+msgid "2.1 Full Configuration Example"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:49
+msgid "2.2 Mandatory Parameters"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "Parameter Name"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "Configuration Description"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "`store_pipeline`"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid ""
+"Fixed configuration as `Cache|Compress|Posix` to enable the compression "
+"pipeline. The compression function will not take effect without this "
+"configuration."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:55
+msgid "2.3 Compression-Specific Optional Parameters"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "Default Value"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "Configuration Description and Notes"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "`compress_ratio`"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "16"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid ""
+"Compression ratio configuration.<br>16 = 2.0x lossless compression "
+"(recommended);<br>32 = 1.0x no compression;<br>Other values are not "
+"supported yet."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "`data_type`"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "0"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid ""
+"Tensor data type configuration.<br>0 = BF16 (the only supported type "
+"currently);<br>100 = INVALID;<br>Other values are not supported yet."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "`decompress_thread_num`"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid ""
+"Number of threads for parallel decompression.<br>Default value can be "
+"used when `use_layerwise: false`;<br>Recommended to increase to 40+ when "
+"`use_layerwise: true`, which needs to be tuned according to server "
+"hardware configuration through stress testing."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:64
+msgid "3. Inference Service Startup Guide"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:66
+msgid ""
+"This document deploys an OpenAI-compatible online inference service based"
+" on vLLM + UCM compression module, and the configuration method is fully "
+"compatible with the existing UCM process."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:68
+msgid "3.1 Startup Command Example"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:69
+msgid ""
+"Take starting the Qwen/Qwen2.5-14B-Instruct model as an example, the "
+"complete startup command is as follows:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:88
+msgid "3.2 Notes"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:95
+msgid "3.3 Startup Success Indicator"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:96
+msgid ""
+"The following log indicates that the service is started successfully and "
+"the compression module is loaded and working properly:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:103
+msgid "4. Compression Effect Verification"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:105
+msgid ""
+"After the service is started, you can verify the performance benefits of "
+"the compression module through the built-in stress testing tool vllm "
+"bench of vLLM. To accurately verify the real performance benefits of the "
+"compression module in SSD cache hit scenarios, interference from DRAM "
+"memory cache must be excluded to ensure that the tested KV cache is only "
+"read from SSD. Strictly follow the test process below."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:107
+msgid "4.1 Stress Test Command Example"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:124
+msgid "4.2 Result Verification"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:125
+msgid "**1. First Execution (Cold Start No Cache, Baseline Test)**"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:127
+msgid ""
+"First restart the vLLM service to clear all historical caches and ensure "
+"the service is in a pure cold start state. After executing the stress "
+"test command, no historical KV cache can be reused, and all prefix tokens"
+" need to be fully prefilled and calculated."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:129
+msgid ""
+"The Mean TTFT output by the stress test is the baseline value without "
+"cache and compression optimization."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:130
+msgid ""
+"The service log will show `hit hbm: 0, hit external: 0`, with no SSD "
+"cache hit."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:131
+msgid ""
+"Observe the `COMPRESS DUMP` related compression dump logs; the KV cache "
+"generated by this request has been compressed and persisted to SSD."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:133
+msgid "**2. Before Second Execution: Restart Service to Clear DRAM Cache**"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:135
+msgid ""
+"You must restart the vLLM service to completely clear the DRAM memory "
+"cache in the process, ensuring that subsequent requests cannot hit the "
+"cache from memory and can only read the compressed KV cache that has been"
+" dumped to SSD."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:137
+msgid ""
+"This step is the core control variable operation of the test, which "
+"avoids memory cache interference on test results and verifies the pure "
+"performance benefit brought by the compression module under SSD cache hit"
+" scenarios."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:139
+msgid "**3. Second Execution (SSD Cache Hit, Compression Effect Verification)**"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:141
+msgid ""
+"After restarting the service, immediately execute the exact same stress "
+"test command as the first run."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:143
+msgid ""
+"The Mean TTFT output by the stress test will be significantly reduced, "
+"representing the end-to-end latency optimization benefit brought by the "
+"compression module."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:144
+msgid ""
+"The service log will show `hit hbm: 0, hit external: 125` (full SSD cache"
+" hit) with no memory cache hit."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:145
+msgid ""
+"Observe the `COMPRESS LOAD` related decompression and loading logs to "
+"verify the full workflow of the compression module works properly."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:147
+msgid "4.3 Detailed Log Viewing"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:148
+msgid ""
+"Set the environment variable UC_LOGGER_LEVEL=debug to print detailed logs"
+" of the entire compression/decompression process. The key log formats are"
+" as follows:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:150
+msgid "**Compression Dump Related Logs:**"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:157
+msgid "**Decompression Load Related Logs:**"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:167
+msgid "5. Performance Test"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:169
+msgid ""
+"Prefix-KVcache compression technique can reduce the IO pressure of SSD "
+"and optimize Time-To-First-Token (TTFT) in SSD cache hit scenarios. "
+"Here's a test result:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:171
+msgid "5.1 Test Environment"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:173
+msgid "Test Model: Qwen2.5-14B-Instruct"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:174
+msgid ""
+"Hardware Environment: Kunpeng 920 5250 + 4 × Ascend 910B4 (tensor "
+"parallel = 4)"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:175
+msgid ""
+"Test Configuration: DRAM cache disabled, tested under local SSD hit rates"
+" of 50% / 80% / 100%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:176
+msgid ""
+"Test Modes: Layer-wise mode (use_layerwise: true), Block-wise mode "
+"(use_layerwise: false)"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:179
+msgid "5.2 Test result"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:181
+msgid "Layer_wise (use_layerwise: true)"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "input tokens"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "output tokens"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "batch size"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "odirect"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 50% hit, w/o compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 50% hit, with compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "TTFT reduction"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 80% hit, w/o compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 80% hit, with compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 100% hit, w/o compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+#, python-format
+msgid "TTFT/ms, 100% hit, with compression"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4000"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "TRUE"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "357.99"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "341.97"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4.47%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "207.02"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "225.74"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-9.04%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "208.37"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "193.22"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7.27%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8000"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "531.6"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "578.86"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-8.89%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "304.06"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "321.29"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-5.67%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "350.01"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "331.22"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5.37%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "16000"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1236.44"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1284.19"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-3.86%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "800.25"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "720.4"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9.98%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "611.74"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "532.57"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12.94%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "32000"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3278.62"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3152.37"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3.85%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2077.46"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1807.59"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12.99%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1204.62"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "959.57"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "20.34%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1339.06"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1396.03"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-4.25%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "868.46"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "839.52"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3.33%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1056.99"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "829.89"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "21.49%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2353.23"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2373.6"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-0.87%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1436.33"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1356.39"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5.57%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2024.04"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1421.53"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "29.77%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5311.28"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5548.89"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-4.47%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3433.49"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2829.16"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "17.60%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3808.22"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2906.72"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "23.67%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "13796.04"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "13660.42"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "0.98%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8353.08"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7851.27"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6.01%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6939.55"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5274.13"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "24.00%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2280.48"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2343.98"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-2.78%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1428.27"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1232.16"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "13.73%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2154.65"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1342.75"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "37.68%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4414.05"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4436.29"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "-0.50%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2639.71"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2388.07"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9.53%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4170.57"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2646"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "36.56%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "10144.97"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9960.42"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1.82%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6167.56"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5084.08"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "17.57%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7170.8"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4005.21"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "44.15%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "25967.02"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "24714.92"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4.82%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "15550.23"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12950.47"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "16.72%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12261.77"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7504.62"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "38.80%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:198
+msgid "Block_wise (use_layerwise: false)"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "423.87"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "406.85"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4.02%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "307.49"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "253.9"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "17.43%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "260.84"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "198.13"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "24.04%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "688.38"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "665.83"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3.28%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "507.52"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "419.18"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "17.41%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "460.22"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "352.85"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "23.33%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1528.11"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1479.79"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3.16%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1083.55"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "874.61"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "19.28%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "617.35"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "446.64"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "27.65%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3678.05"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3426.42"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6.84%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2327.42"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2039.48"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12.37%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1387.85"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "832.33"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "40.03%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1801.28"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1673.41"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7.10%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1261.3"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1025.12"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "18.73%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1117.65"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "745.11"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "33.33%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3262.38"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2952.3"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9.50%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2344.01"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1880.82"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "19.76%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2381.43"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1314.63"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "44.80%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6982.66"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6343.26"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9.16%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4897.66"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3862.16"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "21.14%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4157.12"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2060.17"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "50.44%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "16615.58"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "14960.37"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "9.96%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "10797.82"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8443.65"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "21.80%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7872.14"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3896.58"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "50.50%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3181.24"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2928.33"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "7.95%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2228.06"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1775.39"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "20.32%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2402.1"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "1152.3"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "52.03%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6082.47"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5437.54"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "10.60%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4213.28"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3197.17"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "24.12%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "4381.51"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "2386.19"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "45.54%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "12832.2"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "11805.53"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8.00%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "8489.46"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6721.34"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "20.83%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6231.51"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "3555.04"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "42.95%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "29728.23"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "28228.75"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "5.04%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "18745.21"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "15293.23"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "18.42%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "13077.52"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "6831.96"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md
+msgid "47.76%"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:215
+msgid "6. Scope of Application"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:217
+msgid ""
+"This section specifies the mandatory prerequisites, recommended "
+"scenarios, and not recommended scenarios for the compression function, to"
+" help you determine whether to enable it and how to configure it for "
+"optimal benefits."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:219
+msgid "6.1 Mandatory Prerequisites"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:221
+msgid ""
+"The compression function can only be enabled and work stably when all of "
+"the following conditions are met:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:223
+msgid ""
+"Software Stack Constraint: Must be used based on the UCM unified cache "
+"management framework integrated with the vLLM inference engine; the "
+"mandatory parameter store_pipeline: \"Cache|Compress|Posix\" must be set "
+"in the configuration to enable the compression pipeline. The compression "
+"function will not take effect without this configuration."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:224
+msgid ""
+"Data Type Constraint: The current version only supports KV cache tensors "
+"in BF16 format (corresponding to configuration data_type: 0). Other data "
+"types such as FP16, FP8, INT8, and INT4 are not supported yet."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:225
+msgid ""
+"Compression Ratio Constraint: The current version only supports 2.0x "
+"lossless compression (corresponding to configuration compress_ratio: 16)."
+" compress_ratio: 32 is 1.0x no compression mode, other values are not "
+"supported yet."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:226
+msgid ""
+"Storage Backend Constraint: Must be used with Posix-compatible local file"
+" system, SSD, or NFS-mounted storage, compatible with UCM's Posix IO "
+"engine (e.g., aio). Cannot be used alone for pure HBM cache scenarios."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:227
+msgid ""
+"Hardware Compatibility: Verified and adapted for Kunpeng 920 architecture"
+" CPU + Ascend 910B4 NPU deployment environment; also compatible with x86 "
+"architecture CPU + NVIDIA GPU general inference environment, requiring "
+"sufficient CPU cores to support multi-threaded parallel decompression."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:231
+msgid "6.2 Recommended Scenarios"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:233
+msgid ""
+"The core scenarios where significant performance benefits can be obtained"
+" after enabling the compression function are as follows:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:235
+msgid ""
+"Ultra-long Context Inference Scenarios Inference scenarios with input "
+"token length ≥16K, especially 32K ultra-long context. Disk I/O is the "
+"core bottleneck of TTFT in this scenario. 2.0x compression can directly "
+"reduce I/O data volume by 50%, bringing up to 40%+ TTFT reduction in full"
+" SSD hit scenarios, and up to 50%+ optimization benefits in block-wise "
+"mode."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:237
+#, python-format
+msgid ""
+"High-concurrency Online Service Scenarios Online inference services with "
+"concurrency ≥8, especially high-load scenarios with concurrency ≥16. I/O "
+"requests are intensive under high concurrency, compression can "
+"significantly reduce disk bandwidth pressure. The maximum TTFT reduction "
+"is 38.8% in 16-concurrency, 32K context scenario in layer-wise mode, and "
+"up to 47.76% in block-wise mode."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:239
+#, python-format
+msgid ""
+"High SSD Cache Hit Rate Scenarios Business scenarios with prefix cache "
+"hit rate ≥80% (especially 100% full hit), which is the core benefit "
+"scenario of the compression feature. For example, RAG scenarios, multi-"
+"turn dialogue scenarios, fixed template inference scenarios, etc. The "
+"frequently reused prefix KV cache can greatly reduce loading time after "
+"compression, which is directly converted into TTFT optimization."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:241
+msgid ""
+"Storage Resource Constrained Scenarios Deployment environments where "
+"GPU/NPU HBM is tight and a large amount of KV cache needs to be offloaded"
+" to disk. 2.0x compression can directly reduce disk storage space "
+"occupation by 50%, while reducing I/O overhead, supporting longer context"
+" windows or higher concurrency with the same storage resources."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:243
+msgid ""
+"Layer-wise Cache Long Sequence Scenarios Scenarios where layer-wise cache"
+" mode (use_layerwise: true) is enabled and input length ≥16K. With "
+"decompress_thread_num adjusted to 40+, the parallel advantage of multi-"
+"threaded decompression can be fully utilized, significantly alleviating "
+"the I/O bottleneck of layer-by-layer loading, and obtaining stable TTFT "
+"optimization benefits."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:246
+msgid "6.3 Not Recommended Scenarios"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:248
+msgid ""
+"Enabling the compression function in the following scenarios has no "
+"benefit, or even negative performance optimization, so it is not "
+"recommended to turn it on:"
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:250
+msgid ""
+"Short Context and Low Concurrency Scenarios Light-load scenarios with "
+"input token length ≤8K and concurrency ≤2. The proportion of I/O overhead"
+" is low in this scenario, and the CPU overhead of decompression may "
+"exceed the benefits brought by I/O reduction. Some cases in this scenario"
+" show negative TTFT optimization in actual measurement."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:252
+msgid ""
+"Low SSD Cache Hit Rate Scenarios Scenarios with SSD cache hit rate <50%. "
+"Most of the KV cache needs to be recalculated and generated, the "
+"compression feature cannot play a role, and the additional compression "
+"calculation overhead will bring meaningless performance loss."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:254
+msgid ""
+"CPU Computing Power/Core Constrained Environment Deployment environment "
+"with insufficient CPU cores or tight computing power. Multi-threaded "
+"decompression will seize the CPU resources of the inference service, "
+"leading to increased inference scheduling delay, and thus end-to-end "
+"performance degradation."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:256
+msgid ""
+"Memory Bandwidth Constrained Environment Deployment environment with "
+"insufficient server memory bandwidth. Memory copy operations during "
+"compression/decompression will exacerbate the memory bandwidth "
+"bottleneck, failing to achieve expected performance benefits, and even "
+"performance regression."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:258
+msgid ""
+"Non-BF16 Precision Inference Scenarios Model inference scenarios using "
+"other precisions such as FP16, INT8, FP8, etc. The current version does "
+"not support compression of non-BF16 tensors, and the feature cannot be "
+"enabled."
+msgstr ""
+
+#: ../../source/user-guide/prefix-cache/compress_store.md:260
+msgid ""
+"Pure HBM Cache Scenarios Scenarios where KV cache is completely stored in"
+" GPU/NPU HBM/DRAM without disk offload requirements. The compression "
+"feature is designed for disk I/O scenarios, enabling it in pure HBM "
+"scenarios has no benefit, but will increase unnecessary computing "
+"overhead."
+msgstr ""
+

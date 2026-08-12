@@ -1,0 +1,733 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting-started/troubleshooting.md:1
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:3
+msgid ""
+"This page lists common error codes, log messages, and troubleshooting "
+"steps for UCM."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:5
+msgid "Error Codes"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:7
+msgid ""
+"UCM uses the following error codes in its underlying C++ stores. These "
+"codes appear in log messages and exception outputs."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Error Code"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Name"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Common Cause"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**0**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`OK`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Success"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Operation completed normally"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-1**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`Error`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "General error"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Unclassified error, check the attached message"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50000**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`InvalidParam`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Invalid parameter"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Parameter is illegal, empty, or has wrong format"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50001**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`OutOfMemory`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Out of memory"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Memory allocation failed"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50002**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`OsApiError`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "OS API error"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "System call failed (e.g. file I/O, thread operation)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50003**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`DuplicateKey`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Duplicate key"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Attempting to insert a key that already exists"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50004**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`Retry`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Retry required"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Transient error, retry recommended"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50005**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`NotFound`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Not found"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Requested object or resource does not exist"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50006**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`SerializeFailed`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Serialization failed"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Error during data serialization"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50007**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`DeserializeFailed`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Deserialization failed"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Error during data deserialization"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50008**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`Unsupported`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Unsupported operation"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Feature or operation not supported in current context"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50009**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`NoSpace`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "No space"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Storage space (disk/cache) is full"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "**-50010**"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`Timeout`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Timeout"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Operation timed out"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:25
+msgid "Common Issues"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:27
+msgid "Installation & Build Issues"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:29
+msgid "`PLATFORM` environment variable not set"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:31
+#: ../../source/getting-started/troubleshooting.md:85
+#: ../../source/getting-started/troubleshooting.md:96
+#: ../../source/getting-started/troubleshooting.md:107
+#: ../../source/getting-started/troubleshooting.md:178
+msgid "**Log message**:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:37
+msgid ""
+"**Cause**: The `PLATFORM` env var is required for building UCM. Without "
+"it, the build defaults to `simu` (simulation mode) which is only for CI "
+"testing."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:39
+#: ../../source/getting-started/troubleshooting.md:51
+#: ../../source/getting-started/troubleshooting.md:78
+#: ../../source/getting-started/troubleshooting.md:127
+#: ../../source/getting-started/troubleshooting.md:140
+#: ../../source/getting-started/troubleshooting.md:153
+#: ../../source/getting-started/troubleshooting.md:165
+#: ../../source/getting-started/troubleshooting.md:185
+#: ../../source/getting-started/troubleshooting.md:207
+msgid "**Solution**:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:47
+msgid "Build fails with CMake errors"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:49
+msgid ""
+"**Cause**: Missing build dependencies (`cmake`, `gcc`, or CUDA toolkit "
+"not in path)."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:52
+msgid "Ensure `cmake >= 3.18` is installed: `cmake --version`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:53
+msgid ""
+"Ensure the CUDA toolkit is installed and `nvcc` is accessible: `nvcc "
+"--version`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:54
+msgid "For Ascend, ensure the CANN toolkit is properly installed"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:56
+msgid "`pip install` fails with wheel build errors"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:58
+msgid ""
+"**Cause**: Building C++ extensions requires a proper compiler "
+"environment. On some systems, `--no-build-isolation` may fail if the "
+"build toolchain is not set up."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:60
+msgid ""
+"**Solution**: Use the pre-built Docker image or wheel package from "
+"[PyPI](https://pypi.org/project/uc-manager/) instead."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:64
+msgid "Configuration Issues"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:66
+msgid "Error Code -50000 (InvalidParam)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:68
+msgid "**Typical log**:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:73
+#: ../../source/getting-started/troubleshooting.md:122
+#: ../../source/getting-started/troubleshooting.md:135
+#: ../../source/getting-started/troubleshooting.md:148
+#: ../../source/getting-started/troubleshooting.md:160
+msgid "**Common causes**:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:74
+msgid "YAML configuration file has syntax errors"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:75
+msgid "Required parameter is missing"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:76
+msgid "Parameter value type is wrong (e.g. string where integer is expected)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:79
+msgid ""
+"Check YAML syntax: validate with `python -c \"import yaml; "
+"yaml.safe_load(open('your_config.yaml'))\"`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:80
+msgid ""
+"Verify parameter names match the [Pipeline Store](../user-guide/prefix-"
+"cache/pipeline_store.md) or [NFS Store](../user-guide/prefix-"
+"cache/nfs_store.md) documentation"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:81
+msgid "Ensure `storage_backends` path is a valid string, not empty"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:83
+msgid "`UCM_CONFIG_FILE` not found"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:90
+msgid ""
+"**Cause**: The config file path in `kv_connector_extra_config` is "
+"incorrect or the file does not exist."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:92
+msgid ""
+"**Solution**: Verify the file path exists and is accessible from the "
+"container or process. In Docker, ensure the file is mounted or copied "
+"into the container."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:94
+msgid "Unsupported connector type"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:101
+msgid ""
+"**Cause**: The `ucm_connector_name` in the config is not a registered "
+"connector."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:103
+msgid ""
+"**Solution**: Use one of the supported connector names: "
+"`UcmPipelineStore` or `UcmNfsStore`."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:105
+msgid "Unknown store pipeline"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:112
+msgid ""
+"**Cause**: The `store_pipeline` value is not registered in the "
+"PipelineStore registry."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:114
+msgid ""
+"**Solution**: Use a registered pipeline such as `\"Cache|Posix\"`, "
+"`\"Cache|Ds3fs\"`, `\"Cache|Compress|Posix\"`, etc. See "
+"`ucm/store/pipeline/connector.py` for all registered pipelines."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:118
+msgid "Runtime Issues"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:120
+msgid "Error Code -50001 (OutOfMemory)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:123
+msgid "`cache_buffer_capacity_gb` is set too large for available `/dev/shm`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:124
+msgid ""
+"Multiple DP instances on the same node each allocate their own CacheStore"
+" buffer"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:125
+msgid "MLA models require more shared memory"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:128
+msgid "Check system memory: `free -h`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:129
+msgid "Check shared memory: `df -h /dev/shm`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:130
+msgid "Reduce `cache_buffer_capacity_gb` in the config (default is 256 GB)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:131
+msgid ""
+"When running multiple DP instances on one node, reduce the value "
+"proportionally"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:133
+msgid "Error Code -50002 (OsApiError)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:136
+msgid "The `storage_backends` directory does not exist"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:137
+msgid "Permission denied on the storage directory"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:138
+msgid "Disk I/O error or filesystem issue"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:141
+msgid "Verify the path exists: `ls <storage_backends_path>`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:142
+msgid ""
+"Check write permissions: `touch <storage_backends_path>/test_file && rm "
+"<storage_backends_path>/test_file`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:143
+msgid "For NFS mounts, verify the mount is healthy: `mount | grep <path>`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:144
+msgid "Check system logs: `dmesg | tail` or `journalctl -xe`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:146
+msgid "Error Code -50009 (NoSpace)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:149
+msgid "Disk space is full at the `storage_backends` path"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:150
+msgid "`posix_capacity_gb` is set larger than actual disk capacity"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:151
+msgid "GC is not enabled or not aggressive enough"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:154
+msgid "Check disk space: `df -h <storage_backends_path>`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:155
+#, python-format
+msgid ""
+"Set `posix_capacity_gb` to a value matching your available disk capacity "
+"(e.g. set to 80% of actual capacity)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:156
+msgid ""
+"GC is automatically enabled when `posix_capacity_gb > 0` — verify it is "
+"set correctly"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:158
+msgid "Error Code -50010 (Timeout)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:161
+msgid "Network or storage bandwidth is abnormal (e.g. NFS mount degraded)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:162
+msgid "System load is too high (CPU, I/O saturation)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:163
+msgid "`timeout_ms` is set too low for the workload"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:166
+msgid ""
+"Test storage bandwidth using `vdbench` or `fio` on the mount point or "
+"local disk to verify the environment is healthy"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:167
+msgid "Check system load: `top` or `htop`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:168
+msgid "Check network: `ping` and `iperf` for NFS over network"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:169
+msgid "Increase `timeout_ms` if needed (default 30000 ms)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:170
+msgid ""
+"For NFS mounts, check mount options — adding `noac` or adjusting "
+"`actimeo` may help"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:174
+msgid "vLLM Integration Issues"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:176
+msgid "Prefix Caching not working (no cache hits)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:183
+msgid ""
+"**Cause**: First-time requests have no cached KV blocks. Subsequent "
+"requests with the same prefix should show hits."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:186
+msgid "Run the same request twice — the second should hit cached blocks"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:187
+msgid ""
+"Verify `--no-enable-prefix-caching` is not accidentally enabled (it "
+"disables vLLM's native HBM prefix cache, used only for SSD benchmarking)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:188
+msgid "Verify the `UCM_CONFIG_FILE` path is correct in the launch command"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:190
+msgid "`Unsupported device platform for UCMDirectConnector`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:192
+msgid "**Cause**: The current platform is neither CUDA nor Ascend NPU."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:194
+msgid ""
+"**Solution**: UCM currently supports CUDA and Ascend platforms only. "
+"Check the [Support Matrix](../user-guide/support-"
+"matrix/support_matrix.md) for details."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:196
+msgid "KV dump/load errors"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:198
+msgid "**Typical logs**:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:205
+msgid ""
+"**Cause**: Store backend (Posix/NFS) encountered I/O errors during KV "
+"cache transfer."
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:208
+msgid "Check storage backend health (disk space, permissions, network)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:209
+msgid "Set `UC_LOGGER_LEVEL=debug` for detailed transfer logs:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:214
+msgid ""
+"Check if the error code matches one from the [Error Codes](#error-codes) "
+"table above"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:218
+msgid "Log Debugging"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:220
+msgid "To view detailed UCM transfer logs, set the environment variable:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:226
+msgid ""
+"This produces per-task logs with task IDs, operation types, data sizes, "
+"and timing:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Field"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`task_id`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Unique identifier for the store task"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`operation`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid ""
+"Cache Store: `DUMP` (Device→Host) or `LOAD` (Host→Device); Posix Store: "
+"`Cache2Backend` (dump to storage) or `Backend2Cache` (load from storage)"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`subtask_number`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Number of subtasks in this operation"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`size`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Total data size transferred in bytes"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "`cost`"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md
+msgid "Execution time in ms"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:243
+msgid "To customize the log directory:"
+msgstr ""
+
+#: ../../source/getting-started/troubleshooting.md:249
+msgid ""
+"By default, logs are placed under the `log` directory relative to where "
+"the vLLM service was started."
+msgstr ""
+

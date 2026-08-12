@@ -1,0 +1,377 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/sparse-attention/gsa.md:1
+msgid "GSA: Hash-Aware Top-k Attention for Scalable Large Model Inference"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:5
+msgid "![GSA Scheme](../../_static/images/kvcomp_scheme.jpg)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:5
+msgid "GSA Scheme"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:7
+msgid ""
+"**🚀 Hash-Aware Sparse Attention Algorithm | 📄 ACL 2025 Paper | ⚡ NPU/GPU "
+"Hardware-Efficient**"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:9
+msgid ""
+"[![Paper](https://img.shields.io/badge/Paper-"
+"ACL%202025-blue)](../../_static/paper/kvcomp-ACL-2025-paper.pdf) "
+"[![License](https://img.shields.io/badge/License-MIT-"
+"green.svg)](https://github.com/ModelEngine-Group/unified-cache-"
+"management/blob/main/LICENSE) "
+"[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:9
+msgid "Paper"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:9
+msgid "License"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:9
+msgid "Python"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:15
+msgid "🌟 What is GSA (HATA)?"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:17
+msgid ""
+"**GSA** (Geometry Sparse Attention) is a groundbreaking sparse attention "
+"algorithm that revolutionizes large language model inference through "
+"**Hash-Aware Top-k Attention**. Published at ACL 2025, our method "
+"achieves unprecedented efficiency by intelligently selecting the most "
+"relevant kv cache blocks using trainable hash-based similarity "
+"computation."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:19
+msgid "🎯 Key Innovations"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:21
+msgid ""
+"**🔍 Hash-Aware Similarity**: Uses trainable hash functions to compute "
+"attention relevance, which is significantly faster than exact attention "
+"score $QK$ computation"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:22
+msgid ""
+"**⚡ Hardware-Efficient**: Optimized for both CUDA and NPU architectures "
+"with specialized kernels"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:23
+msgid ""
+"**🎛️ Adaptive Sparsity**: Layer-wise sparsity ratios that adapt to model "
+"characteristics"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:24
+msgid ""
+"**🔄 Dynamic Retrieval**: Real-time **query-aware** block selection based "
+"on query-key similarity"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:25
+msgid ""
+"**💾 Memory-Efficient**: Dramatically reduces KV cache HBM peak usage by "
+"leveraing UCM's offloading capability"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:27
+msgid "🔥 Key Results"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:28
+msgid "**3-5x speedup** in attention computation for long sequences"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:29
+msgid "**Minimal accuracy loss** (< 2%) on downstream tasks"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:30
+msgid "**Scalable to 128K+ context lengths** with linear complexity"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:32
+msgid "🏆 Performance Highlights"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:36
+#: ../../source/user-guide/sparse-attention/gsa.md:37
+msgid "End-to-End Performance"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:37
+msgid ""
+"![End-to-End "
+"Performance](../../_static/images/kvcomp_end_to_end_performance.jpg)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:39
+#: ../../source/user-guide/sparse-attention/gsa.md:40
+msgid "Single Layer Performance"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:40
+msgid ""
+"![Single Layer "
+"Performance](../../_static/images/kvcomp_single_layer_performance.jpg)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:44
+msgid "📈 Accuracy Benchmarks"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:49
+msgid "LongBench Evaluation"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:50
+msgid "![LongBench Results](../../_static/images/kvcomp_longbench.jpg)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:50
+msgid "LongBench Results"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:56
+msgid "🧠 How It Works"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:58
+msgid "Core Algorithm"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:60
+msgid "GSA operates through a sophisticated three-stage process:"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:62
+msgid ""
+"**🔐 Hash Encoding**: Convert attention keys and queries into compact hash"
+" codes"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:63
+msgid ""
+"**🎯 Similarity Computation**: Use efficient hash-based similarity to "
+"identify relevant blocks"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:64
+msgid ""
+"**📦 Selective Loading**: Load only the top-k most relevant KV blocks for "
+"attention"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:84
+msgid "🏗️ Architecture"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:86
+msgid "The algorithm maintains three critical windows:"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:87
+msgid "**Initial Window**: First few blocks (always loaded)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:88
+msgid "**Sparse Window**: Top-k selected blocks (dynamically chosen)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:89
+msgid "**Local Window**: Recent blocks (always loaded)"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:91
+msgid ""
+"This design ensures both **efficiency** and **accuracy** by preserving "
+"essential context while sparsifying the middle range."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:93
+msgid "🚀 Quick Start"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:95
+msgid "Offline Inference"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:97
+msgid ""
+"GSA is part of the UCM Sparse Attention module. For installation "
+"instructions, please refer to the [UCM's top-level "
+"README](https://github.com/ModelEngine-Group/unified-cache-management). "
+"Once UCM is installed, GSA is naturally supported by running the "
+"following example python scripts."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:104
+msgid "Online Inference"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:145
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:146
+msgid ""
+"GSA needs a json configuration file. We have already included several "
+"configs in `configs` folder, including Deepseek-R1-AWQ, Deepseek-v2-lite,"
+" Qwen3-4B, Qwen3-32B, Qwen3-Coder-30B-A3B and QwQ-32B."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:175
+msgid "📊 Supported Models"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Model"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Size"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Hash Bits"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Top-k Ratio"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Performance Gain"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Qwen3-4B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "4B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "128"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "0.3"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "xx"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "Qwen3-32B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "32B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "QwQ-32B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "DeepSeek-R1"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "671B"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md
+msgid "512+64"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:184
+msgid "🔧 Advanced Features"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:187
+msgid "Custom Hash Weights"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:193
+msgid "Hardware Optimization"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:194
+msgid ""
+"**CUDA**: Optimized kernels with bit-packing, hamming score, and top-k "
+"selection"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:195
+msgid ""
+"**NPU**: Native `npu_sign_bits_pack` operations, optimized fused kernels "
+"for hamming_dist_top_k and kv_select."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:196
+msgid "**CPU**: SIMD-optimized implementations"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:201
+msgid "🎓 Citation"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:203
+msgid "If you use GSA in your research, please cite our ACL 2025 paper:"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:214
+msgid "🤝 Contributing"
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:216
+msgid ""
+"We welcome contributions! Please see the **How to contribute** section of"
+" **Developer Guide** for details."
+msgstr ""
+
+#: ../../source/user-guide/sparse-attention/gsa.md:223
+msgid ""
+"**🌟 Star [UCM](https://github.com/ModelEngine-Group/unified-cache-"
+"management) repository if you find GSA useful!**"
+msgstr ""
+

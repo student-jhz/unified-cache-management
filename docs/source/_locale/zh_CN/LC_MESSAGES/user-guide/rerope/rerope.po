@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/rerope/rerope.md:1
+msgid "Rectified Rotary Position Embeddings"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:3
+msgid ""
+"Using Rectified Rotary Position Embeddings (ReRoPE), we can more "
+"effectively extend the context length of LLM without the need for fine-"
+"tuning. This is about the Triton implementation of ReRoPE and its "
+"integration into the vLLM inference framework."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:7
+msgid ""
+"**🚀 ReRoPE | 📄 blog [https://kexue.fm/archives/9708] "
+"[https://normxu.github.io/Rethinking-Rotary-Position-Embedding-3]**"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:10
+msgid ""
+"[![License](https://img.shields.io/badge/License-MIT-"
+"green.svg)](https://github.com/ModelEngine-Group/unified-cache-"
+"management/blob/main/LICENSE) "
+"[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:10
+msgid "License"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:10
+msgid "Python"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:15
+msgid "🌟 What is ReRoPE?"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:23
+#, python-brace-format
+msgid ""
+"This approach combines direct extrapolation with position interpolation. "
+"A window size $w$ is established, where a position interval of $1$ is "
+"used within the window, and an interval of $\\frac{1}{k}$ is applied "
+"outside. As $k \\to \\infty$, this simplifies to the form illustrated "
+"above. Under this scheme, the position encoding range never exceeds $w$ "
+"regardless of input length, potentially enabling support for arbitrarily "
+"long contexts."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:25
+msgid "The attention score calculation formulas are as follows,"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:27
+#, python-brace-format
+msgid ""
+"$$ \\begin{aligned} score_{ij}^{1} &= (q_iR_i)(k_jR_j)^T, && i-j<w \\\\ "
+"score_{ij}^{2} &= (q_iR_w)(k_j)^T, && i-j\\ge w \\end{aligned} $$"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:34
+msgid ""
+"ReRoPE extends context length effectively but requires double "
+"attention—local within w and global compressed—significantly reducing "
+"throughput. Despite this overhead, it remains valuable for training-free "
+"long contexts, especially when combined with local attention windows to "
+"balance efficiency."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:36
+msgid "🧠 Triton ReRoPE Implementation"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:38
+msgid "Load Data"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:40
+msgid ""
+"Compared to the triton rope implementation, data loading requires passing"
+" query2 with alternative rotary embedding position and unrotated key2."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:42
+msgid "Construct ReRoPE Mask"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:44
+msgid ""
+"During attention computation, the selection between attention score paths"
+" depends on the relative distance between query and key, necessitating "
+"construction of a rerope mask."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:46
+msgid "🏆 Results"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:50
+msgid "The Experiment Results"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:51
+msgid "![ReRoPE Results](../../_static/images/rerope_performace.png)"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:51
+msgid "ReRoPE Results"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:53
+#, python-brace-format
+msgid ""
+"The experiment is based on a hybrid Transformer-GAU (Gated Attention "
+"Unit) model with a size of 100M parameters. $logn$ indicates we add the "
+"scale factor $log n$⁡ at pretraining stage; $log n^{*}$ denotes we apply "
+"the scale factor to the attention matrix only for text exceeding the max "
+"sequence length, without any pretraining; $w256$ denotes the rerope "
+"windopw $w=256$."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:57
+msgid "🚀 Quick Start"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:59
+msgid "Installation"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:61
+msgid ""
+"For installation instructions, please refer to the UCM's top-level "
+"README. Once UCM is installed, ReRoPE is naturally supported by running "
+"the following example scripts."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:78
+msgid "Note:"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:79
+msgid ""
+"`REROPE_WINDOW` and `TRAINING_LENGTH` are generally set to the model's "
+"pre-training length."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:80
+msgid "For vLLM version 0.11.0, set `VLLM_ATTENTION_BACKEND` to `TRITON_ATTN`."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:82
+msgid "Basic Usage"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:84
+msgid ""
+"We need to modify the max_position_embeddings of the model according to "
+"the input length of prompts, as shown below."
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:101
+msgid "📊 Supported Models"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:103
+msgid "Qwen-based models now are available"
+msgstr ""
+
+#: ../../source/user-guide/rerope/rerope.md:106
+msgid "🎓 Cite"
+msgstr ""
+

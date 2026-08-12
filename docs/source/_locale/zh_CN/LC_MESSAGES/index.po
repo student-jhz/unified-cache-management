@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/index.md:46
+msgid "Getting Started"
+msgstr "快速入门"
+
+#: ../../source/index.md:56
+msgid "User Guide"
+msgstr "使用指南"
+
+#: ../../source/index.md:68
+msgid "Developer Guide"
+msgstr "开发者指南"
+
+#: ../../source/index.md:77
+msgid "About Us"
+msgstr "关于我们"
+
+#: ../../source/index.md:1
+msgid "Welcome to Unified Cache Manager"
+msgstr "欢迎使用 Unified Cache Manager"
+
+#: ../../source/index.md:3
+msgid "UCM"
+msgstr "UCM"
+
+#: ../../source/index.md:24
+msgid ""
+"The core principle of Unified Cache Manager (UCM) is to persist the LLM "
+"KVCache and replace redundant computations through multiple retrieval "
+"mechanisms. UCM not only supports prefix caching but also offers a "
+"variety of training-free sparse attention retrieval methods, delivering "
+"higher performance when handling extremely long sequence inference tasks."
+" Additionally, UCM provides a PD disaggregation solution based on a "
+"storage-compute separation architecture, which enables more "
+"straightforward and flexible management of heterogeneous computing "
+"resources. When integrated with vLLM, UCM achieves a 3-10x reduction in "
+"inference latency across various scenarios, including multi-turn dialogue"
+" and long-context reasoning tasks."
+msgstr ""
+"Unified Cache Manager（UCM）的核心原理是持久化 LLM KVCache，并通过多种检索"
+"机制替代冗余计算。UCM 不仅支持前缀缓存，还提供多种免训练的稀疏注意力检索方"
+"法，在处理超长序列推理任务时带来更高的性能。此外，UCM 还提供基于存算分离架"
+"构的 PD 分离（Prefill-Decode disaggregation）方案，能够更直接、更灵活地管"
+"理异构计算资源。与 vLLM 集成后，UCM 在各种场景（包括多轮对话和长上下文推理"
+"任务）中可将推理延迟降低 3-10 倍。"
+
+#: ../../source/index.md:32
+msgid "For more information, check out the following:"
+msgstr "更多信息，请参考："
+
+#: ../../source/index.md:34
+msgid ""
+"[UCM Section of the ModelEngine Community](https://modelengine-"
+"ai.net/#/ucm)"
+msgstr "[ModelEngine 社区中的 UCM 专区](https://modelengine-ai.net/#/ucm)"
+
+#: ../../source/index.md:36
+msgid "Paper list:"
+msgstr "论文列表："
+
+#: ../../source/index.md:38
+msgid ""
+"[HATA: Trainable and Hardware-Efficient Hash-Aware Top-k Attention for "
+"Scalable Large Model Inference](https://arxiv.org/abs/2506.02572)"
+msgstr ""
+"[HATA：可训练且硬件高效的、面向可扩展大模型推理的哈希感知 Top-k 注意力"
+"](https://arxiv.org/abs/2506.02572)"
+
+#: ../../source/index.md:39
+msgid ""
+"[ReTaKe: Reducing Temporal and Knowledge Redundancy for Long Video "
+"Understanding](https://arxiv.org/abs/2412.20504)"
+msgstr ""
+"[ReTaKe：为长视频理解减少时间和知识冗余](https://arxiv.org/abs/2412.20504)"
+
+#: ../../source/index.md:40
+msgid ""
+"[AdaReTaKe: Adaptive Redundancy Reduction to Perceive Longer for Video-"
+"language Understanding](https://arxiv.org/abs/2503.12559)"
+msgstr ""
+"[AdaReTaKe：自适应冗余削减以感知更长视频语言理解](https://arxiv.org/abs/2503.12559)"
+
+#: ../../source/index.md:41
+msgid "[Dynamic Early Exit in Reasoning Models](https://arxiv.org/abs/2504.15895)"
+msgstr "[推理模型中的动态提前退出](https://arxiv.org/abs/2504.15895)"
+
+#: ../../source/index.md:42
+msgid ""
+"[Sparse Attention across Multiple-context KV "
+"Cache](https://arxiv.org/abs/2508.11661)"
+msgstr "[跨多上下文 KV 缓存的稀疏注意力](https://arxiv.org/abs/2508.11661)"
+
+#: ../../source/index.md:44
+msgid "Documentation"
+msgstr "文档"
+

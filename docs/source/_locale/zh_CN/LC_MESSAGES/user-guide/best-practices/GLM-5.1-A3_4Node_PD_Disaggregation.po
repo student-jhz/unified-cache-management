@@ -1,0 +1,774 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:1
+msgid "GLM-5.1 A3 4Node PD-Disaggregation"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:3
+msgid "Overview"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:5
+msgid ""
+"**[UCM](https://github.com/ModelEngine-Group/unified-cache-management)** "
+"(Unified Cache Management): The core principle of UCM is to persist the "
+"LLM's KV cache and cache more hittable prefixes through an external KV "
+"cache pool, thereby reducing TTFT and improving throughput."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:7
+msgid ""
+"**GLM-5.1** is Zhipu's flagship model, with significantly enhanced coding"
+" capability and markedly improved **long-horizon task** performance. It "
+"can work continuously and autonomously for up to 8 hours in a single "
+"task, completing the full closed loop from planning, execution to "
+"iterative optimization, and delivering engineering-grade results. Using "
+"UCM as the vLLM KV Pool backend enables efficient KV cache storage and "
+"cross-request reuse, thereby substantially optimizing TTFT and throughput"
+" in long-text, high-reuse (prefix cache) scenarios."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:9
+msgid "1. Performance Test Summary"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:11
+msgid "Test design:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:13
+msgid "Input/output length: 64K/1K, 128K/1K"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:14
+msgid "TPOT latency requirement: cap at 30ms"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:15
+msgid "Prefix cache hit rate setting: 90%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:16
+msgid ""
+"KV cache prefix variety: take 1/2 of the concurrency value, simulating "
+"that when a user's agent makes calls, multiple requests sent "
+"simultaneously share highly similar request prefixes."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:17
+msgid "Test concurrency: 10, 20, 30"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:18
+msgid "Number of requests: concurrency × 4"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:20
+msgid ""
+"On a 4-node A3 cluster (each node with 8×910C, each 910C is a dual-910B "
+"co-packaged die), based on the GLM-5.1 W8A8 quantized model and a PD-"
+"disaggregated architecture (2 Prefill + 2 Decode), we conducted "
+"performance tests on UCM prefix caching across 4 scenarios. The test data"
+" is as follows:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Scenario"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "InputLen"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "OutputLen"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Prefixes"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Requests"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Concurrency"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Actual Concurrency"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "RR"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Cache"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Avg TTFT (ms)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "TTFT Reduction"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Avg TPOT (ms)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Throughput (token/s)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Throughput Gain"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "64K × 20CC"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "65536"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "1024"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "10"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "80"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "20"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "17.64"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "0"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "None"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "36,786"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "/"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "20.2"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "314.1"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "18.80"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "0.9"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "7,854"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "78.6%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "23.5"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "604.4"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "92.4%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "64K × 30CC"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "15"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "120"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "30"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "26.22"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "63,493"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "20.5"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "318.1"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "27.63"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "11,372"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "82.1%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "25.0"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "766.7"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "141.0%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "128K × 10CC"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "131072"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "5"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "40"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "9.18"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "46,967"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "139.1"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "9.20"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "15,942"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "66.1%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "255.2"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "83.5%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "128K × 20CC"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "17.86"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "107,334"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "19.7"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "143.5"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "17.97"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "51,370"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "52.1%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "20.3"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "77.8%"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:33
+msgid "Conclusions:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:35
+msgid ""
+"**64K context**: Increasing concurrency amplifies the caching benefit; "
+"raising concurrency from 20 to 30 increases the throughput gain to 141%."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:36
+msgid ""
+"**At 20 concurrency, 64K is the sweet-spot length**, with TTFT reduced by"
+" 78.6% and throughput improved by 92.4%. Once the request length exceeds "
+"the HBM capacity threshold (approximately 235,008 / (20/8) = 94K tokens),"
+" the TTFT reduction and throughput gain attenuate due to insufficient HBM"
+" space. **Deployment recommendation**: at a fixed concurrency of 20, keep"
+" the request length strictly within 94K tokens to ensure optimal "
+"performance."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:37
+msgid ""
+"**128K ultra-long context**: concurrency 8 is the sweet-spot concurrency;"
+" beyond this threshold, the caching benefit diminishes. At concurrency "
+"10, TTFT can still drop by 66.1% with an 83.5% throughput gain; when "
+"concurrency rises from 10 to 20, both the TTFT reduction and throughput "
+"gain decline simultaneously. **Deployment recommendation**: when "
+"inferring 128K ultra-long-context requests, keep the concurrency at no "
+"more than 8 to avoid triggering the underlying preemption mechanism."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:39
+msgid ""
+"**Note**: The current Decode instance has a per-DP GPU KV Cache Size of "
+"235,008 tokens. Each DP can carry only a single concurrent 128K + 1K "
+"request, so the absolute concurrency upper bound of the 8 DP instances is"
+" 8. During vLLM inference, the KV cache of all requests in a single batch"
+" must fit entirely within the HBM. If the memory space is insufficient, "
+"the system triggers the request preemption mechanism: it forcibly "
+"releases the memory occupied by other requests; when those requests are "
+"rescheduled, they must redo the Decode computation. This repeated "
+"preemption-and-recompute overhead causes throughput degradation under "
+"high concurrency. In addition, when too many requests queue up at a "
+"Decode instance, the request waiting time increases directly, which in "
+"turn degrades the Time-To-First-Token (TTFT). Therefore, comparison data "
+"beyond the physical hardware boundary cannot truthfully reflect the "
+"performance of the caching mechanism itself."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:41
+msgid "2. Test Environment Overview"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Item"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Specification"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Cluster scale"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid ""
+"4-node A3 (each node with 8×910C, each 910C is a dual-910B co-packaged "
+"die)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "HBM + SSD: OceanDisk 1300 (prefill nodes share 4T), no DRAM"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Model"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "GLM-5.1-w8a8 (W8A8 quantization, GLM-5.1)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Framework version"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "vllm-ascend 0.18.0rc1 + ucm v0.17.0"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "PD architecture"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "1x2 Prefill + 1x2 Decode"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Prefill config"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "DP=4, TP=8, EP=32"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "Decode config"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "DP=8, TP=4, EP=32"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid "KV transport"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md
+msgid ""
+"P node: MultiConnector (Mooncake + UCM dual-channel); D node: "
+"MooncakeConnectorV1"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:54
+msgid "3. Deployment Guide"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:56
+msgid "1. Pull the official vllm-ascend image"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:62
+msgid "Container startup script:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:109
+msgid "2. Install UCM"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:111
+msgid "Inside the container:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:121
+msgid "**Note:** For the Atlas A2 series, set `PLATFORM=ascend`."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:123
+msgid "Enable UCM by importing the patch via an environment variable:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:129
+msgid "3. UCM Script Configuration"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:131
+msgid ""
+"Modify the UCM configuration file `ucm_config_example.yaml` to specify "
+"the UCM connector to use and the storage location of KV data blocks. This"
+" file can be placed in any directory, as long as the corresponding path "
+"is configured in the service launch script."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:150
+msgid "**Parameter Description:**"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:152
+msgid "Required Parameters"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:154
+msgid "**ucm_connector_name**: Specifies the UcmPipelineStore UCM connector."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:155
+msgid ""
+"**store_pipeline: \"Cache|Posix\"**: Specifies a pipeline chained from a "
+"Cache store and a Posix store."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:156
+msgid ""
+"**storage_backends**: The directory used to store KV blocks. It can be a "
+"local path or an NFS mount path. In theory, the cache capacity upper "
+"bound is determined by the available space of the storage directory. ⚠️ "
+"**Please replace \"/mnt/test\" with your actual storage directory.**"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:158
+msgid "Optional Parameters"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:160
+msgid ""
+"**io_direct** *(optional, default: false)*: Whether to enable Direct I/O."
+" For the Posix store, when enabled, reads and writes to disk files bypass"
+" the OS page cache."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:162
+msgid "**cache_buffer_capacity_gb** *(optional, default: 128)*"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:163
+msgid ""
+"GQA models (Qwen3, GLM-4.7, etc.): default 32GB per card; if configured, "
+"it represents the DRAM memory occupied per card."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:164
+msgid "MLA models (DeepSeek V3/R1, GLM-5, etc.): 192 / (number of DPs per node)."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:165
+msgid ""
+"DeepSeek V4: for a single A3 node with TP8DP2, 48 is recommended; for a "
+"single A2 node with TP8DP2, 96 is recommended."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:166
+msgid ""
+"**posix_capacity_gb** *(optional, default: 0)* The maximum capacity of "
+"the Posix store in GB. When set to a value greater than 0, garbage "
+"collection (GC) is enabled and reclaims disk space when the threshold is "
+"reached. When set to 0 (default), no capacity limit or GC is applied."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:168
+msgid ""
+"**posix_io_engine** *(optional, default: \"psync\")* The I/O engine type "
+"for the Posix store. Supported values: \"psync\" (pread/pwrite), \"aio\" "
+"(libaio)."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:170
+msgid ""
+"**enable_event_sync** *(optional, default: true)* Whether to enable event"
+" synchronization."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:172
+msgid ""
+"**use_layerwise** *(optional, default: true)* Whether to load/save KV "
+"cache blocks layer by layer."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:174
+msgid ""
+"**enable_record_traces** *(optional, default: false)* Whether to record "
+"request trace information. When enabled, the trace information "
+"(timestamp, input length, output length, hash ID) of each request is "
+"recorded."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:176
+msgid ""
+"**use_lite** *(optional, default: false)* Whether to use the UCM Lite "
+"connector."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:178
+msgid ""
+"**persist_token_threshold** *(optional, default: 0)* The minimum token "
+"threshold for KV persistence."
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:181
+msgid "For more configuration, refer to the official UCM documentation:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:183
+msgid "[https://ucm.readthedocs.io/en/latest/](https://ucm.readthedocs.io/en/latest/)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:184
+msgid "[https://docs.vllm.ai/projects/ascend/en/latest/user_guide/feature_guide/ucm_deployment.html](https://docs.vllm.ai/projects/ascend/en/latest/user_guide/feature_guide/ucm_deployment.html)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:185
+msgid ""
+"[https://deepwiki.com/ModelEngine-Group/unified-cache-"
+"management/1-overview](https://deepwiki.com/ModelEngine-Group/unified-"
+"cache-management/1-overview)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:187
+msgid "4. PD-Disaggregated Deployment Guide"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:189
+msgid "Select one node and start the mooncake master service:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:196
+msgid ""
+"Each node also needs a `ucm_config_example.yaml` (see the UCM Script "
+"Configuration section) and a `mooncake.json` (imported via the "
+"`MOONCAKE_CONFIG_PATH` environment variable when the service is started)."
+" As follows (this article uses 100.100.123.166 as the mooncake master "
+"node):"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:208
+msgid "Prepare the launch_online_dp.py script on all nodes"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:310
+msgid "Startup scripts for each node"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:312
+msgid "P0 node:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:397
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:482
+msgid "**Items that need to be modified according to your environment:**"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:399
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:484
+msgid "`local_ip`: this machine's IP address"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:400
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:485
+msgid "`nic_name`: local NIC name"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:401
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:486
+msgid "Weight path"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:403
+msgid "D0 node:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:488
+msgid "Use the following commands to launch the service on each node:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:497
+msgid ""
+"Prepare the proxy script load_balance_proxy_server_example.py on the "
+"master node:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:499
+msgid ""
+"Obtain the proxy script from the vllm-ascend repository: "
+"[load_balance_proxy_server_example.py](https://github.com/vllm-project"
+"/vllm-"
+"ascend/blob/main/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py)"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:501
+msgid ""
+"Use the following script to start forwarding (modify the corresponding "
+"IP/port to the IP/port actually used when the service was started):"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:531
+msgid "4. Test Guide"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:533
+msgid "1. Test tool"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:535
+msgid ""
+"Install the following tool: https://github.com/rayn-"
+"zzz/aisbench_auto_tools_prefix"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:537
+msgid "2. No-prefix-cache-hit test"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:539
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:550
+msgid "Test commands:"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:548
+msgid "3. 90% prefix-cache-hit test"
+msgstr ""
+
+#: ../../source/user-guide/best-practices/GLM-5.1-A3_4Node_PD_Disaggregation.md:559
+msgid ""
+"Note: To ensure there is no cache interference between test runs, the "
+"cache must be cleared using the command `find /mnt/test -type f -delete`,"
+" where `/mnt/test` is the UCM cache address configured above."
+msgstr ""
+

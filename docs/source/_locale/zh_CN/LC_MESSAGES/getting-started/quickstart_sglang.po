@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting-started/quickstart_sglang.md:1
+msgid "Quickstart-SGLang"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:2
+msgid ""
+"This document describes how to install unified-cache-management with "
+"SGLang on cuda platform."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:4
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:5
+msgid "SGLang >= v0.5.9, device=cuda"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:7
+msgid "Step 1: UCM Installation"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:9
+msgid "We offer 3 options to install UCM."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:11
+msgid "Option 1: Setup from docker"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:13
+msgid "Official pre-built image"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:19
+msgid "Then run your container using following command."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:32
+msgid "Build image from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:33
+msgid ""
+"Download the pre-built `lmsysorg/sglang:v0.5.9` docker image and build "
+"unified-cache-management docker image by commands below:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:41
+msgid ""
+"The Dockerfile automatically invokes the build script "
+"(`scripts/build_sglang.sh`) to compile the wheel, installs from the built"
+" package, and applies the SGLang integration patch."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:43
+msgid "Build image from pre-built package"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:45
+msgid ""
+"If you have a pre-built tar package (e.g. from CI), extract it and build "
+"the image in `package` mode:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:53
+msgid "Option 2: Build from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:54
+#: ../../source/getting-started/quickstart_sglang.md:90
+msgid "Prepare SGLang Environment"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:56
+msgid ""
+"For the sake of environment isolation and simplicity, we recommend "
+"preparing the SGLang environment by pulling the official, pre-built "
+"SGLang Docker image."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:61
+msgid "Use the following command to run your own container:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:74
+msgid ""
+"Refer to [Using "
+"docker](https://docs.sglang.io/get_started/install.html#method-3-using-"
+"docker) for more information to run your own SGLang container."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:76
+msgid "Build from source code"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:78
+msgid "Follow commands below to install unified-cache-management:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:89
+msgid "Option 3: Install by pip"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:92
+msgid ""
+"It is recommended to use a pre-build SGLang docker image, please follow "
+"the guide in Option 2."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:94
+msgid "Install by pip"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:96
+msgid ""
+"Install by pip or find the pre-build wheels on "
+"[Pypi](https://pypi.org/project/uc-manager/)."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:101
+msgid "Step 2: Configuration"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:103
+msgid "Feature : Prefix Caching"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:105
+msgid ""
+"UCM configuration is passed to SGLang via `--hicache-storage-backend-"
+"extra-config` in JSON format:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:122
+msgid "Note: Replace `/mnt/test` with your actual storage directory."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:124
+msgid "Step 3: Launching Inference"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:129
+msgid ""
+"SGLang already provides an offline batch inference example. No UCM-"
+"specific code changes are required; just pass the same hierarchical cache"
+" flags as the server."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:159
+#: ../../source/getting-started/quickstart_sglang.md:199
+msgid ""
+"**⚠️ Make sure to replace `Qwen/Qwen2.5-14B-Instruct` with your actual "
+"model path or HF repo ID.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:161
+#: ../../source/getting-started/quickstart_sglang.md:201
+msgid ""
+"**⚠️ Make sure to replace `/mnt/test` (inside `HICACHE_CONFIG`) with your"
+" actual storage directory.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:168
+msgid "To start the SGLang server with the Qwen/Qwen2.5-14B-Instruct model, run:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:203
+msgid "If you see logs like:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_sglang.md:211
+msgid "Then you can interact with the API:"
+msgstr ""
+

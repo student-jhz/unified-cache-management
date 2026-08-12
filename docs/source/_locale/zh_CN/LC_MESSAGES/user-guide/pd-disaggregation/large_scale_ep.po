@@ -1,0 +1,315 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:1
+msgid "Large-Scale Expert Parallelism PD Disaggregation"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:3
+msgid ""
+"This section demonstrates PD disaggregation for MoE models with large-"
+"scale Expert Parallelism. MoE models require enabling data parallelism to"
+" distribute expert weights across multiple nodes."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:5
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:7
+msgid ""
+"vLLM-ascend: Refer to the [vLLM-ascend installation "
+"documentation](https://docs.vllm.ai/projects/ascend/en/latest/installation.html"
+"#set-up-using-docker)."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:8
+msgid "UCM: Installed with reference to the Installation documentation."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:9
+msgid ""
+"Mooncake: Mooncake is the serving platform for Kimi, a leading LLM "
+"service provided by Moonshot AI. Installation and Compilation Guide"
+":[kvcache-ai/Mooncake](https://github.com/kvcache-ai/Mooncake?tab=readme-"
+"ov-file#build-and-use-binaries). Starting from vLLM-ascend version "
+"0.11.0, Mooncake is pre-installed in the official vLLM-ascend image, so "
+"manual installation is no longer required."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:11
+msgid "Deployment Configuration"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:13
+msgid ""
+"**Prefill Instance**: 4 nodes (192.168.10.1-4), DP4TP8 (4 DP processes, "
+"each with TP8)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:14
+msgid ""
+"**Decode Instance**: 4 nodes (192.168.10.5-8), DP8TP4 (8 DP processes, "
+"each with TP4)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:15
+msgid "**Total**: 8 Atlas 800T A2 servers with 8 Ascend 910B3 NPU cards each"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:16
+msgid ""
+"**Storage**: 8 servers connected to AI storage device A800 via CE8875 "
+"switch"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:18
+msgid ""
+"**Note**: For external load balancing data parallelism, refer to the vLLM"
+" official documentation: [Data Parallel Deployment of external Load "
+"Balancing](https://docs.vllm.ai/en/latest/serving/data_parallel_deployment"
+"/#external-load-balancing)."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:20
+msgid "Deployment Steps"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:22
+msgid "Step 1: Run Mooncake Master Service"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:24
+msgid "Run Mooncake master on any node (e.g., 192.168.10.1):"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:34
+msgid "Prepare `mooncake.json` on all 8 nodes:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:46
+msgid "Step 2: Run Prefill Service (DP4TP8)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:48
+msgid ""
+"First, prepare a UCM configuration file (`ucm_config_example.yaml`) for "
+"prefix cache on Prefill nodes (192.168.10.1-4):"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:61
+msgid "Prepare `prefill.sh` on Prefill nodes (192.168.10.1-4):"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:139
+msgid "Prepare `run_multi_dp.sh` for Prefill nodes:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:173
+msgid ""
+"Execute `run_multi_dp.sh` on each Prefill node (192.168.10.1-4) with "
+"appropriate `local_ip` and `dp_rank_start`:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:174
+msgid "192.168.10.1: `dp_rank_start=0`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:175
+msgid "192.168.10.2: `dp_rank_start=1`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:176
+msgid "192.168.10.3: `dp_rank_start=2`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:177
+msgid "192.168.10.4: `dp_rank_start=3`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:179
+msgid "Step 3: Run Decode Service (DP8TP4)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:181
+msgid "Prepare `decode.sh` on Decode nodes (192.168.10.5-8):"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:244
+msgid "Prepare `run_multi_dp.sh` for Decode nodes:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:278
+msgid ""
+"Execute `run_multi_dp.sh` on each Decode node (192.168.10.5-8) with "
+"appropriate `local_ip` and `dp_rank_start`:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:279
+msgid "192.168.10.5: `dp_rank_start=0`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:280
+msgid "192.168.10.6: `dp_rank_start=2`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:281
+msgid "192.168.10.7: `dp_rank_start=4`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:282
+msgid "192.168.10.8: `dp_rank_start=6`"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:284
+msgid "Step 4: Run Load Balancing Service"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:296
+msgid "Benchmark Results"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:298
+msgid ""
+"The following benchmark demonstrates UCM prefix cache effectiveness in "
+"large-scale Expert Parallelism PD disaggregation scenarios."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:300
+msgid "Test Configuration"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:302
+msgid "Total requests: 128"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:303
+msgid "Request concurrency: 128"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:304
+msgid ""
+"Constraint: Total requests kept within Prefill instance's available HBM "
+"capacity for KV cache storage"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:306
+msgid "KV Cache Pre-seeding Procedure"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:308
+msgid ""
+"Before each test, KV cache must be pre-seeded with a prefix ratio of "
+"**0.8**:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:310
+msgid ""
+"**Pre-seed Phase**: Send 128 requests with input length = "
+"`target_input_length × 0.8` and output length = 1 to establish the KV "
+"cache prefix"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:311
+msgid ""
+"**Test Phase**: Send 128 requests with full target input length and "
+"output length = 1000"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:313
+msgid "Example for 32K input scenario:"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:314
+msgid ""
+"Pre-seed: 128 requests with 25600 (32K × 0.8) input tokens + 1 output "
+"token"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:315
+msgid "Test: 128 requests with 32000 input tokens + 1000 output tokens"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:317
+#, python-format
+msgid ""
+"This procedure ensures the prefix portion (80% of input) is cached before"
+" measuring performance, simulating real-world prefix reuse scenarios."
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:319
+msgid "Test Commands"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:351
+msgid "Test Scenarios"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "Scenario"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "Description"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "**Recalculation**"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "Baseline without UCM, HBM prefix cache disabled (full recomputation)"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "**HBM PC**"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "Without UCM, HBM prefix cache enabled"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "**UCM PC**"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md
+msgid "With UCM prefix cache enabled"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:359
+msgid "Performance Results"
+msgstr ""
+
+#: ../../source/user-guide/pd-disaggregation/large_scale_ep.md:425
+msgid ""
+"**Note**: Due to data parallelism, requests during the test phase may not"
+" be routed to the same DP process that was used for KV cache pre-seeding."
+" As a result, HBM PC achieves an actual cache hit rate lower than the "
+"intended 0.8. UCM addresses this limitation by storing all KV cache in "
+"shared external storage, ensuring that requests can hit cached data "
+"regardless of which DP process handles them. This guarantees a true cache"
+" hit rate equal to the pre-seeding ratio of 0.8, significantly reducing "
+"TTFT compared to HBM PC. The improved TTFT effectively increases Prefill "
+"instance throughput, thereby boosting the overall system throughput."
+msgstr ""
+

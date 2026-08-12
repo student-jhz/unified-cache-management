@@ -1,0 +1,350 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:1
+msgid "Quickstart-vLLM-Ascend"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:2
+msgid ""
+"This document describes how to install unified-cache-management with "
+"vllm-ascend on ascend platform."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:4
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:5
+msgid "vllm-ascend: >=v0.9.1 (vllm == 0.9.2 to use the Sparse Feature)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:7
+msgid ""
+"**Please refer to the [vLLM-Ascend Installation](https://vllm-"
+"ascend.readthedocs.io/en/latest/installation.html#requirements) guide to "
+"meet the required dependencies, and prepare the corresponding version of "
+"the vllm-ascend environment as needed.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:9
+msgid "Step 1: UCM Installation"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:11
+msgid "We offer 3 options to install UCM."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:13
+msgid "Option 1: Build from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:15
+msgid ""
+"1、Follow commands below to install unified-cache-management from source "
+"code: **Note:** The sparse module was not compiled by default. To enable "
+"it, set the environment variable `export ENABLE_SPARSE=TRUE` before you "
+"build."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:26
+msgid ""
+"**Note:** For the Atlas A3 series, the `PLATFORM` variable should be set "
+"to `ascend-a3`."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:28
+msgid "2、Apply vLLM and vLLM-Ascend Integration Patches"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:30
+msgid ""
+"To enable Unified Cache Management (UCM) integration, you need to apply "
+"patches to both vLLM and vLLM-Ascend source trees."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:32
+msgid "Option A: Monkey Patch (Recommended)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:34
+msgid ""
+"This method enables UCM features dynamically at runtime via environment "
+"variables, requiring no source code modifications. It automatically "
+"detects the vLLM version and applies patches only when needed — you can "
+"safely keep it enabled regardless of your vLLM version. Available for "
+"vLLM ≥ 0.11.0 (not supported on 0.9.2, which requires Manual Git Patch)."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:38
+msgid "Enable Monkey Patch:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:43
+msgid "Enable Sparse Attention (supported on v0.11.0):"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:48
+msgid ""
+"Option B: Manual Git Patch (Legacy/Alternative, only supported for v0.9.2"
+" and v0.11.0)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:50
+msgid "If you prefer modifying the source code directly, follow these steps:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:52
+msgid "**Step 1:** Apply the vLLM Patch"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:54
+msgid ""
+"First, apply the standard vLLM integration patch in the vLLM source "
+"directory:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:62
+msgid "**Step 2:** Apply the vLLM-Ascend Patch"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:64
+msgid ""
+"Then, switch to the vLLM-Ascend source directory and apply the Ascend-"
+"specific patch:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:72
+msgid ""
+"**Note:**     The ReRoPE algorithm is not supported on Ascend at the "
+"moment.     Only the standard UCM integration is applicable for vLLM-"
+"Ascend."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:77
+msgid "Option 2: Install by pip"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:78
+msgid ""
+"Install by pip or find the pre-build wheels on "
+"[Pypi](https://pypi.org/project/uc-manager/)."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:83
+msgid ""
+"**Note:** If installing via `pip install`, you need to manually add the "
+"`config.yaml` file, similar to `unified-cache-"
+"management/examples/ucm_config_example.yaml`, because PyPI packages do "
+"not include YAML files."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:85
+msgid "Option 3: Setup from docker"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:87
+msgid "Build image from source"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:88
+msgid ""
+"Check the `docker/` directory for available Dockerfile versions (e.g. "
+"`v0.20.2`, `v0.18.0`, `v0.17.0`, `v0.11.0`), then build with the desired "
+"version:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:94
+msgid "For vLLM-Ascend(v0.11.0) with sparse attention support:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:99
+msgid ""
+"The Dockerfile automatically invokes the build script "
+"(`scripts/build_ascend.sh`) to compile the wheel and installs from the "
+"built package."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:101
+msgid "Build image from pre-built package"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:103
+msgid ""
+"If you have a pre-built tar package (e.g. from CI), extract it and build "
+"the image in `package` mode:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:111
+msgid ""
+"vllm-ascend provides two variants: **Ubuntu** and **openEuler**. The "
+"Dockerfile uses the **Ubuntu** variant by default."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:114
+msgid ""
+"If you want to use the **openEuler** variant, override the base image "
+"with `--build-arg IMAGE_NAME_VERSION`:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:119
+msgid ""
+"Then run your container using following command. You can add or remove "
+"Docker parameters as needed."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:141
+msgid "Step 2: Configuration"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:143
+msgid "Features Overview"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:145
+msgid ""
+"UCM supports two key features: **Prefix Cache** and **Sparse attention**."
+" Each feature supports both **Offline Inference** and **Online API** "
+"modes. More details are available via the links"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:146
+msgid "[Prefix Cache](../user-guide/prefix-cache/index.md)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:147
+msgid "[GSA Sparsity](../user-guide/sparse-attention/gsa.md)"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:149
+msgid ""
+"For quick start, just follow the guide below to launch your own inference"
+" experience;"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:151
+msgid "Feature 1:  Prefix Caching"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:153
+msgid ""
+"You may directly edit the example file at `unified-cache-"
+"management/examples/ucm_config_example.yaml`. For more please refer to "
+"[Prefix Cache with NFS Store](../user-guide/prefix-cache/nfs_store.md) "
+"and [Prefix Cache with Pipeline Store](../user-guide/prefix-"
+"cache/pipeline_store.md) document."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:155
+msgid "⚠️ Make sure to replace `/mnt/test` with your actual storage directory."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:157
+msgid "Feature 2:  Sparsity"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:159
+msgid ""
+"The sparse module was not compiled by default. To enable it, set the "
+"environment variable `export ENABLE_SPARSE=TRUE` and re-compile the code "
+"you built. And uncomment `ucm_sparse_config` code block in `unified-"
+"cache-management/examples/ucm_config_example.yaml`. Additionally, if you "
+"want to run GSA, you also need to set the environment variable `export "
+"VLLM_HASH_ATTENTION=1`."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:161
+msgid "Step 3: Launching Inference"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:166
+msgid ""
+"In the `examples/` directory, you will find the `offline_inference.py` "
+"script used for offline inference. Before executing the script, locate "
+"line 25 and replace the `UCM_CONFIG_FILE` value with the path to your own"
+" configuration file."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:178
+msgid "Then run following commands:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:193
+msgid ""
+"For online inference, vLLM with our connector can also be deployed as a "
+"server that implements the OpenAI API protocol."
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:195
+msgid "To start the vLLM server with the Qwen/Qwen2.5-14B-Instruct model, run:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:215
+msgid ""
+"**⚠️ The parameter `--no-enable-prefix-caching` is for SSD performance "
+"testing, please remove it for production.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:217
+msgid ""
+"**⚠️ Make sure to replace `\"/workspace/unified-cache-"
+"management/examples/ucm_config_example.yaml\"` with your actual config "
+"file path.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:219
+msgid ""
+"**⚠️ The log files of UCM module will be put under `log` directory of the"
+" path you start vllm service. To use a custom log path, set `export "
+"UCM_LOG_PATH=my_log_dir`.**"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:222
+msgid "If you see log as below:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:230
+msgid "Congratulations, you have successfully started the vLLM server with UCM!"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:232
+msgid ""
+"After successfully started the vLLM server，You can interact with the API "
+"as following:"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:246
+msgid "Running with Other Models"
+msgstr ""
+
+#: ../../source/getting-started/quickstart_vllm_ascend.md:248
+msgid ""
+"To run UCM with other models, first check which models are supported in "
+"the [Support Matrix](../user-guide/support-matrix/support_matrix.md). "
+"Then refer to the official [vLLM Recipes](https://recipes.vllm.ai/) and "
+"[vLLM-Ascend Model "
+"Tutorials](https://docs.vllm.ai/projects/ascend/en/latest/tutorials/models/index.html)"
+" for the specific model's serving command and parameters. You only need "
+"to add the `--kv-transfer-config` argument as shown in the example above "
+"to enable UCM integration."
+msgstr ""
+

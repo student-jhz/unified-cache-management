@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:1
+msgid "Feature and Model Support Matrix"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:3
+msgid ""
+"This page provides an overview of UCM (Unified Cache Manager) "
+"compatibility across different models and inference frameworks. Use this "
+"matrix as a compatibility reference for model selection, deployment, and "
+"feature validation."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:6
+msgid "Legend 🧭"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Symbol"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Description"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "✅"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Fully supported"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "❌"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Not supported"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "🟡"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Not tested or verified"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:14
+msgid "Model Support and Feature Compatibility 🧩"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:16
+msgid "Prefix Cache Support"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:18
+msgid ""
+"This section presents prefix cache support for each model across the "
+"supported inference frameworks. This information serves as a reference "
+"for evaluating framework compatibility in deployments that require prefix"
+" cache."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Model"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "vLLM<br>(main)"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "vLLM-Ascend<br>(main)"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "SGLang<br>(main)"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "DeepSeek V3.2"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "DeepSeek R1"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "DeepSeek V3/3.1"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "DeepSeek V4 Pro"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "DeepSeek V4 Flash"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen3.6"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen3.5"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen3"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen3-Moe"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen3-Next"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Qwen2.5"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "GLM-5.2"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "GLM-5.1"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "GLM-5"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "GLM-4.x"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MiniMax-M2.5"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MiniMax-M2.7"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MiniMax-M3"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Kimi-K2.5"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:43
+msgid ""
+"**Note**: The table lists a selected set of representative models. See "
+"[**Prefix Cache**](../prefix-cache/index.md) for more details."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:46
+msgid "Inference Enhancement Features"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:48
+msgid ""
+"This section presents support information for inference enhancement "
+"features, including Sparse Attention, ReRoPE, and CacheBlend, across the "
+"listed models and framework versions."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "GsaOnDevice<br>vLLM / vLLM-Ascend 0.11.0"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "ReRoPE<br>vLLM 0.11.0"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "CacheBlend<br>vLLM 0.9.2"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:58
+msgid ""
+"**Note**: See [**Sparse Attention**](../sparse-attention/index.md) and "
+"[**ReRoPE**](../rerope/rerope.md) for more details."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:60
+msgid "Supported Compute Platforms and Devices"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:62
+msgid ""
+"This section presents the currently supported compute platforms and "
+"devices."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Compute Platform"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Vendor"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Device"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "CANN"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Ascend"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "910C, 910B"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "CUDA"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "NVIDIA"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "H100, H20, L40, L20"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MUSA"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "Mthreads"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "S5000"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MACA"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "MetaX"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md
+msgid "C500"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:71
+msgid "**Note**: The table shows only selected platforms."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:73
+msgid "Notes and Limitations 📌"
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:75
+msgid ""
+"This matrix is provided as a compatibility reference for the "
+"configurations listed on this page."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:76
+msgid ""
+"Actual behavior may vary depending on hardware, runtime settings, backend"
+" changes, and model variants."
+msgstr ""
+
+#: ../../source/user-guide/support-matrix/support_matrix.md:77
+msgid ""
+"This support matrix is continuously updated. **For the latest "
+"information, please refer to the GitHub issues and pull requests.**"
+msgstr ""
+

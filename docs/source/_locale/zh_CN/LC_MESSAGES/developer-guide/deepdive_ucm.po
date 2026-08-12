@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer-guide/deepdive_ucm.md:1
+msgid "Deep Dive into UCM"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:3
+msgid ""
+"To better understand the **architecture and design** of **Unified Cache "
+"Management (UCM)**, we recommend exploring the project on **DeepWiki**, "
+"an AI-powered tool for technical documentation."
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:5
+msgid "📖 DeepWiki Documentation"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:7
+msgid "**Explore UCM on DeepWiki:**"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:9
+msgid ""
+"👉 [https://deepwiki.com/ModelEngine-Group/unified-cache-"
+"management](https://deepwiki.com/ModelEngine-Group/unified-cache-"
+"management)"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:11
+msgid "DeepWiki provides a structured overview of the project, including:"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:13
+msgid "The overall architecture of UCM"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:14
+msgid "Responsibilities and interactions of core modules"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:15
+msgid "Key data structures and algorithms"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:16
+msgid "Source code explanations for important components"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:17
+msgid "The project’s directory structure and design principles"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:19
+msgid ""
+"Instead of duplicating all technical details in this documentation, "
+"DeepWiki serves as the central place for exploring UCM’s architecture and"
+" source code. It provides a developer-friendly view that connects "
+"architecture, modules, and implementation."
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:21
+msgid "If you want to:"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:23
+msgid "Understand the design philosophy behind UCM"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:24
+msgid "Explore how major components are implemented"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:25
+msgid "Navigate the project source code more efficiently"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:27
+msgid "We recommend starting with the DeepWiki page above."
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:29
+msgid "🤝 Contributing"
+msgstr ""
+
+#: ../../source/developer-guide/deepdive_ucm.md:31
+msgid ""
+"Interested in UCM? After exploring the documentation, you're welcome to "
+"contribute by opening issues or submitting pull requests."
+msgstr ""
+

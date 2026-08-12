@@ -1,0 +1,440 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Unified Cache Manager Team
+# This file is distributed under the same license as the Unified Cache
+# Manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Unified Cache Manager \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 23:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer-guide/extending_store.md:1
+msgid "Extending UCM Store"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:3
+msgid "📖 Overview"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:5
+msgid ""
+"In the Unified Cache Manager (UCM) architecture, the **Store component** "
+"handles:"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:7
+msgid "**Space Management**: Allocation and scaling of KV Cache storage"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:8
+msgid "**Persistence**: Durable storage and recovery of KV Cache data"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:9
+msgid "**Tiered Transfer**: Efficient data movement between storage hierarchies"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:10
+msgid ""
+"**Data Processing**: Quantization, compression, and encoding "
+"transformations"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:12
+msgid "Built-in Store Ecosystem"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:14
+msgid ""
+"UCM provides production-ready Store implementations with the following "
+"dependency architecture:"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:16
+msgid "![ucmstore](../_static/images/ucm_store_architecture.png)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:16
+msgid "ucmstore"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:18
+msgid "Extension Options"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:20
+msgid "Beyond built-in Stores, UCM supports three extension patterns:"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Method"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Implementation"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Performance"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Use Case"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Rating"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Reference Implementation"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "**Pure Python**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Python only"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐⭐☆☆"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Prototyping, algorithm validation"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "`UcmMooncakeStore`"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "**Python/C++ Hybrid**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Python + C++"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐⭐⭐☆"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Complex logic with performance-critical paths"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐⭐"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "`UcmPCStore`"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "**Pure C++**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "C++ only"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐⭐⭐⭐"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Production, high-performance scenarios"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "`UC::CacheStore::CacheStore`"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:30
+msgid "🔧 Pure Python Extension"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:32
+msgid ""
+"For rapid prototyping and algorithm validation where development speed "
+"outweighs runtime performance."
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:34
+#: ../../source/developer-guide/extending_store.md:119
+#: ../../source/developer-guide/extending_store.md:189
+msgid "Implementation Steps"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:36
+msgid "**Inherit the base class**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:45
+msgid "**Implement required methods**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:85
+msgid ""
+"**Note**: Full interface specifications are in "
+"[`ucm/store/ucmstore_v1.py`](https://github.com/ModelEngine-Group"
+"/unified-cache-management/blob/develop/ucm/store/ucmstore_v1.py)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:87
+msgid "**Register your Store**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:97
+msgid ""
+"⚠️ **Performance Warning**: Python implementations are GIL-bound and "
+"unsuitable for high-throughput scenarios. Use only for development and "
+"testing."
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:101
+msgid "⚡ Hybrid Python/C++ Extension"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:103
+msgid ""
+"Best for balancing productivity with performance—implement hot paths in "
+"C++, orchestrate with Python."
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:105
+msgid "Architecture"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:121
+msgid "**Implement C++ core** (`hybrid_store.cc`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:146
+#: ../../source/developer-guide/extending_store.md:216
+msgid ""
+"**Note**: Full interface specifications are in "
+"[`ucm/store/ucmstore_v1.h`](https://github.com/ModelEngine-Group/unified-"
+"cache-management/blob/develop/ucm/store/ucmstore_v1.h)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:148
+msgid "**Create Python bindings** (`hybrid_store.cpy.cc`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:161
+msgid "**Python wrapper layer**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:179
+msgid "🚀 Pure C++ Extension (Recommended)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:181
+msgid ""
+"Production-ready implementation with maximum performance and resource "
+"control."
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:183
+msgid "Why C++?"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:185
+msgid ""
+"**Zero-overhead abstraction**: Direct memory access, no Python runtime "
+"overhead"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:186
+msgid "**Full resource control**: Explicit memory management and threading"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:187
+msgid "**Seamless integration**: Stackable and chainable with built-in Stores"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:191
+msgid "**Define header** (`custom_store.h`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:218
+msgid "**Expose factory function** (`custom_store.cc`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:223
+msgid "**CMake configuration** (`CMakeLists.txt`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:234
+msgid "**Dynamic registration** (`custom_store.py`)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:244
+msgid "**YAML configuration**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:253
+msgid "Best Practices"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:255
+msgid ""
+"✅ **Memory Management**: Use UCM smart pointers and memory pools—avoid "
+"raw `new`/`delete`"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:256
+msgid ""
+"✅ **Exception Safety**: Return `UC::Status` objects instead of throwing "
+"exceptions"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:257
+msgid ""
+"✅ **Thread Safety**: Implementations must be thread-safe; UCM calls from "
+"multiple threads concurrently"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:258
+msgid "✅ **Performance**: Annotate hot paths with `UCM_PROFILER_SCOPE`"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:262
+msgid "🎯 Quick Decision Guide"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:264
+msgid "**Decision Matrix**"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Requirement"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Pure Python"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Hybrid"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Pure C++"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Development speed"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⭐⭐⭐⭐"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Runtime performance"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Threading support"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "❌"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "⚠️"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "✅"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md
+msgid "Production ready"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:275
+msgid "✅ Pre-implementation Checklist"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:277
+msgid ""
+"[ ] Reviewed [`ucm/store/ucmstore_v1.h`](https://github.com/ModelEngine-"
+"Group/unified-cache-management/blob/develop/ucm/store/ucmstore_v1.h)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:278
+msgid ""
+"[ ] Reviewed [`ucm/store/ucmstore_v1.py`](https://github.com/ModelEngine-"
+"Group/unified-cache-management/blob/develop/ucm/store/ucmstore_v1.py)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:279
+msgid "[ ] Defined supported data types and compression algorithms"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:280
+msgid "[ ] Estimated target QPS and latency SLOs"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:281
+msgid ""
+"[ ] Prepared unit tests (reference: "
+"[`ucm/store/test/`](https://github.com/ModelEngine-Group/unified-cache-"
+"management/tree/develop/ucm/store/test))"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:282
+msgid "[ ] Selected extension method based on performance requirements"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:283
+msgid "[ ] Created stub implementation and validated registration"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:287
+msgid "🤝 Getting Help"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:289
+msgid ""
+"**Issues**: [Report bugs](https://github.com/ModelEngine-Group/unified-"
+"cache-management/issues)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:290
+msgid ""
+"**Examples**: See [`ucm/store/test/e2e`](https://github.com/ModelEngine-"
+"Group/unified-cache-management/tree/develop/ucm/store/test/e2e)"
+msgstr ""
+
+#: ../../source/developer-guide/extending_store.md:294
+msgid ""
+"**Next Steps**: Once your Store is implemented, see [Prefix Cache "
+"Guide](https://ucm.readthedocs.io/en/latest/user-guide/prefix-"
+"cache/index.html) for pipeline configuration."
+msgstr ""
+
