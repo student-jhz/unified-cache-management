@@ -198,27 +198,30 @@ msgstr ""
 
 #: ../../source/developer-guide/contribute.md:52
 msgid "Step 4: Run Lint Checks"
-msgstr ""
+msgstr "第 4 步：运行 Lint 检查"
 
 #: ../../source/developer-guide/contribute.md:54
 msgid "**UCM adheres to standard style conventions:**"
-msgstr ""
+msgstr "**UCM 遵循标准样式约定：**"
 
 #: ../../source/developer-guide/contribute.md:56
 msgid "Python code: [PEP 8](https://peps.python.org/pep-0008/)"
-msgstr ""
+msgstr "Python 代码：[PEP 8](https://peps.python.org/pep-0008/)"
 
 #: ../../source/developer-guide/contribute.md:57
 msgid ""
 "C++ code: [Google C++ Style "
 "Guide](https://google.github.io/styleguide/cppguide.html)"
 msgstr ""
+"C++ 代码：[Google C++ 样式"
+"指南](https://google.github.io/styleguide/cppguide.html)"
 
 #: ../../source/developer-guide/contribute.md:59
 msgid ""
 "**The following tools help keep the codebase clean and consistently "
 "formatted:**"
 msgstr ""
+"**以下工具有助于保持代码库整洁且格式一致：**"
 
 #: ../../source/developer-guide/contribute.md:61
 msgid ""
@@ -226,108 +229,122 @@ msgid ""
 "[black](https://black.readthedocs.io/en/stable/the_black_code_style) and "
 "[isort](https://pycqa.github.io/isort/)"
 msgstr ""
+"Python 的 lint 与格式化："
+"[black](https://black.readthedocs.io/en/stable/the_black_code_style) 和 "
+"[isort](https://pycqa.github.io/isort/)"
 
 #: ../../source/developer-guide/contribute.md:62
 msgid ""
 "Spell checking: [codespell](https://github.com/codespell-"
 "project/codespell)"
 msgstr ""
+"拼写检查：[codespell](https://github.com/codespell-project/codespell)"
 
 #: ../../source/developer-guide/contribute.md:63
 msgid ""
 "C++ formatting: [clang-"
 "format](https://clang.llvm.org/docs/ClangFormat.html)"
 msgstr ""
+"C++ 格式化：[clang-"
+"format](https://clang.llvm.org/docs/ClangFormat.html)"
 
 #: ../../source/developer-guide/contribute.md:65
 msgid ""
 "It’s recommended to set up a local development environment and run the "
 "linter before submitting a PR to help ensure consistent code style."
 msgstr ""
+"建议在提交 PR 之前搭建本地开发环境并运行 linter，以帮助确保代码风格一致。"
 
 #: ../../source/developer-guide/contribute.md:67
 msgid "**Run lint locally:** run code style checks and fix any issues."
-msgstr ""
+msgstr "**在本地运行 lint：** 运行代码样式检查并修复任何问题。"
 
 #: ../../source/developer-guide/contribute.md:89
 msgid "Step 5: Open a Pull Request (PR)"
-msgstr ""
+msgstr "第 5 步：提交 Pull Request (PR)"
 
 #: ../../source/developer-guide/contribute.md:91
 msgid ""
 "Push your changes to your fork and open a PR in the main repository. "
 "Include:"
 msgstr ""
+"将您的更改推送到您的 fork，并在主仓库中提交 PR。内容应包括："
 
 #: ../../source/developer-guide/contribute.md:93
 msgid "A **clear title** and **description** of your changes."
-msgstr ""
+msgstr "您更改的**清晰的标题**和**描述**。"
 
 #: ../../source/developer-guide/contribute.md:94
 msgid "A reference to the related issue."
-msgstr ""
+msgstr "对相关 issue 的引用。"
 
 #: ../../source/developer-guide/contribute.md:95
 msgid "Any additional context or screenshots."
-msgstr ""
+msgstr "任何额外的上下文或截图。"
 
 #: ../../source/developer-guide/contribute.md:97
 msgid ""
 "The PR title is prefixed appropriately to indicate the type of change, "
 "according to the following categories:"
 msgstr ""
+"PR 标题应根据以下类别添加适当的前缀，以标明更改的类型："
 
 #: ../../source/developer-guide/contribute.md:99
 msgid ""
 "💡 **Reminder:** If your PR spans multiple categories, include all "
 "relevant prefixes (e.g., `[Feat][Test]`)."
 msgstr ""
+"💡 **提醒：** 如果您的 PR 涉及多个类别，请包含所有相关前缀（例如 `[Feat][Test]`）。"
 
 #: ../../source/developer-guide/contribute.md:101
 msgid "[Feat] for new features or enhancements"
-msgstr ""
+msgstr "[Feat] 用于新功能或增强"
 
 #: ../../source/developer-guide/contribute.md:102
 msgid "[Bugfix] for bug fixes"
-msgstr ""
+msgstr "[Bugfix] 用于缺陷修复"
 
 #: ../../source/developer-guide/contribute.md:103
 msgid ""
 "[Opt] for code optimizations that improve performance, efficiency, or "
 "resource usage without changing functionality"
 msgstr ""
+"[Opt] 用于在不改变功能的前提下优化性能、效率或资源使用的代码优化"
 
 #: ../../source/developer-guide/contribute.md:104
 msgid ""
 "[Build] for build system changes, dependency updates, or tooling "
 "improvements"
 msgstr ""
+"[Build] 用于构建系统更改、依赖更新或工具改进"
 
 #: ../../source/developer-guide/contribute.md:105
 msgid "[CI] for continuous integration configuration and workflow updates"
-msgstr ""
+msgstr "[CI] 用于持续集成配置和工作流更新"
 
 #: ../../source/developer-guide/contribute.md:106
 msgid "[Doc] for documentation improvements or corrections"
-msgstr ""
+msgstr "[Doc] 用于文档改进或更正"
 
 #: ../../source/developer-guide/contribute.md:107
 msgid "[Test] for adding, updating, or refactoring tests"
-msgstr ""
+msgstr "[Test] 用于添加、更新或重构测试"
 
 #: ../../source/developer-guide/contribute.md:108
 msgid "[Misc] for PRs that do not fit other categories — please use sparingly"
-msgstr ""
+msgstr "[Misc] 用于不适合其他类别的 PR——请谨慎使用"
 
 #: ../../source/developer-guide/contribute.md:110
 msgid "Step 6: Code Review Process"
-msgstr ""
+msgstr "第 6 步：代码审查流程"
 
 #: ../../source/developer-guide/contribute.md:112
 msgid ""
 "All pull requests targeting protected branches (e.g., `develop;release`) "
 "must adhere to the following review policy:"
 msgstr ""
+"所有针对受保护分支（例如 `develop;release`）的 pull request 都必须遵守以下"
+"审查策略："
 
 #: ../../source/developer-guide/contribute.md:114
 msgid ""
@@ -336,6 +353,9 @@ msgid ""
 "approve your own pull request, and approval from at least one designated "
 "code owner is mandatory."
 msgstr ""
+"**必须获得 Code Owner 的批准**：Pull requests 会根据更改的文件自动请求相关"
+"code owner 的审查。您不能批准自己的 pull request，并且必须至少获得一位指定的"
+"code owner 的批准。"
 
 #: ../../source/developer-guide/contribute.md:115
 msgid ""
@@ -343,18 +363,23 @@ msgid ""
 "review beyond the author, including validation from maintainers or "
 "experienced contributors familiar with the affected code."
 msgstr ""
+"**额外的批准**：Pull request 必须在作者之外获得足够的同行审查，包括来自熟悉"
+"相关代码的维护者或有经验的贡献者的验证。"
 
 #: ../../source/developer-guide/contribute.md:116
 msgid ""
 "**Passing CI Checks**: All continuous integration checks—including "
 "linting, unit tests, and builds—must pass before merging."
 msgstr ""
+"**通过 CI 检查**：合并前，所有持续集成检查——包括 lint、单元测试和构建——"
+"都必须通过。"
 
 #: ../../source/developer-guide/contribute.md:117
 msgid ""
 "**No Bypassing**: Direct pushes to protected branches are disabled, and "
 "force merges or self-approvals are not permitted."
 msgstr ""
+"**禁止绕过**：禁止直接推送到受保护分支，也不允许强制合并或自我批准。"
 
 #: ../../source/developer-guide/contribute.md:119
 msgid ""

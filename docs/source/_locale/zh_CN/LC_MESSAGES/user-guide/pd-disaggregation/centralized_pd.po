@@ -4,14 +4,13 @@
 # Manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
+"Last-Translator: UCM zh_CN Team <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,11 +21,11 @@ msgstr ""
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:1
 msgid "Centralized PD Disaggregation"
-msgstr ""
+msgstr "集中式 PD 分离"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:3
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:4
 msgid ""
@@ -38,10 +37,14 @@ msgid ""
 "device to the GPU via UCM. No P2P communication is required between "
 "Prefill and Decode instances."
 msgstr ""
+"PD 分离可通过两种架构实现：集中式和分布式。本文档演示如何使用 UCM 运行集中式 "
+"PD 分离。在集中式实现中，Prefill 实例通过 UCM 将 KV 缓存存储到所有计算节点"
+"可访问的存储设备上，而 Decode 实例通过 UCM 从该存储设备将 KV 缓存加载到 "
+"GPU。Prefill 与 Decode 实例之间无需 P2P 通信。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:6
 msgid "1p1d"
-msgstr ""
+msgstr "1p1d"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:8
 msgid ""
@@ -49,22 +52,24 @@ msgid ""
 "disaggregated prefill using PipelineStore on a single node with a 1 "
 "prefiller + 1 decoder setup."
 msgstr ""
+"本示例演示如何在单节点上以 1 个 prefiller + 1 个 decoder 的配置，使用 "
+"PipelineStore 运行 unified-cache-management，实现分离式 prefill。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:10
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:126
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:218
 msgid "Prerequisites"
-msgstr ""
+msgstr "前置条件"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:11
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:127
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:219
 msgid "UCM: Installed with reference to the Installation documentation."
-msgstr ""
+msgstr "UCM：参照安装文档进行安装。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:12
 msgid "Hardware: At least 2 GPUs or 2 NPUs"
-msgstr ""
+msgstr "硬件：至少 2 块 GPU 或 2 块 NPU"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:13
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:129
@@ -73,26 +78,29 @@ msgid ""
 "File System: When Prefill and Decode instances run on different nodes, "
 "all nodes must mount the same shared file system (e.g., NFS)"
 msgstr ""
+"文件系统：当 Prefill 与 Decode 实例运行在不同节点上时，所有节点必须挂载同一个"
+"共享文件系统（例如 NFS）"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:15
 msgid "Prepare UCM Configuration File"
-msgstr ""
+msgstr "准备 UCM 配置文件"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:17
 msgid ""
 "Create a UCM configuration file (e.g., `ucm_config_example.yaml`) with "
 "PipelineStore:"
-msgstr ""
+msgstr "创建一个包含 PipelineStore 的 UCM 配置文件（例如 `ucm_config_example.yaml`）："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:30
 msgid "Key configuration parameters:"
-msgstr ""
+msgstr "关键配置参数："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:31
 msgid ""
 "**storage_backends**: The shared storage directory accessible from all "
 "nodes (e.g., NFS-mounted path)."
 msgstr ""
+"**storage_backends**：所有节点均可访问的共享存储目录（例如 NFS 挂载路径）。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:33
 msgid ""
@@ -100,12 +108,14 @@ msgid ""
 "Documentation](https://ucm.readthedocs.io/en/latest/user-guide/prefix-"
 "cache/pipeline_store.html)."
 msgstr ""
+"**注意**：更多配置选项请参阅 [UCM PipelineStore 文档](https://ucm.readthedocs.io/en/latest/user-guide/prefix-"
+"cache/pipeline_store.html)。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:35
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:131
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:223
 msgid "Start disaggregated service"
-msgstr ""
+msgstr "启动分离服务"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:36
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:224
@@ -115,71 +125,74 @@ msgid ""
 " of CUDA_VISIBLE_DEVICES to specify visible devices when starting service"
 " on Ascend platform."
 msgstr ""
+"为便于说明，我们以 GPU 为例，并假设使用的模型是 Qwen2.5-7B-Instruct。在 "
+"Ascend 平台启动服务时，请使用 ASCEND_RT_VISIBLE_DEVICES 而不是 "
+"CUDA_VISIBLE_DEVICES 来指定可见设备。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:38
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:134
 msgid "Run prefill server"
-msgstr ""
+msgstr "运行 prefill 服务器"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:39
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:135
 msgid "Prefiller Launch Command:"
-msgstr ""
+msgstr "Prefiller 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:58
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:155
 msgid "Run decode server"
-msgstr ""
+msgstr "运行 decode 服务器"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:59
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:156
 msgid "Decoder Launch Command:"
-msgstr ""
+msgstr "Decoder 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:78
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:176
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:307
 msgid "Run proxy server"
-msgstr ""
+msgstr "运行代理服务器"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:79
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:177
 msgid "Make sure prefill nodes and decode nodes can connect to each other."
-msgstr ""
+msgstr "确保 prefill 节点与 decode 节点能够相互连通。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:85
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:183
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:314
 msgid "Testing and Benchmarking"
-msgstr ""
+msgstr "测试与基准测试"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:86
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:184
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:315
 msgid "Basic Test"
-msgstr ""
+msgstr "基本测试"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:87
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:185
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:316
 msgid "After running all servers , you can test with a simple curl command:"
-msgstr ""
+msgstr "运行完所有服务器后，可以使用简单的 curl 命令进行测试："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:98
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:196
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:327
 msgid "Benchmark Test"
-msgstr ""
+msgstr "基准测试"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:99
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:197
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:328
 msgid "Use the benchmark scripts provided by vLLM."
-msgstr ""
+msgstr "使用 vLLM 提供的基准测试脚本。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:116
 msgid "1p1d with Different Platforms"
-msgstr ""
+msgstr "不同平台上的 1p1d"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:118
 msgid ""
@@ -187,18 +200,21 @@ msgid ""
 "disaggregated prefill using PipelineStore on different platforms, with a "
 "setup of one prefiller node and one decoder node."
 msgstr ""
+"本文档演示如何在不同的平台上，以一个 prefiller 节点和一个 decoder 节点的配"
+"置，使用 PipelineStore 运行 unified-cache-management，实现分离式 prefill。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:120
 msgid ""
 "If you need additional nodes to support your PD-disaggregation system, "
 "please refer to the [XpYd](#xpYd) documentation."
 msgstr ""
+"如果需要更多节点来支持您的 PD 分离系统，请参阅 [XpYd](#xpYd) 文档。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:122
 msgid ""
 "When deploying your disaggregated PD system, please ensure the following "
 "needs:"
-msgstr ""
+msgstr "在部署 PD 分离系统时，请确保满足以下需求："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:123
 msgid ""
@@ -206,16 +222,19 @@ msgid ""
 "`CUDA_VISIBLE_DEVICES` to specify visible devices when starting service "
 "on Ascend platform."
 msgstr ""
+"环境变量：在 Ascend 平台启动服务时，使用 `ASCEND_RT_VISIBLE_DEVICES` 而不是"
+"`CUDA_VISIBLE_DEVICES` 来指定可见设备。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:124
 msgid ""
 "Data Type Consistency: All vLLM service instances must be configured with"
 " the same data type (`dtype`)."
 msgstr ""
+"数据类型一致性：所有 vLLM 服务实例必须配置为相同的数据类型（`dtype`）。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:128
 msgid "Hardware: At least 1 GPU and 1 NPU"
-msgstr ""
+msgstr "硬件：至少 1 块 GPU 和 1 块 NPU"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:132
 msgid ""
@@ -223,10 +242,12 @@ msgid ""
 "-7B-Instruct and the prefill platform is ascend while decode platform is "
 "cuda."
 msgstr ""
+"为便于说明，我们假设使用的模型是 Qwen2.5-7B-Instruct，其中 prefill 平台为 "
+"ascend，decode 平台为 cuda。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:214
 msgid "XpYd"
-msgstr ""
+msgstr "XpYd"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:216
 msgid ""
@@ -234,36 +255,40 @@ msgid ""
 "disaggregated prefill using PipelineStore on with multiple prefiller + "
 "multiple decoder instances."
 msgstr ""
+"本示例演示如何使用 PipelineStore，在多个 prefiller + 多个 decoder 实例的配"
+"置下运行 unified-cache-management，实现分离式 prefill。"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:220
 msgid ""
 "Hardware: At least 4 GPUs (At least 2 GPUs for prefiller + 2 for decoder "
 "in 2d2p setup or 2 NPUs for prefiller + 2 for decoder in 2d2p setup)"
 msgstr ""
+"硬件：至少 4 块 GPU（在 2d2p 配置下，至少 2 块 GPU 用于 prefiller + 2 块用于 "
+"decoder；或至少 2 块 NPU 用于 prefiller + 2 块用于 decoder）"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:226
 msgid "Run prefill servers"
-msgstr ""
+msgstr "运行 prefill 服务器"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:227
 msgid "Prefiller1 Launch Command:"
-msgstr ""
+msgstr "Prefiller1 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:246
 msgid "Prefiller2 Launch Command:"
-msgstr ""
+msgstr "Prefiller2 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:265
 msgid "Run decode servers"
-msgstr ""
+msgstr "运行 decode 服务器"
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:266
 msgid "Decoder1 Launch Command:"
-msgstr ""
+msgstr "Decoder1 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:286
 msgid "Decoder2 Launch Command:"
-msgstr ""
+msgstr "Decoder2 启动命令："
 
 #: ../../source/user-guide/pd-disaggregation/centralized_pd.md:308
 msgid ""
@@ -271,4 +296,6 @@ msgid ""
 "number of prefill/decode hosts should be equal to the number of "
 "prefill/decode ports."
 msgstr ""
+"确保 prefill 节点与 decode 节点能够相互连通。prefill/decode 主机数量应与 "
+"prefill/decode 端口数量保持一致。"
 

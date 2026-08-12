@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Unified Cache Manager \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-12 23:32+0800\n"
-"PO-Revision-Date: 2026-08-13 +0800\n"
+"PO-Revision-Date: 2026-08-13 00:00+0800\n"
 "Last-Translator: UCM zh_CN <zh_CN@unified-cache-manager.org>\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
@@ -215,57 +215,58 @@ msgstr "产生该指标的 vLLM 引擎；用于区分同一服务中的 DP 实�
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`engine-0`"
-msgstr ""
+msgstr "`engine-0`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`worker_rank`"
-msgstr ""
+msgstr "`worker_rank`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid ""
 "UCM process that produced the metric, corresponding to a TP instance; "
 "workers use their distributed rank and the scheduler uses `scheduler`"
-msgstr ""
+msgstr "产生该指标的 UCM 进程，对应一个 TP 实例；worker 使用其分布式 rank，"
+"scheduler 使用 `scheduler`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`0`, `1`, `scheduler`"
-msgstr ""
+msgstr "`0`, `1`, `scheduler`"
 
 #: ../../source/user-guide/metrics/metrics.md:103
 msgid "For example:"
-msgstr ""
+msgstr "例如："
 
 #: ../../source/user-guide/metrics/metrics.md:109
 msgid "Prometheus adds the following target labels when it scrapes the endpoint:"
-msgstr ""
+msgstr "Prometheus 在抓取端点时会添加以下目标标签："
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Source"
-msgstr ""
+msgstr "来源"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`job`"
-msgstr ""
+msgstr "`job`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`job_name` in `prometheus.yml`"
-msgstr ""
+msgstr "`prometheus.yml` 中的 `job_name`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Scrape job name; `vllm` in this guide"
-msgstr ""
+msgstr "抓取作业名称；本指南中为 `vllm`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "`instance`"
-msgstr ""
+msgstr "`instance`"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Prometheus scrape target"
-msgstr ""
+msgstr "Prometheus 抓取目标"
 
 #: ../../source/user-guide/metrics/metrics.md:15
 msgid "Scraped vLLM address and port, such as `10.0.0.8:8000`"
-msgstr ""
+msgstr "被抓取的 vLLM 地址和端口，例如 `10.0.0.8:8000`"
 
 #: ../../source/user-guide/metrics/metrics.md:116
 msgid ""
@@ -274,10 +275,13 @@ msgid ""
 "carry the `le` label, which represents the bucket upper bound and is not "
 "a UCM business label."
 msgstr ""
+"由于 Prometheus 会添加 `job` 和 `instance`，它们通常不会出现在 `curl /metrics` "
+"的原始输出中。Histogram 的 `_bucket` 序列还会带有 `le` 标签，它表示分桶的上界，"
+"并不是 UCM 的业务标签。"
 
 #: ../../source/user-guide/metrics/metrics.md:118
 msgid "3. Prometheus and Grafana"
-msgstr ""
+msgstr "3. Prometheus 与 Grafana"
 
 #: ../../source/user-guide/metrics/metrics.md:120
 msgid ""
@@ -286,10 +290,13 @@ msgid ""
 "historical time-series data, and provides a query interface. Grafana "
 "queries Prometheus and displays the metrics as dashboards."
 msgstr ""
+"Prometheus 和 Grafana 是观测 UCM 的推荐组合。Prometheus 周期性地抓取 vLLM 的"
+"指标端点，存储历史时序数据，并提供查询接口。Grafana 查询 Prometheus 并将指标以"
+"仪表盘的形式展示。"
 
 #: ../../source/user-guide/metrics/metrics.md:122
 msgid "3.1 Install and Configure Prometheus"
-msgstr ""
+msgstr "3.1 安装并配置 Prometheus"
 
 #: ../../source/user-guide/metrics/metrics.md:124
 msgid ""
@@ -297,6 +304,8 @@ msgid ""
 "scrape job is needed for UCM because both vLLM and UCM metrics are "
 "exposed through the same endpoint."
 msgstr ""
+"如果 Prometheus 已经在抓取 vLLM 的 `/metrics` 端点，则无需为 UCM 增加额外的抓取作业，"
+"因为 vLLM 和 UCM 的指标都是通过同一个端点暴露的。"
 
 #: ../../source/user-guide/metrics/metrics.md:126
 msgid ""
@@ -304,12 +313,15 @@ msgid ""
 "installation methods, see the [Prometheus installation "
 "documentation](https://prometheus.io/docs/prometheus/latest/installation/)."
 msgstr ""
+"以下示例使用 Docker 安装 Prometheus。其他安装方式请参见 [Prometheus 安装文档]"
+"(https://prometheus.io/docs/prometheus/latest/installation/)。"
 
 #: ../../source/user-guide/metrics/metrics.md:128
 msgid ""
 "Create `prometheus.yml` and configure Prometheus to scrape the vLLM "
 "service:"
 msgstr ""
+"创建 `prometheus.yml` 并配置 Prometheus 抓取 vLLM 服务："
 
 #: ../../source/user-guide/metrics/metrics.md:143
 msgid ""
@@ -318,14 +330,17 @@ msgid ""
 " vLLM runs on the host, use the host's actual IP address. Docker Desktop "
 "users can also use `host.docker.internal:8000`."
 msgstr ""
+"将 `<vllm-ip>:8000` 替换为可从 Prometheus 容器访问的地址和端口。不要使用容器自身的 "
+"`127.0.0.1:8000`。如果 vLLM 运行在宿主机上，请使用宿主机的实际 IP 地址。Docker "
+"Desktop 用户也可以使用 `host.docker.internal:8000`。"
 
 #: ../../source/user-guide/metrics/metrics.md:145
 msgid "Create a network and a persistent Prometheus volume:"
-msgstr ""
+msgstr "创建一个网络和一个持久化的 Prometheus 卷："
 
 #: ../../source/user-guide/metrics/metrics.md:152
 msgid "From the directory containing `prometheus.yml`, start Prometheus:"
-msgstr ""
+msgstr "在包含 `prometheus.yml` 的目录中启动 Prometheus："
 
 #: ../../source/user-guide/metrics/metrics.md:165
 msgid ""
@@ -333,10 +348,12 @@ msgid ""
 "target is **UP**. Then search for `vllm:` and `ucm:` on the Prometheus "
 "query page to verify that both metric families are available."
 msgstr ""
+"打开 `http://<prometheus-ip>:9090/targets`，验证 `vllm` 目标为 **UP**。然后在 "
+"Prometheus 查询页面上搜索 `vllm:` 和 `ucm:`，以确认这两个指标族都可用。"
 
 #: ../../source/user-guide/metrics/metrics.md:167
 msgid "3.2 Install Grafana"
-msgstr ""
+msgstr "3.2 安装 Grafana"
 
 #: ../../source/user-guide/metrics/metrics.md:169
 msgid ""
@@ -345,30 +362,36 @@ msgid ""
 "documentation](https://grafana.com/docs/grafana/latest/setup-"
 "grafana/installation/)."
 msgstr ""
+"以下示例使用官方的 Grafana Docker 镜像。其他安装方式请参见 [Grafana 安装文档]"
+"(https://grafana.com/docs/grafana/latest/setup-grafana/installation/)。"
 
 #: ../../source/user-guide/metrics/metrics.md:171
 msgid "Create a persistent volume and start Grafana:"
-msgstr ""
+msgstr "创建一个持久化卷并启动 Grafana："
 
 #: ../../source/user-guide/metrics/metrics.md:185
 msgid ""
 "Open `http://<grafana-ip>:3000`. On the first login, use `admin` for both"
 " the username and password, then change the password when prompted."
 msgstr ""
+"打开 `http://<grafana-ip>:3000`。首次登录时，用户名和密码都使用 `admin`，然后根据"
+"提示修改密码。"
 
 #: ../../source/user-guide/metrics/metrics.md:187
 msgid "3.3 Add the Prometheus Data Source"
-msgstr ""
+msgstr "3.3 添加 Prometheus 数据源"
 
 #: ../../source/user-guide/metrics/metrics.md:189
 msgid ""
 "In Grafana, go to **Connections** → **Add new connection**, search for "
 "**Prometheus**, and configure:"
 msgstr ""
+"在 Grafana 中，进入 **Connections** → **Add new connection**，搜索 **Prometheus**，"
+"并进行如下配置："
 
 #: ../../source/user-guide/metrics/metrics.md:191
 msgid "Prometheus server URL: `http://prometheus:9090`"
-msgstr ""
+msgstr "Prometheus 服务器 URL：`http://prometheus:9090`"
 
 #: ../../source/user-guide/metrics/metrics.md:192
 msgid ""

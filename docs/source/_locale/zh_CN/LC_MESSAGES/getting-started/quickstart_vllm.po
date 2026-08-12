@@ -223,21 +223,21 @@ msgstr "vLLM 0.9.2"
 #: ../../source/getting-started/quickstart_vllm.md:134
 #: ../../source/getting-started/quickstart_vllm.md:151
 msgid "Full UCM integration (recommended):"
-msgstr ""
+msgstr "完整的 UCM 集成（推荐）："
 
 #: ../../source/getting-started/quickstart_vllm.md:139
 #: ../../source/getting-started/quickstart_vllm.md:156
 msgid "Sparse attention only:"
-msgstr ""
+msgstr "仅稀疏注意力："
 
 #: ../../source/getting-started/quickstart_vllm.md:144
 #: ../../source/getting-started/quickstart_vllm.md:161
 msgid "ReRoPE support only:"
-msgstr ""
+msgstr "仅 ReRoPE 支持："
 
 #: ../../source/getting-started/quickstart_vllm.md:149
 msgid "vLLM 0.11.0"
-msgstr ""
+msgstr "vLLM 0.11.0"
 
 #: ../../source/getting-started/quickstart_vllm.md:166
 msgid ""
@@ -245,26 +245,30 @@ msgid ""
 " on **sparse attention** or **ReRoPE** independently, applying only the "
 "corresponding patch is sufficient."
 msgstr ""
+"请根据你的开发需求选择补丁。如果你正在独立开发 **稀疏注意力** 或 **ReRoPE** 功能，"
+"只需应用对应的补丁即可。"
 
 #: ../../source/getting-started/quickstart_vllm.md:170
 msgid "Option 3: Install by pip"
-msgstr ""
+msgstr "选项 3：通过 pip 安装"
 
 #: ../../source/getting-started/quickstart_vllm.md:173
 msgid ""
 "It is recommended to use a pre-build vllm docker image, please follow the"
 " guide in Option 2."
 msgstr ""
+"建议使用预构建的 vllm docker 镜像，请按照选项 2 中的指南操作。"
 
 #: ../../source/getting-started/quickstart_vllm.md:175
 msgid "install by pip"
-msgstr ""
+msgstr "通过 pip 安装"
 
 #: ../../source/getting-started/quickstart_vllm.md:177
 msgid ""
 "Install by pip or find the pre-build wheels on "
 "[Pypi](https://pypi.org/project/uc-manager/)."
 msgstr ""
+"通过 pip 安装，或在 [Pypi](https://pypi.org/project/uc-manager/) 上查找预构建的 wheel 包。"
 
 #: ../../source/getting-started/quickstart_vllm.md:182
 msgid ""
@@ -273,14 +277,17 @@ msgid ""
 "management/examples/ucm_config_example.yaml`, because PyPI packages do "
 "not include YAML files."
 msgstr ""
+"**注意：** 如果通过 `pip install` 安装，你需要手动添加 `config.yaml` 文件，"
+"参考 `unified-cache-management/examples/ucm_config_example.yaml`，因为 PyPI "
+"软件包不包含 YAML 文件。"
 
 #: ../../source/getting-started/quickstart_vllm.md:184
 msgid "Step 2: Configuration"
-msgstr ""
+msgstr "第 2 步：配置"
 
 #: ../../source/getting-started/quickstart_vllm.md:186
 msgid "Features Overview"
-msgstr ""
+msgstr "功能概览"
 
 #: ../../source/getting-started/quickstart_vllm.md:188
 msgid ""
@@ -288,24 +295,28 @@ msgid ""
 " Each feature supports both **Offline Inference** and **Online API** "
 "modes. More details are available via the links"
 msgstr ""
+"UCM 支持两个关键功能：**Prefix Cache**（前缀缓存）和 **Sparse attention**"
+"（稀疏注意力）。每个功能都支持 **Offline Inference**（离线推理）和 **Online API**"
+"（在线 API）两种模式。更多详情可通过以下链接获取"
 
 #: ../../source/getting-started/quickstart_vllm.md:189
 msgid "[Prefix Cache](../user-guide/prefix-cache/index.md)"
-msgstr ""
+msgstr "[前缀缓存](../user-guide/prefix-cache/index.md)"
 
 #: ../../source/getting-started/quickstart_vllm.md:190
 msgid "[GSA Sparsity](../user-guide/sparse-attention/gsa.md)"
-msgstr ""
+msgstr "[GSA 稀疏](../user-guide/sparse-attention/gsa.md)"
 
 #: ../../source/getting-started/quickstart_vllm.md:192
 msgid ""
 "For quick start, just follow the guide below to launch your own inference"
 " experience."
 msgstr ""
+"如需快速上手，只需按照下面的指南启动你自己的推理体验即可。"
 
 #: ../../source/getting-started/quickstart_vllm.md:195
 msgid "Feature 1:  Prefix Caching"
-msgstr ""
+msgstr "功能 1：前缀缓存"
 
 #: ../../source/getting-started/quickstart_vllm.md:197
 msgid ""
@@ -315,14 +326,18 @@ msgid ""
 "and [Prefix Cache with Pipeline Store](../user-guide/prefix-"
 "cache/pipeline_store.md) document."
 msgstr ""
+"你可以直接编辑 `unified-cache-management/examples/ucm_config_example.yaml` "
+"示例文件。更多信息请参阅 [带 NFS 存储的前缀缓存](../user-guide/prefix-cache/"
+"nfs_store.md) 和 [带 Pipeline 存储的前缀缓存](../user-guide/prefix-cache/"
+"pipeline_store.md) 文档。"
 
 #: ../../source/getting-started/quickstart_vllm.md:199
 msgid "⚠️ Make sure to replace `/mnt/test` with your actual storage directory."
-msgstr ""
+msgstr "⚠️ 请确保将 `/mnt/test` 替换为你实际使用的存储目录。"
 
 #: ../../source/getting-started/quickstart_vllm.md:201
 msgid "Feature 2:  Sparsity"
-msgstr ""
+msgstr "功能 2：稀疏性"
 
 #: ../../source/getting-started/quickstart_vllm.md:203
 msgid ""
@@ -331,10 +346,13 @@ msgid ""
 "you built. And uncomment `ucm_sparse_config` code block in `unified-"
 "cache-management/examples/ucm_config_example.yaml`."
 msgstr ""
+"稀疏模块默认不会被编译。要启用它，请设置环境变量 `export ENABLE_SPARSE=TRUE` "
+"并重新编译你构建的代码。同时在 `unified-cache-management/examples/"
+"ucm_config_example.yaml` 中取消注释 `ucm_sparse_config` 代码块。"
 
 #: ../../source/getting-started/quickstart_vllm.md:205
 msgid "Step 3: Launching Inference"
-msgstr ""
+msgstr "第 3 步：启动推理"
 
 #: ../../source/getting-started/quickstart_vllm.md:210
 msgid ""
@@ -343,26 +361,31 @@ msgid ""
 "line 25 and replace the `UCM_CONFIG_FILE` value with the path to your own"
 " configuration file."
 msgstr ""
+"在 `examples/` 目录中，你会找到用于离线推理的 `offline_inference.py` 脚本。"
+"在执行脚本之前，请定位到第 25 行，并将 `UCM_CONFIG_FILE` 的值替换为你自己的"
+"配置文件路径。"
 
 #: ../../source/getting-started/quickstart_vllm.md:222
 msgid "Then run following commands:"
-msgstr ""
+msgstr "然后运行以下命令："
 
 #: ../../source/getting-started/quickstart_vllm.md:237
 msgid ""
 "For online inference , vLLM with our connector can also be deployed as a "
 "server that implements the OpenAI API protocol."
 msgstr ""
+"对于在线推理，带有我们连接器的 vLLM 也可以部署为实现了 OpenAI API 协议的服务器。"
 
 #: ../../source/getting-started/quickstart_vllm.md:239
 msgid "To start the vLLM server with the Qwen/Qwen2.5-14B-Instruct model, run:"
-msgstr ""
+msgstr "要启动带有 Qwen/Qwen2.5-14B-Instruct 模型的 vLLM 服务器，请运行："
 
 #: ../../source/getting-started/quickstart_vllm.md:259
 msgid ""
 "**⚠️ The parameter `--no-enable-prefix-caching` is for SSD performance "
 "testing, please remove it for production.**"
 msgstr ""
+"**⚠️ 参数 `--no-enable-prefix-caching` 用于 SSD 性能测试，在生产环境中请将其移除。**"
 
 #: ../../source/getting-started/quickstart_vllm.md:261
 msgid ""
@@ -370,6 +393,8 @@ msgid ""
 "management/examples/ucm_config_example.yaml\"` with your actual config "
 "file path.**"
 msgstr ""
+"**⚠️ 请确保将 `\"/workspace/unified-cache-management/examples/"
+"ucm_config_example.yaml\"` 替换为你实际的配置文件路径。**"
 
 #: ../../source/getting-started/quickstart_vllm.md:263
 msgid ""
@@ -377,14 +402,16 @@ msgid ""
 " path you start vllm service. To use a custom log path, set `export "
 "UCM_LOG_PATH=my_log_dir`.**"
 msgstr ""
+"**⚠️ UCM 模块的日志文件将放在你启动 vllm 服务路径下的 `log` 目录中。要使用"
+"自定义日志路径，请设置 `export UCM_LOG_PATH=my_log_dir`。**"
 
 #: ../../source/getting-started/quickstart_vllm.md:266
 msgid "If you see log as below:"
-msgstr ""
+msgstr "如果你看到如下日志："
 
 #: ../../source/getting-started/quickstart_vllm.md:274
 msgid "Congratulations, you have successfully started the vLLM server with UCM!"
-msgstr ""
+msgstr "恭喜，你已经成功启动了集成 UCM 的 vLLM 服务器！"
 
 #: ../../source/getting-started/quickstart_vllm.md:276
 msgid ""
