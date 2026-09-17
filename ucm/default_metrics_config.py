@@ -348,6 +348,30 @@ _COUNTER_METRICS = [
         "connector_dump_wait_errors_total",
         "Number of connector dump wait failures",
     ),
+    (
+        "connector_runtime_mode_bypassed_requests_total",
+        "Requests answered as full external misses because online runtime mode is disabled",
+    ),
+    (
+        "connector_runtime_mode_lite_requests_total",
+        "Requests evaluated in lite (shadow) runtime mode without load/dump IO",
+    ),
+    (
+        "connector_runtime_mode_transitions_total",
+        "Online runtime mode transitions observed by this connector",
+    ),
+    (
+        "connector_runtime_mode_control_read_errors_total",
+        "Failures reading the online runtime-mode control file",
+    ),
+    (
+        "lite_shadow_lookup_blocks_total",
+        "Block-hash lookups issued in lite (shadow) runtime mode",
+    ),
+    (
+        "lite_shadow_external_hit_tokens_total",
+        "As-if hit tokens recorded in lite (shadow) runtime mode",
+    ),
 ]
 _GAUGE_METRICS = [
     (
@@ -418,6 +442,11 @@ _GAUGE_METRICS = [
     (
         "posix_gc_running",
         "Posix garbage collection state, where 1 is running and 0 is idle",
+        {"multiprocess_mode": 'livemostrecent'},
+    ),
+    (
+        "connector_runtime_mode",
+        "Current online runtime mode, where 0 is enabled, 1 is lite and 2 is disabled",
         {"multiprocess_mode": 'livemostrecent'},
     ),
 ]
