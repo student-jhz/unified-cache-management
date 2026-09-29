@@ -20,13 +20,17 @@
  *   - engine versions are real upstream release tags, listed newest first,
  *     one entry per version line (prefer the stable tag; otherwise the newest
  *     rc tag of that line). The wizard only DISPLAYS the latest 10 tags per
- *     engine; keep older UCM-validated tags in this list as well, because
+ *     engine; keep older validated tags in this list as well, because
  *     manually entered versions are matched against the full list. A version
- *     is "supported" only when UCM's integration patches declare it
- *     (get_supported_versions; SGLang: the quickstart image v0.5.9 and the
- *     historical v0.5.5 integration); real tags without UCM validation are
- *     listed as "unverified" so users on recent releases get an explicit
- *     conclusion;
+ *     is "supported" only when UCM's validation has covered it; this is
+ *     NARROWER than the integration-patch version list
+ *     (apply_patch.get_supported_versions only tells which versions have
+ *     patches available - validation may lag behind, e.g. vLLM v0.26.0 /
+ *     v0.28.0 and vLLM-Ascend v0.19.1 / v0.24.0 / v0.25.1 / v0.27.1 have
+ *     patches but no validation conclusion yet). SGLang: the quickstart
+ *     image v0.5.9 and the historical v0.5.5 integration. Real tags without
+ *     validation are listed as "unverified" so users on recent releases get
+ *     an explicit conclusion;
  *   - release candidates and post releases normalize to their base version
  *     (v0.26.0rc1 -> v0.26.0), the same way
  *     ucm.integration.vllm.patch.apply_patch normalizes versions;
@@ -76,11 +80,16 @@
    * Engines with their upstream release tags and UCM validation status.
    *
    * Version tags are real upstream tags (see the header for sources).
-   * "supported" means the version is declared by UCM's integration patches
-   * (apply_patch.get_supported_versions(): 0.11.0, 0.17.0, 0.18.0, 0.19.1,
-   * 0.20.2, 0.21.0, 0.22.1, 0.23.0, 0.24.0, 0.25.1, 0.26.0, 0.27.0, 0.27.1,
-   * 0.28.0). Real tags outside that set (e.g. vLLM v0.30.0) are listed as
-   * "unverified".
+   * "supported" reflects UCM's validation conclusions, which are narrower
+   * than the integration-patch version list (apply_patch
+   * .get_supported_versions(): 0.11.0, 0.17.0, 0.18.0, 0.19.1, 0.20.2,
+   * 0.21.0, 0.22.1, 0.23.0, 0.24.0, 0.25.1, 0.26.0, 0.27.0, 0.27.1, 0.28.0)
+   * - patches exist for more versions than have been validated. Validated
+   * (2026-09-29): vLLM v0.25.1 / v0.27.1 and older validated lines below;
+   * vLLM-Ascend v0.26.0rc2 / v0.23.0 / v0.22.1rc1 / v0.21.0rc1 / v0.20.2rc1 /
+   * v0.18.0 / v0.17.0rc1 / v0.11.0. Everything else, including patched-but-
+   * unvalidated lines (vLLM v0.26.0 / v0.27.0 / v0.28.0; vLLM-Ascend v0.19.1
+   * / v0.24.0 / v0.25.1 / v0.27.1), is "unverified".
    */
   var engines = [
     {
@@ -91,13 +100,13 @@
         { version: "v0.31.0rc1", status: UNVERIFIED },
         { version: "v0.30.0", status: UNVERIFIED },
         { version: "v0.29.0", status: UNVERIFIED },
-        { version: "v0.28.0", status: SUPPORTED },
+        { version: "v0.28.0", status: UNVERIFIED },
         { version: "v0.27.1", status: SUPPORTED },
-        { version: "v0.27.0", status: SUPPORTED },
-        { version: "v0.26.0", status: SUPPORTED },
+        { version: "v0.27.0", status: UNVERIFIED },
+        { version: "v0.26.0", status: UNVERIFIED },
         { version: "v0.25.1", status: SUPPORTED },
         { version: "v0.25.0", status: UNVERIFIED },
-        { version: "v0.24.0", status: SUPPORTED },
+        { version: "v0.24.0", status: UNVERIFIED },
         { version: "v0.23.0", status: SUPPORTED },
         { version: "v0.22.1", status: SUPPORTED },
         { version: "v0.22.0", status: UNVERIFIED },
@@ -128,15 +137,15 @@
       label: "vLLM-Ascend",
       platform: "cann",
       versions: [
-        { version: "v0.27.1rc1", status: SUPPORTED },
+        { version: "v0.27.1rc1", status: UNVERIFIED },
         { version: "v0.26.0rc2", status: SUPPORTED },
-        { version: "v0.25.1rc1", status: SUPPORTED },
-        { version: "v0.24.0rc1", status: SUPPORTED },
+        { version: "v0.25.1rc1", status: UNVERIFIED },
+        { version: "v0.24.0rc1", status: UNVERIFIED },
         { version: "v0.23.0", status: SUPPORTED },
         { version: "v0.22.1rc1", status: SUPPORTED },
         { version: "v0.21.0rc1", status: SUPPORTED },
         { version: "v0.20.2rc1", status: SUPPORTED },
-        { version: "v0.19.1rc1", status: SUPPORTED },
+        { version: "v0.19.1rc1", status: UNVERIFIED },
         { version: "v0.18.0", status: SUPPORTED },
         { version: "v0.17.0rc1", status: SUPPORTED },
         { version: "v0.16.0rc1", status: UNVERIFIED },
