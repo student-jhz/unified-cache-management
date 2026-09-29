@@ -1,0 +1,4211 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Cache Manager (UCM) persists LLM KVCache and replaces redundant computations through multiple retrieval mechanisms.">
+      
+      
+      
+        <link rel="canonical" href="https://ucm.readthedocs.io/user-guide/observability/metrics-reference/">
+      
+      
+        <link rel="prev" href="../../../reference/config-parameters/">
+      
+      
+        <link rel="next" href="../../../reference/error-codes/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../zh/user-guide/observability/metrics-reference/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/ucm-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+  <meta name="readthedocs-addons-api-version" content="1">
+  <script id="ucm-runtime-repositories" type="application/json">{"vllm": "docker.io/vllm/vllm-openai", "vllm-ascend": "quay.io/ascend/vllm-ascend"}</script>
+
+    
+      
+        <title>Metrics Reference - Unified Cache Manager</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/install.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap">
+  <style>
+    /* Light-mode header: white background with dark text and dark logo.
+       Dark mode keeps the slate header untouched. */
+    [data-md-color-scheme="default"] .md-header {
+      background-color: #ffffff;
+      color: rgba(0,0,0,.75);
+      box-shadow: 0 0 .2rem rgba(0,0,0,.07), 0 .2rem .4rem rgba(0,0,0,.07);
+    }
+    [data-md-color-scheme="default"] .md-header__topic,
+    [data-md-color-scheme="default"] .md-header__topic .md-ellipsis,
+    [data-md-color-scheme="default"] .md-header .md-icon,
+    [data-md-color-scheme="default"] .md-header .md-header__nav,
+    [data-md-color-scheme="default"] .md-header .md-search__icon {
+      color: rgba(0,0,0,.75);
+    }
+    [data-md-color-scheme="default"] .md-header .md-search__input {
+      color: rgba(0,0,0,.85);
+      background-color: rgba(0,0,0,.04);
+    }
+    [data-md-color-scheme="default"] .md-header .md-search__input::placeholder {
+      color: rgba(0,0,0,.5);
+    }
+    [data-md-color-scheme="default"] .md-header__logo img {
+      filter: brightness(0) opacity(0.7);
+    }
+    [data-md-color-scheme="default"] .md-tabs {
+      background-color: #ffffff;
+      color: rgba(0,0,0,.75);
+      border-bottom: .05rem solid rgba(0,0,0,.08);
+    }
+    [data-md-color-scheme="default"] .md-tabs__link { color: rgba(0,0,0,.65); }
+    [data-md-color-scheme="default"] .md-tabs__link--active,
+    [data-md-color-scheme="default"] .md-tabs__link:hover { color: rgba(0,0,0,.9); }
+    /* Sidebars and header use Jost; body content uses the theme font (Inter) */
+    .md-header, .md-nav, .md-sidebar, .md-toc, .md-tabs {
+      --md-text-font-family: "Jost", system-ui, -apple-system, "Segoe UI",
+        Roboto, "Noto Sans", "Liberation Sans", Arial, sans-serif;
+      font-family: var(--md-text-font-family);
+      font-size: 0.85rem;
+    }
+    /* Slightly smaller body content */
+    .md-typeset { font-size: 0.72rem; line-height: 1.55; }
+    /* Bolder and larger top bar; sidebar sub-navs get progressively smaller */
+    .md-header { font-weight: 700; font-size: 0.92rem; }
+    .md-header .md-header__topic,
+    .md-header .md-tabs__link { font-weight: 700; }
+    .md-nav .md-nav { font-size: 0.9em; }
+  </style>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metrics-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Unified Cache Manager" class="md-header__button md-logo" aria-label="Unified Cache Manager" data-md-component="logo">
+      
+  <img src="../../../assets/images/UCM-light.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unified Cache Manager
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metrics Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../zh/user-guide/observability/metrics-reference/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ModelEngine-Group/unified-cache-management" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ModelEngine-Group/ucm
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../developer-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../reference/config-parameters/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../toolkit/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Toolkit
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+  <template id="ucm-rtd-navigation">
+    <div class="md-version ucm-rtd-version">
+      <button type="button" class="md-version__current" aria-label="Select version"></button>
+      <ul class="md-version__list"></ul>
+    </div>
+    <div class="md-header__option ucm-rtd-language">
+      <div class="md-select">
+        <button type="button" class="md-header__button md-icon" aria-label="Select language">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+        </button>
+        <div class="md-select__inner">
+          <ul class="md-select__list"></ul>
+        </div>
+      </div>
+    </div>
+  </template>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Unified Cache Manager" class="md-nav__button md-logo" aria-label="Unified Cache Manager" data-md-component="logo">
+      
+  <img src="../../../assets/images/UCM-light.png" alt="logo">
+
+    </a>
+    Unified Cache Manager
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ModelEngine-Group/unified-cache-management" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ModelEngine-Group/ucm
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support-matrix/assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../model-tour/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Tour
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Tour
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/glm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/qwen3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/deepseek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DeepSeek
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/minimax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MiniMax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/kimi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../frameworks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frameworks/kubernetes/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frameworks/pyMotor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyMotor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../capabilities/pd-disaggregation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PD Disaggregation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6_5" id="__nav_2_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PD Disaggregation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capabilities/pd-disaggregation/centralized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared-store PD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capabilities/pd-disaggregation/distributed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport with UCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capabilities/pd-disaggregation/large-scale-ep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling PD Deployments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verify-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verify External Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../health-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Health
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagnostics/trace-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trace Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../developer-guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/capability-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Caching Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/request-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Request Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/pd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/build_from_source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build from Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../developer-guide/cache-configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache Configuration
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cache Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/cache-configuration/pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filesystem Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/cache-configuration/nfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NFS Connector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/cache-configuration/ds3fs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3FS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/cache-configuration/mooncake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mooncake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/cache-configuration/compress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KV Compression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/extending-store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extending Store
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/add-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolkit Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Toolkit Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/developer/design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolkit Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/developer/dev-sandbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Sandbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer-guide/contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/config-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-metric-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metric catalog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Metric catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Connector
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Connector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-cache-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Cache Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Cache Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-posix-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Posix Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Posix Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-yuanrong-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 YuanRong Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 YuanRong Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-mooncake-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Mooncake Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Mooncake Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-raw-metrics-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Raw Metrics Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Raw Metrics Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-hit-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Hit Rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-duration-and-slow-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Duration and slow tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-capacity-and-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Capacity and health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-runtime-interpretation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Runtime interpretation notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../toolkit/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolkit
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Toolkit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/user/precheck/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precheck
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/user/posix-aio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POSIX AIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/user/metrics-view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics View
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/user/nic-monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIC Monitor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/user/dev-sandbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Sandbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolkit/kv-cache-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KV Cache Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-metric-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metric catalog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Metric catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Connector
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Connector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-cache-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Cache Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Cache Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-posix-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Posix Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Posix Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-yuanrong-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 YuanRong Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 YuanRong Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-mooncake-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Mooncake Store
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Mooncake Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#counters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauges_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograms_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-raw-metrics-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Raw Metrics Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Raw Metrics Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-hit-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Hit Rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-duration-and-slow-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Duration and slow tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-capacity-and-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Capacity and health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-runtime-interpretation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Runtime interpretation notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    
+                  
+
+
+  
+    <a href="https://github.com/ModelEngine-Group/unified-cache-management/edit/develop/docs/docs-site/docs/en/user-guide/observability/metrics-reference.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ModelEngine-Group/unified-cache-management/raw/develop/docs/docs-site/docs/en/user-guide/observability/metrics-reference.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="metrics-reference">Metrics Reference<a class="headerlink" href="#metrics-reference" title="Permanent link">&para;</a></h1>
+<p>UCM metrics record KV-cache lookups, loads, saves and storage state. Use them to understand <strong>whether cached data is being reused, how fast data moves, where time is spent and whether storage is available</strong>. Start with the question you need to answer, then consult the full catalog below.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Start with</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is caching helping?</td>
+<td>Connector query and hit token counts, plus loaded bytes</td>
+<td>Over the same time window, hit tokens divided by query tokens show the contribution of reusable prefixes; loaded bytes confirm transfer activity. Compare engine TTFT to determine whether time to first token improves</td>
+</tr>
+<tr>
+<td>How fast does data move?</td>
+<td>The active Store's <code>*_bytes_total</code> and <code>*_bandwidth_gbps</code></td>
+<td>The byte Counter's per-second rate shows aggregate throughput; the bandwidth Histogram shows individual task speed. Low throughput under light load does not necessarily mean slow storage</td>
+</tr>
+<tr>
+<td>Where do cache operations spend time?</td>
+<td><code>*_duration_ms</code>, then queuing, backend waits and H2D/D2H timings</td>
+<td>Start with the whole task, then distinguish queuing, lower-store waits and host/device copies. Compare similar task sizes and concurrency</td>
+</tr>
+<tr>
+<td>Is storage nearly full or unavailable?</td>
+<td><code>*_usage_ratio</code>, <code>*_store_health</code> and, for Posix, <code>posix_gc_running</code></td>
+<td>Usage shows capacity pressure, health shows whether new operations are allowed, and GC shows reclamation activity. High occupancy and backend failure are different conditions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check the metric type before interpreting its value.</strong> Counters, Gauges and Histograms need different queries:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it records</th>
+<th>Reading and example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Counter</td>
+<td>A cumulative quantity since process startup, usually ending in <code>_total</code>; it can reset on restart</td>
+<td>Use <code>rate(...[5m])</code> for the average per-second rate over five minutes and <code>increase(...[5m])</code> for the increase during that window. <code>load_bytes_total</code> alone is cumulative loaded bytes, not current bandwidth</td>
+</tr>
+<tr>
+<td>Gauge</td>
+<td>The latest reported capacity, ratio or state; it can rise or fall</td>
+<td>Read the value and its trend directly. For example, <code>posix_store_usage_ratio = 0.8</code> means estimated logical occupancy is 80%; <code>posix_store_health = 0</code> means the circuit breaker is open</td>
+</tr>
+<tr>
+<td>Histogram</td>
+<td>Samples of operation durations or bandwidth</td>
+<td>Use the mean for the overall level and quantiles for the distribution. A duration p95 of 20 ms means approximately 95% of sampled operations took no more than 20 ms; it is not the duration of each user request</td>
+</tr>
+</tbody>
+</table>
+<p>Check units too: <code>*_bytes*</code> uses bytes and <code>*_duration_ms</code> uses milliseconds. <strong><code>save_duration</code> and <code>save_completion_wait_duration</code> also use milliseconds</strong>, despite lacking an <code>_ms</code> suffix. <code>*_bandwidth_gbps</code> actually uses <strong>GB/s (one billion bytes per second)</strong>. H2D means host memory to device memory, and D2H is the reverse; Posix S2H/H2S describe reads and writes between storage and host memory.</p>
+<p>Compare the same model, service and time window. Keep <code>instance</code>, <code>engine</code> and <code>worker_rank</code> labels when diagnosing a problem. A KV block passing through the Connector and several Stores is counted at each stage, so adding their byte counts does not give a unique data volume.</p>
+<p>Names use the <code>ucm:</code> prefix by default. A series may appear only after the metric is enabled and its code path executes; missing does not mean zero. The vLLM connector path also depends on statistics being synchronized during inference, so idle values may remain at their last reported state.</p>
+<p>See <a href="../metrics/">metrics setup</a> for collection, <a href="../../../developer-guide/add-metrics/">metrics development</a> for the export path and <a href="../health-metrics/">storage health</a> for health interpretation.</p>
+<h2 id="1-metric-catalog">1. Metric catalog<a class="headerlink" href="#1-metric-catalog" title="Permanent link">&para;</a></h2>
+<h3 id="11-connector">1.1 Connector<a class="headerlink" href="#11-connector" title="Permanent link">&para;</a></h3>
+<p>The Connector joins the inference engine to UCM. Start here to understand <strong>how much prefix data can be reused and how long engine calls into the cache take</strong>. Query tokens form the counting base, HBM hits describe prefixes already covered on the device, and UCM hits describe additional external prefixes. These are not request counts.</p>
+<p>For slow saves, compare <code>save_duration</code> with <code>save_completion_wait_duration</code>: the former spans the asynchronous save, while the latter measures actual blocking when confirming completion. <code>connector_*_duration_ms</code> measures interface calls; transfers may continue after asynchronous calls return, so interface time does not replace full I/O time.</p>
+<h4 id="counters">Counters<a class="headerlink" href="#counters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:load_bytes_total</code></td>
+<td>Cumulative bytes successfully loaded through Connector transfer paths</td>
+</tr>
+<tr>
+<td><code>ucm:save_bytes_total</code></td>
+<td>Cumulative bytes successfully submitted through Connector save paths</td>
+</tr>
+<tr>
+<td><code>ucm:total_prefix_query_tokens_total</code></td>
+<td>Total prefix-cache query tokens observed by the UCM Connector</td>
+</tr>
+<tr>
+<td><code>ucm:gpu_hbm_hit_tokens_total</code></td>
+<td>Prefix tokens already found in GPU/HBM before UCM Lookup</td>
+</tr>
+<tr>
+<td><code>ucm:ucm_hit_tokens_total</code></td>
+<td>Prefix tokens hit by the UCM Connector</td>
+</tr>
+<tr>
+<td><code>ucm:total_prefix_query_blocks_total</code></td>
+<td>Total complete prefix blocks queried by the UCM Connector</td>
+</tr>
+<tr>
+<td><code>ucm:gpu_hbm_hit_blocks_total</code></td>
+<td>Complete prefix blocks already found in GPU/HBM before UCM Lookup</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gauges">Gauges<a class="headerlink" href="#gauges" title="Permanent link">&para;</a></h4>
+<p>No Connector-specific Gauges are exported by default.</p>
+<h4 id="histograms">Histograms<a class="headerlink" href="#histograms" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:save_duration</code></td>
+<td>Time from entering <code>wait_for_save</code> until asynchronous Dump completion, in ms; use it to track overall save duration</td>
+</tr>
+<tr>
+<td><code>ucm:save_completion_wait_duration</code></td>
+<td>Time actually blocked while confirming asynchronous Dump completion, in ms; use it to track the remaining wait imposed on the caller</td>
+</tr>
+<tr>
+<td><code>ucm:interval_lookup_hit_rates</code></td>
+<td>Per-request UCM Lookup hit-rate distribution<sup id="fnref:export-scope"><a class="footnote-ref" href="#fn:export-scope">1</a></sup></td>
+</tr>
+<tr>
+<td><code>ucm:connector_get_block_size_duration_ms</code></td>
+<td>Duration of Connector interface <code>get_block_size</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_get_kv_connector_stats_duration_ms</code></td>
+<td>Duration of Connector interface <code>get_kv_connector_stats</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_get_num_new_matched_tokens_duration_ms</code></td>
+<td>Duration of Connector interface <code>get_num_new_matched_tokens</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_update_state_after_alloc_duration_ms</code></td>
+<td>Duration of Connector interface <code>update_state_after_alloc</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_register_kv_caches_duration_ms</code></td>
+<td>Duration of Connector interface <code>register_kv_caches</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_build_connector_meta_duration_ms</code></td>
+<td>Duration of Connector interface <code>build_connector_meta</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_bind_connector_metadata_duration_ms</code></td>
+<td>Duration of Connector interface <code>bind_connector_metadata</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_handle_preemptions_duration_ms</code></td>
+<td>Duration of Connector interface <code>handle_preemptions</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_has_connector_metadata_duration_ms</code></td>
+<td>Duration of Connector interface <code>has_connector_metadata</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_start_load_kv_duration_ms</code></td>
+<td>Duration of Connector interface <code>start_load_kv</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_wait_for_layer_load_duration_ms</code></td>
+<td>Duration of Connector interface <code>wait_for_layer_load</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_save_kv_layer_duration_ms</code></td>
+<td>Duration of Connector interface <code>save_kv_layer</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_wait_for_save_duration_ms</code></td>
+<td>Duration of Connector interface <code>wait_for_save</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_request_finished_all_groups_duration_ms</code></td>
+<td>Duration of Connector interface <code>request_finished_all_groups</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_request_finished_duration_ms</code></td>
+<td>Duration of Connector interface <code>request_finished</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_get_finished_duration_ms</code></td>
+<td>Duration of Connector interface <code>get_finished</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_build_connector_worker_meta_duration_ms</code></td>
+<td>Duration of Connector interface <code>build_connector_worker_meta</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_update_connector_output_duration_ms</code></td>
+<td>Duration of Connector interface <code>update_connector_output</code></td>
+</tr>
+<tr>
+<td><code>ucm:connector_clear_connector_metadata_duration_ms</code></td>
+<td>Duration of Connector interface <code>clear_connector_metadata</code></td>
+</tr>
+<tr>
+<td><code>ucm:layerwise_layer_load_duration_ms</code></td>
+<td>Per-layer wall-clock time from layer load start to <code>wait_for_layer_load</code> return</td>
+</tr>
+<tr>
+<td><code>ucm:layerwise_batch_load_duration_sum_ms</code></td>
+<td>Sum of per-layer load durations within one Layerwise batch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-cache-store">1.2 Cache Store<a class="headerlink" href="#12-cache-store" title="Permanent link">&para;</a></h3>
+<p>Cache Store uses host buffers between the device and lower storage. Use it to understand <strong>whether a load finds ready data immediately or waits for the backend</strong>. Start with the increase in <code>cache_load_wait_shards_total</code> relative to <code>cache_load_shards_total</code>, then check successful-load shard counts for completion. A rising wait share means fewer shards are immediately ready; it does not directly imply more disk reads.</p>
+<p>When loads slow down, compare queuing, backend-ready waits and H2D synchronization. For saves, compare prerequisite compute waits, D2H and backend-write waits. These timings can overlap and mix shard and task granularity, so adding them does not reconstruct total duration.</p>
+<h4 id="counters_1">Counters<a class="headerlink" href="#counters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:cache_lookup_hit_blocks_total</code></td>
+<td>Blocks served directly by Cache Lookup without descending to the backend</td>
+</tr>
+<tr>
+<td><code>ucm:cache_lookup_miss_blocks_total</code></td>
+<td>Blocks missed by Cache Lookup and passed to the backend</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_shards_total</code></td>
+<td>Total shards whose Cache buffer state was inspected during Load</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_wait_shards_total</code></td>
+<td>Shards whose Cache buffer was not Ready when acquired and required waiting</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_backend_shards_total</code></td>
+<td>Shards that descend to the backend during Cache buffer allocation</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_success_shards_total</code></td>
+<td>Shards successfully loaded from an already-ready Cache buffer to device</td>
+</tr>
+<tr>
+<td><code>ucm:cache_posix_load_success_shards_total</code></td>
+<td>Shards successfully loaded to device after waiting for Posix to fill Cache<sup id="fnref:cache-source"><a class="footnote-ref" href="#fn:cache-source">2</a></sup></td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_shards_total</code></td>
+<td>Total shard descriptors processed by Cache Dump, including failed tasks</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_backend_shards_total</code></td>
+<td>Owner shards actually written to the backend</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_bytes_total</code></td>
+<td>Cumulative bytes loaded through the Cache stage</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_bytes_total</code></td>
+<td>Cumulative bytes dumped through the Cache stage</td>
+</tr>
+</tbody>
+</table>
+<p>For a Cache | Posix pipeline, the Cache load share is <code>(total shards - wait shards) / total shards</code>, and the Posix load share is <code>wait shards / total shards</code>. Grafana and Metrics View apply these shares to the external-cache hit rate.</p>
+<h4 id="gauges_1">Gauges<a class="headerlink" href="#gauges_1" title="Permanent link">&para;</a></h4>
+<p>No Cache Store-specific Gauges are exported by default.</p>
+<h4 id="histograms_1">Histograms<a class="headerlink" href="#histograms_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:cache_lookup_duration_ms</code></td>
+<td>Cache buffer scan time for <code>Lookup</code>, <code>LookupOnPrefix</code>, or <code>LookupOnReverse</code>; no samples are produced when shared memory is disabled because Lookup goes directly to the lower Store</td>
+</tr>
+<tr>
+<td><code>ucm:cache_lookup_backend_duration_ms</code></td>
+<td>Backend Lookup wall-clock time when there is no buffer or the buffer misses</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_duration_ms</code></td>
+<td>End-to-end Cache-stage Load task duration</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_duration_ms</code></td>
+<td>End-to-end Cache-stage Dump task duration</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_bandwidth_gbps</code></td>
+<td>Effective bandwidth over the complete Cache Load task lifecycle</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_bandwidth_gbps</code></td>
+<td>Effective bandwidth over the complete Cache Dump task lifecycle</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_queue_wait_duration_ms</code></td>
+<td>Time a Cache Load task waits before a dispatch worker picks it up</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_queue_wait_duration_ms</code></td>
+<td>Time a Cache Dump task waits before a dispatch worker picks it up</td>
+</tr>
+<tr>
+<td><code>ucm:cache_load_backend_submit_duration_ms</code></td>
+<td>Time to allocate a Cache buffer and synchronously submit the backend Load</td>
+</tr>
+<tr>
+<td><code>ucm:cache_shard_backend_wait_ms</code></td>
+<td>Time one shard waits for the backend to become ready before H2D submission</td>
+</tr>
+<tr>
+<td><code>ucm:cache_h2d_submit_ms</code></td>
+<td>CPU overhead of one asynchronous shard H2D submission, excluding transfer time</td>
+</tr>
+<tr>
+<td><code>ucm:cache_h2d_sync_ms</code></td>
+<td>Remaining H2D stream drain time after the final shard submission</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_mkbuf_duration_ms</code></td>
+<td>Cache Dump buffer allocation/reuse and asynchronous D2H submission time</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_prereq_wait_ms</code></td>
+<td>Time waiting for the layer KV-ready compute event before D2H starts</td>
+</tr>
+<tr>
+<td><code>ucm:cache_d2h_duration_ms</code></td>
+<td>Cache Dump stream synchronization time, including prerequisite compute wait and D2H copy</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_backend_submit_duration_ms</code></td>
+<td>Time to synchronously submit the buffer to the lower Store</td>
+</tr>
+<tr>
+<td><code>ucm:cache_dump_backend_wait_duration_ms</code></td>
+<td>Time waiting for the lower Store to complete the write</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-posix-store">1.3 Posix Store<a class="headerlink" href="#13-posix-store" title="Permanent link">&para;</a></h3>
+<p>Posix Store reads and writes KV data through the filesystem. Use it to understand <strong>file-backend hits, read/write speed and capacity pressure</strong>. The ratio of increases in <code>posix_lookup_hit_blocks_total</code> and <code>posix_lookup_query_blocks_total</code> describes only blocks actually queried at the Posix layer.</p>
+<p>For slow I/O, compare task duration with queue wait. For capacity, view logical usage alongside <code>posix_gc_running</code>. Running GC is normal reclamation activity; <code>posix_store_health = 0</code> means the circuit breaker is blocking new operations. Logical usage is estimated from GC samples and does not replace checking host filesystem free space.</p>
+<h4 id="counters_2">Counters<a class="headerlink" href="#counters_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:posix_s2h_bytes_total</code></td>
+<td>Cumulative bytes read from Posix storage into host buffers<sup id="fnref:posix-bytes"><a class="footnote-ref" href="#fn:posix-bytes">3</a></sup></td>
+</tr>
+<tr>
+<td><code>ucm:posix_h2s_bytes_total</code></td>
+<td>Cumulative bytes written from host buffers to Posix storage<sup id="fnref2:posix-bytes"><a class="footnote-ref" href="#fn:posix-bytes">3</a></sup></td>
+</tr>
+<tr>
+<td><code>ucm:posix_lookup_query_blocks_total</code></td>
+<td>Total blocks submitted to Posix Lookup</td>
+</tr>
+<tr>
+<td><code>ucm:posix_lookup_hit_blocks_total</code></td>
+<td>Blocks found by Posix Lookup</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gauges_2">Gauges<a class="headerlink" href="#gauges_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:posix_store_used_bytes</code></td>
+<td>Estimated logical Posix Store usage in bytes from GC sampling</td>
+</tr>
+<tr>
+<td><code>ucm:posix_store_capacity_bytes</code></td>
+<td>Configured logical Posix Store capacity in bytes</td>
+</tr>
+<tr>
+<td><code>ucm:posix_store_usage_ratio</code></td>
+<td>Estimated logical Posix Store usage ratio</td>
+</tr>
+<tr>
+<td><code>ucm:posix_store_health</code></td>
+<td>Effective circuit-breaker state: 1 is available and 0 is fused</td>
+</tr>
+<tr>
+<td><code>ucm:posix_gc_running</code></td>
+<td>Garbage collection state: 1 is running and 0 is idle</td>
+</tr>
+</tbody>
+</table>
+<h4 id="histograms_2">Histograms<a class="headerlink" href="#histograms_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:posix_load_task_duration_ms</code></td>
+<td>End-to-end Posix Load task duration from submission until the final shard completes</td>
+</tr>
+<tr>
+<td><code>ucm:posix_dump_task_duration_ms</code></td>
+<td>End-to-end Posix Dump task duration from submission until the final shard completes</td>
+</tr>
+<tr>
+<td><code>ucm:posix_s2h_bandwidth_gbps</code></td>
+<td>Per-task Posix read bandwidth</td>
+</tr>
+<tr>
+<td><code>ucm:posix_h2s_bandwidth_gbps</code></td>
+<td>Per-task Posix write bandwidth</td>
+</tr>
+<tr>
+<td><code>ucm:posix_load_queue_wait_duration_ms</code></td>
+<td>Time a Posix Load task waits before the first worker picks it up</td>
+</tr>
+<tr>
+<td><code>ucm:posix_dump_queue_wait_duration_ms</code></td>
+<td>Time a Posix Dump task waits before the first worker picks it up</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-yuanrong-store">1.4 YuanRong Store<a class="headerlink" href="#14-yuanrong-store" title="Permanent link">&para;</a></h3>
+<p>YuanRong metrics explain <strong>which tier serves loads, whether loads fall back to Posix, and shared-memory and spill-disk occupancy</strong>. An increase in <code>lookup_miss_posix_load_success</code> means Posix supplied data after a lookup miss. An increase in <code>load_fallback_posix_load_success</code> means fallback succeeded after a load failure; investigate the associated error logs.</p>
+<p>DRAM, remote-worker and SSD hit estimates come from resource logs, so do not divide them by Connector token counts. Before reading capacity or source distributions, check that <code>yuanrong_resource_log_last_update_timestamp_seconds</code> is advancing. <code>reporter_leader = 1</code> identifies the reporting process; it is not a backend health signal.</p>
+<h4 id="counters_3">Counters<a class="headerlink" href="#counters_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:yuanrong_load_success_shards_total</code></td>
+<td>Shards successfully loaded from YuanRong to device</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_lookup_miss_posix_load_success_shards_total</code></td>
+<td>Shards successfully loaded from Posix after a YuanRong Lookup miss</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_load_fallback_posix_load_success_shards_total</code></td>
+<td>Shards successfully loaded from Posix after a YuanRong Load failure</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_local_dram_load_hits_total</code></td>
+<td>Estimated YuanRong local DRAM Get hits forwarded from<code>kv_resource.log</code></td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_remote_load_hits_total</code></td>
+<td>Estimated YuanRong remote-worker Get hits forwarded from<code>kv_resource.log</code></td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_local_ssd_load_hits_total</code></td>
+<td>Estimated YuanRong local spill-SSD Get hits forwarded from<code>kv_resource.log</code></td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_l2_load_hits_total</code></td>
+<td>YuanRong L2 persistence Get hits forwarded from<code>kv_resource.log</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="gauges_3">Gauges<a class="headerlink" href="#gauges_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:yuanrong_dram_used_bytes</code></td>
+<td>YuanRong physical shared-memory usage in bytes</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_dram_capacity_bytes</code></td>
+<td>YuanRong shared-memory capacity in bytes</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_dram_usage_ratio</code></td>
+<td>YuanRong physical shared-memory usage ratio</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_ssd_used_bytes</code></td>
+<td>YuanRong physical spill-disk usage in bytes</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_ssd_capacity_bytes</code></td>
+<td>YuanRong spill-disk capacity in bytes</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_ssd_usage_ratio</code></td>
+<td>YuanRong physical spill-disk usage ratio</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_resource_log_last_update_timestamp_seconds</code></td>
+<td>Unix timestamp of the latest YuanRong resource snapshot parsed by UCM</td>
+</tr>
+<tr>
+<td><code>ucm:yuanrong_resource_log_reporter_leader</code></td>
+<td>Whether this UCM process is the host YuanRong resource reporter leader</td>
+</tr>
+</tbody>
+</table>
+<h4 id="histograms_3">Histograms<a class="headerlink" href="#histograms_3" title="Permanent link">&para;</a></h4>
+<p>No YuanRong-specific Histograms are exported by default.</p>
+<h3 id="15-mooncake-store">1.5 Mooncake Store<a class="headerlink" href="#15-mooncake-store" title="Permanent link">&para;</a></h3>
+<p>Mooncake metrics explain <strong>whether Mooncake supplies the data, whether loads descend to a backend and which step slows transfers</strong>. Compare increases in <code>mooncake_load_hit_shards_total</code> and <code>mooncake_load_miss_shards_total</code>, then check <code>mooncake_load_backend_shards_total</code> for lower-store load activity.</p>
+<p>For slow loads, inspect queuing, batch-get, backend waits and H2D. For slow saves, inspect prerequisite compute waits, batch-put and backend archival. Increasing <code>mooncake_dump_existing_shards_total</code> means the data already existed at save time, not a failure by itself. If the health Gauge is zero, follow <a href="../health-metrics/">storage health</a> to investigate the open circuit breaker.</p>
+<h4 id="counters_4">Counters<a class="headerlink" href="#counters_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:mooncake_load_blocks_total</code></td>
+<td>Total blocks processed by the Mooncake Load stage</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_blocks_total</code></td>
+<td>Total blocks processed by the Mooncake Dump stage</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_lookup_hit_blocks_total</code></td>
+<td>Blocks found directly by Mooncake Lookup before descending to the backend</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_bytes_total</code></td>
+<td>Cumulative bytes loaded through the Mooncake stage</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_bytes_total</code></td>
+<td>Cumulative bytes dumped through the Mooncake stage</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_hit_shards_total</code></td>
+<td>Load shards served directly by Mooncake</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_miss_shards_total</code></td>
+<td>Load shards that miss Mooncake and descend to the backend or are recomputed</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_backend_shards_total</code></td>
+<td>Load shards submitted to the backend after a Mooncake miss</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_existing_shards_total</code></td>
+<td>Dump shards already present in Mooncake</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_missing_shards_total</code></td>
+<td>Missing Dump shards written to Mooncake</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_backend_shards_total</code></td>
+<td>Dump shards archived to the backend</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_h2d_bytes_total</code></td>
+<td>Cumulative bytes copied from host to device by Mooncake</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_d2h_bytes_total</code></td>
+<td>Cumulative bytes copied from device to host by Mooncake</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gauges_4">Gauges<a class="headerlink" href="#gauges_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:mooncake_store_health</code></td>
+<td>Effective circuit-breaker state: 1 is available and 0 is fused</td>
+</tr>
+</tbody>
+</table>
+<h4 id="histograms_4">Histograms<a class="headerlink" href="#histograms_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ucm:mooncake_load_duration_ms</code></td>
+<td>End-to-end Mooncake Load task duration</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_duration_ms</code></td>
+<td>End-to-end Mooncake Dump task duration</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_bandwidth_gbps</code></td>
+<td>Effective Mooncake-stage Load bandwidth</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_bandwidth_gbps</code></td>
+<td>Effective Mooncake-stage Dump bandwidth</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_queue_wait_duration_ms</code></td>
+<td>Time a Mooncake Load task waits before a dispatch worker picks it up</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_queue_wait_duration_ms</code></td>
+<td>Time a Mooncake Dump task waits before a dispatch worker picks it up</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_get_duration_ms</code></td>
+<td>Mooncake batch-get duration on the Load path</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_exists_duration_ms</code></td>
+<td>Mooncake batch-exists check duration on the Dump path</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_put_duration_ms</code></td>
+<td>Mooncake batch-put duration on the Dump path</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_load_backend_submit_duration_ms</code></td>
+<td>Time to submit a backend Load after a Mooncake miss</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_backend_load_wait_duration_ms</code></td>
+<td>Time waiting for the backend to load missing shards</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_h2d_duration_ms</code></td>
+<td>Mooncake Load H2D stream drain time</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_prereq_wait_ms</code></td>
+<td>Time waiting for the prerequisite compute event before a Mooncake put</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_d2h_duration_ms</code></td>
+<td>Mooncake D2H stream drain time required for backend archival</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_backend_submit_duration_ms</code></td>
+<td>Time to submit a backend Dump after the D2H archival copy</td>
+</tr>
+<tr>
+<td><code>ucm:mooncake_dump_backend_wait_duration_ms</code></td>
+<td>Time waiting for backend archival to complete</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-raw-metrics-usage">2. Raw Metrics Usage<a class="headerlink" href="#2-raw-metrics-usage" title="Permanent link">&para;</a></h2>
+<p>Run the PromQL examples in Prometheus or against a Prometheus data source in Grafana. They assume the scrape job is named <code>vllm</code>; change <code>job</code> to match your deployment. If a job contains several models or services, add label filters before aggregating. Examples use the last five minutes; in Grafana, <code>[5m]</code> can be replaced with <code>[$__rate_interval]</code>.</p>
+<h3 id="21-hit-rate">2.1 Hit Rate<a class="headerlink" href="#21-hit-rate" title="Permanent link">&para;</a></h3>
+<p>Start with the direct question: <strong>of the prefix tokens queried by the Connector, how many had reusable data found by UCM?</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">sum</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">ucm_hit_tokens_total</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+<span class="o">/</span>
+<span class="k">sum</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">total_prefix_query_tokens_total</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+</code></pre></div>
+<p>A result of <code>0.3</code> means UCM hit tokens account for 30% of Connector query tokens in this window. It does not mean 30% of requests fully hit or latency fell by 30%. The denominator includes tokens already covered by HBM, so this is UCM's hit contribution to all queried prefixes. With no queries in the window, the ratio is undefined and should be shown as no data.</p>
+<p>Use a layered calculation instead of calculating each Store hit rate independently. First calculate the total hit rate at the boundary of two adjacent cache layers. Then split that total according to the actual load-source ratio reported by those layers. This keeps the numerator and denominator semantics consistent across the hierarchy and provides the most accurate tier-level estimate.</p>
+<p>For example, the external-cache hit rate can be calculated from vLLM token Counters:</p>
+<div class="highlight"><pre><span></span><code>external_cache_hit_rate = external_hit / external_query
+                          * (1 - hbm_hit / hbm_query)
+</code></pre></div>
+<p>Here <code>external_query</code> counts the tokens queried after HBM misses. These are formula symbols, not exported metric names. Do not substitute <code>total_prefix_query_tokens_total</code>, which includes the HBM-covered part, for that denominator.</p>
+<p>For a Cache | Posix pipeline, split the external-cache hit rate using shard Counters:</p>
+<div class="highlight"><pre><span></span><code>cache_share = (cache_load_shards - cache_load_wait_shards)
+              / cache_load_shards
+posix_share = cache_load_wait_shards / cache_load_shards
+
+cache_hit_rate = external_cache_hit_rate * cache_share
+posix_hit_rate = external_cache_hit_rate * posix_share
+</code></pre></div>
+<p>Apply the same approach to other layered Stores: calculate their combined hit rate first, then split it using Counters that represent the actual load source. Use <code>rate()</code> or <code>increase()</code> over the same time range for every Counter in a formula, and do not mix token, block, and shard counts within the same ratio.</p>
+<h3 id="22-bandwidth">2.2 Bandwidth<a class="headerlink" href="#22-bandwidth" title="Permanent link">&para;</a></h3>
+<p>UCM exposes two useful bandwidth views with different meanings:</p>
+<ul>
+<li>The <code>*_bandwidth_gbps</code> Histograms record effective bandwidth for individual tasks. They show instantaneous task speed and its distribution, such as p50, p90, and p99, but they do not represent total system throughput.</li>
+<li>Average system bandwidth should be calculated as total transferred bytes divided by elapsed time. It includes concurrency and idle periods, so it represents the overall throughput observed during the selected time range.</li>
+</ul>
+<p>Use a cumulative byte Counter for the required Store and transfer direction. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">sum</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">cache_load_bytes_total</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="nv">e9</span>
+</code></pre></div>
+<p>Equivalently, for a fixed time range:</p>
+<div class="highlight"><pre><span></span><code>average_bandwidth_GBps = increase(transferred_bytes_total) / elapsed_seconds / 1e9
+</code></pre></div>
+<p>Sum byte rates across workers before converting to GB/s. Keep Load and Dump, or read and write, as separate series. Do not average per-task bandwidth values to estimate system throughput.</p>
+<p>A result of <code>2</code> means the average counted byte rate through the Cache load stage was 2 GB/s over five minutes. Low bandwidth quantiles, such as p10, help identify slow tasks. Bandwidth p99 describes the fast end of the distribution, not a latency tail.</p>
+<h3 id="23-duration-and-slow-tasks">2.3 Duration and slow tasks<a class="headerlink" href="#23-duration-and-slow-tasks" title="Permanent link">&para;</a></h3>
+<p>For Cache Load, a Histogram's <code>_count</code> is the number of sampled tasks, <code>_sum</code> is their accumulated duration, and <code>_bucket{le="20"}</code> counts samples taking no more than 20 ms. Mean task duration over five minutes is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">sum</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">cache_load_duration_ms_sum</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+<span class="o">/</span>
+<span class="k">sum</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">cache_load_duration_ms_count</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+</code></pre></div>
+<p>To inspect the slower end of the distribution, query p95:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">histogram_quantile</span><span class="o">(</span>
+<span class="w">  </span><span class="mf">0.95</span><span class="p">,</span>
+<span class="w">  </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">ucm</span><span class="err">:</span><span class="nv">cache_load_duration_ms_bucket</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+<span class="o">)</span>
+</code></pre></div>
+<p>Both results are in ms. A stable mean with a rising p95 indicates deterioration at the slower end. Account for task-size and load changes, then inspect the stage's queuing, backend waits and copy timings. Quantiles are bucket estimates; merge buckets across workers before calculating p95, rather than averaging worker p95 values. See the <a href="https://prometheus.io/docs/practices/histograms/">Prometheus Histogram guide</a> for the calculation.</p>
+<h3 id="24-capacity-and-health">2.4 Capacity and health<a class="headerlink" href="#24-capacity-and-health" title="Permanent link">&para;</a></h3>
+<p>Query Gauges directly, retaining individual series to identify their processes. For example, view Posix logical occupancy as a percentage:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">ucm</span><span class="err">:</span><span class="nv">posix_store_usage_ratio</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}</span>
+</code></pre></div>
+<p>A result of <code>80</code> means that series last reported 80% logical occupancy. If it remains near capacity, check <code>ucm:posix_gc_running</code> and filesystem free space to see whether reclamation keeps up with writes.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ucm</span><span class="err">:</span><span class="nv">posix_store_health</span><span class="p">{</span><span class="nl">job</span><span class="o">=</span><span class="p">"</span><span class="s">vllm</span><span class="p">"}</span>
+</code></pre></div>
+<p><code>1</code> allows new cache operations and <code>0</code> means the circuit breaker is open. Do not sum process values and interpret the result as one health state. Confirm statistics are still updating and correlate probe results; see <a href="../health-metrics/">storage health</a> for the full interpretation.</p>
+<h2 id="3-runtime-interpretation-notes">3. Runtime interpretation notes<a class="headerlink" href="#3-runtime-interpretation-notes" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:export-scope">
+<p>The current <code>vllm_connector</code> consumer excludes <code>interval_lookup_hit_rates</code> in <code>ucm/metrics_config.py</code>. The native metric remains in this catalog; do not expect it on the default vLLM endpoint.&#160;<a class="footnote-backref" href="#fnref:export-scope" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cache-source">
+<p><code>cache_posix_load_success_shards_total</code> follows the Cache buffer's not-ready state at dispatch. The lower Store need not be Posix. For Cache/Posix, source-share formulas estimate tier contribution; correlate backend activity and completed transfers rather than treating a wait as a physical disk read.&#160;<a class="footnote-backref" href="#fnref:cache-source" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:posix-bytes">
+<p>Current Posix counters accumulate nominal task bytes at completion, including error or aborted paths. Check errors alongside byte rates; physical storage throughput requires filesystem or device observations.&#160;<a class="footnote-backref" href="#fnref:posix-bytes" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:posix-bytes" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ModelEngine-Group/unified-cache-management" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ModelEngine-Group/unified-cache-management/pkgs/container/unified-cache-manager" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/manifest.js"></script>
+      
+        <script src="../../../assets/install.js"></script>
+      
+        <script src="../../../assets/readthedocs.js"></script>
+      
+    
+  
+  <script src="https://unpkg.com/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://unpkg.com/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document$.subscribe(() => {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false},
+          {left: "\\(", right: "\\)", display: false},
+          {left: "\\[", right: "\\]", display: true}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  </body>
+</html>

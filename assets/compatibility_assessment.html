@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCM Compatibility Assessment</title>
+    <!-- Pre-delivery compatibility assessment wizard (step-by-step) -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+
+        .wiz-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .wiz-updated {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            white-space: nowrap;
+        }
+
+        /* Stepper */
+        .wiz-steps {
+            list-style: none;
+            display: flex;
+            gap: 0.25rem;
+            margin: 0 0 1.25rem 0;
+            padding: 0;
+        }
+
+        .wiz-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.25rem;
+            border-radius: 8px;
+            cursor: default;
+            position: relative;
+        }
+
+        .wiz-step.is-clickable {
+            cursor: pointer;
+        }
+
+        .wiz-step.is-clickable:hover {
+            background: var(--bg-secondary);
+        }
+
+        .wiz-step-dot {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .wiz-step-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .wiz-step.is-current .wiz-step-dot {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary-hover);
+            color: #fff;
+        }
+
+        .wiz-step.is-current .wiz-step-label {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .wiz-step.is-done .wiz-step-dot {
+            background: var(--accent-success);
+            border-color: var(--accent-success);
+            color: #fff;
+        }
+
+        .wiz-step.is-done .wiz-step-label {
+            color: var(--text-primary);
+        }
+
+        /* Step body */
+        .wiz-step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .wiz-step-hint {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .wiz-question {
+            margin-bottom: 1rem;
+        }
+
+        /* Option cards */
+        .wiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .wiz-options--compact {
+            grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+        }
+
+        .wiz-option {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-card);
+            padding: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .wiz-option:hover {
+            border-color: var(--border-hover);
+        }
+
+        .wiz-option.is-selected {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(81, 145, 238, 0.15);
+        }
+
+        .wiz-option-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.25;
+            word-break: break-word;
+        }
+
+        .wiz-option-desc {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        .wiz-option--wide {
+            grid-column: 1 / -1;
+        }
+
+        .wiz-option--other .wiz-option-name {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Status badges */
+        .wiz-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.68rem;
+            font-weight: 600;
+            border-radius: 999px;
+            padding: 0.125rem 0.5rem;
+            width: fit-content;
+            line-height: 1.4;
+        }
+
+        .wiz-badge--supported {
+            color: #047857;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+
+        .wiz-badge--unverified {
+            color: #b45309;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .wiz-badge--unsupported {
+            color: #b91c1c;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .wiz-family {
+            margin-bottom: 1rem;
+        }
+
+        .wiz-family-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .wiz-other-input {
+            margin-top: 0.5rem;
+        }
+
+        /* Actions */
+        .wiz-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .wiz-actions-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .wiz-error {
+            color: var(--accent-error);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            min-height: 1rem;
+        }
+
+        /* Verdict */
+        .wiz-verdict {
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            border: 1px solid;
+        }
+
+        .wiz-verdict-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .wiz-verdict-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.375rem;
+        }
+
+        .wiz-verdict-desc {
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .wiz-verdict--compatible {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #047857;
+        }
+
+        .wiz-verdict--compatible .wiz-verdict-desc {
+            color: #047857;
+        }
+
+        .wiz-verdict--unverified {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: rgba(245, 158, 11, 0.45);
+            color: #b45309;
+        }
+
+        .wiz-verdict--unverified .wiz-verdict-desc {
+            color: #b45309;
+        }
+
+        .wiz-verdict--incompatible {
+            background: rgba(239, 68, 68, 0.07);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #b91c1c;
+        }
+
+        .wiz-verdict--incompatible .wiz-verdict-desc {
+            color: #b91c1c;
+        }
+
+        /* Summary chips */
+        .wiz-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .wiz-summary-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.78rem;
+            line-height: 1.4;
+        }
+
+        .wiz-summary-chip strong {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.125rem;
+        }
+
+        /* Factors table */
+        .wiz-factors {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .wiz-factors th,
+        .wiz-factors td {
+            text-align: left;
+            padding: 0.5rem 0.625rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .wiz-factors th {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+        }
+
+        .wiz-factors td {
+            color: var(--text-primary);
+        }
+
+        .wiz-factor-note {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 0.125rem;
+            line-height: 1.4;
+        }
+
+        /* Next steps */
+        .wiz-next {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .wiz-next-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .wiz-next ul {
+            margin: 0;
+            padding-left: 1.125rem;
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .wiz-next a {
+            color: var(--accent-primary);
+        }
+
+        .wiz-data-note {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .wiz-data-note a {
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .wiz-step-label {
+                display: none;
+            }
+
+            .wiz-steps {
+                gap: 0.375rem;
+            }
+
+            .wiz-options {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="main-content">
+            <section class="card">
+                <h2 class="section-title">
+                    <span>🧭</span>
+                    <span id="app-title">UCM Compatibility Assessment</span>
+                </h2>
+                <div class="wiz-meta">
+                    <span class="subtitle" id="app-subtitle"></span>
+                    <span class="wiz-updated" id="app-updated"></span>
+                </div>
+
+                <ol class="wiz-steps" id="wiz-steps"></ol>
+
+                <div class="wiz-question" id="wiz-body"></div>
+                <div class="wiz-error" id="wiz-error" role="alert"></div>
+
+                <div class="wiz-actions" id="wiz-actions">
+                    <div class="wiz-actions-group">
+                        <button type="button" class="btn btn-secondary" id="btn-back"></button>
+                    </div>
+                    <div class="wiz-actions-group">
+                        <button type="button" class="btn btn-secondary" id="btn-restart"></button>
+                        <button type="button" class="btn btn-primary" id="btn-continue"></button>
+                    </div>
+                </div>
+
+                <p class="wiz-data-note" id="wiz-data-note"></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="compatibility-data.js"></script>
+    <script src="assessment.js"></script>
+</body>
+</html>

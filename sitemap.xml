@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://ucm.readthedocs.io/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/about/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/about/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/about/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/add-metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/add-metrics/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/add-metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/architecture/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/architecture/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/build_from_source/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/build_from_source/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/build_from_source/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/capability-principles/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/capability-principles/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/capability-principles/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/contribute/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/contribute/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/contribute/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/extending-store/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/extending-store/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/extending-store/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/pd-integration/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/pd-integration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/pd-integration/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/request-lifecycle/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/request-lifecycle/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/request-lifecycle/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/compress/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/compress/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/compress/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/ds3fs/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/ds3fs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/ds3fs/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/mooncake/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/mooncake/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/mooncake/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/nfs/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/nfs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/nfs/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/developer-guide/cache-configuration/pipeline/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/pipeline/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/pipeline/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/reference/config-parameters/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/config-parameters/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/config-parameters/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/reference/error-codes/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/error-codes/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/error-codes/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/reference/troubleshooting/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/kv-cache-calculator/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/kv-cache-calculator/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/kv-cache-calculator/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/developer/design/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/developer/design/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/developer/design/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/developer/dev-sandbox/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/developer/dev-sandbox/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/developer/dev-sandbox/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/user/dev-sandbox/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/dev-sandbox/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/dev-sandbox/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/user/metrics-view/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/metrics-view/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/metrics-view/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/user/nic-monitor/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/nic-monitor/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/nic-monitor/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/user/posix-aio/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/posix-aio/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/posix-aio/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/toolkit/user/precheck/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/precheck/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/precheck/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/centralized/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/centralized/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/centralized/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/distributed/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/distributed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/distributed/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/large-scale-ep/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/large-scale-ep/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/large-scale-ep/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/diagnostics/trace-mode/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/diagnostics/trace-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/diagnostics/trace-mode/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/frameworks/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/frameworks/pyMotor/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/pyMotor/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/pyMotor/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/frameworks/kubernetes/deploy/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/kubernetes/deploy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/kubernetes/deploy/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/deepseek/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/deepseek/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/deepseek/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/glm/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/glm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/glm/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/kimi/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/kimi/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/kimi/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/minimax/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/minimax/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/minimax/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/model-tour/qwen3/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/qwen3/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/qwen3/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/observability/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/observability/health-metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/health-metrics/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/health-metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/observability/metrics-reference/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/metrics-reference/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/metrics-reference/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/observability/metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/metrics/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/observability/verify-cache/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/verify-cache/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/verify-cache/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/quick_start/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/support-matrix/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/support-matrix/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/support-matrix/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/user-guide/support-matrix/assessment/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/support-matrix/assessment/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/support-matrix/assessment/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/about/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/about/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/add-metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/add-metrics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/add-metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/architecture/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/architecture/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/build_from_source/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/build_from_source/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/build_from_source/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/capability-principles/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/capability-principles/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/capability-principles/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/contribute/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/contribute/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/contribute/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/extending-store/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/extending-store/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/extending-store/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/pd-integration/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/pd-integration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/pd-integration/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/request-lifecycle/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/request-lifecycle/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/request-lifecycle/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/compress/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/compress/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/compress/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/ds3fs/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/ds3fs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/ds3fs/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/mooncake/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/mooncake/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/mooncake/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/nfs/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/nfs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/nfs/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/pipeline/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/developer-guide/cache-configuration/pipeline/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/developer-guide/cache-configuration/pipeline/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/reference/config-parameters/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/config-parameters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/config-parameters/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/reference/error-codes/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/error-codes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/error-codes/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/reference/troubleshooting/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/reference/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/reference/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/kv-cache-calculator/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/kv-cache-calculator/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/kv-cache-calculator/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/developer/design/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/developer/design/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/developer/design/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/developer/dev-sandbox/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/developer/dev-sandbox/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/developer/dev-sandbox/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/user/dev-sandbox/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/dev-sandbox/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/dev-sandbox/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/user/metrics-view/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/metrics-view/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/metrics-view/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/user/nic-monitor/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/nic-monitor/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/nic-monitor/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/user/posix-aio/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/posix-aio/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/posix-aio/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/toolkit/user/precheck/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/toolkit/user/precheck/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/toolkit/user/precheck/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/centralized/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/centralized/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/centralized/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/distributed/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/distributed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/distributed/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/large-scale-ep/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/capabilities/pd-disaggregation/large-scale-ep/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/capabilities/pd-disaggregation/large-scale-ep/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/diagnostics/trace-mode/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/diagnostics/trace-mode/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/diagnostics/trace-mode/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/frameworks/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/frameworks/pyMotor/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/pyMotor/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/pyMotor/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/frameworks/kubernetes/deploy/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/frameworks/kubernetes/deploy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/frameworks/kubernetes/deploy/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/deepseek/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/deepseek/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/deepseek/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/glm/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/glm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/glm/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/kimi/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/kimi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/kimi/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/minimax/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/minimax/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/minimax/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/model-tour/qwen3/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/model-tour/qwen3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/model-tour/qwen3/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/observability/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/observability/health-metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/health-metrics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/health-metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/observability/metrics-reference/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/metrics-reference/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/metrics-reference/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/observability/metrics/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/metrics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/metrics/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/observability/verify-cache/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/observability/verify-cache/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/observability/verify-cache/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/quick_start/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/support-matrix/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/support-matrix/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/support-matrix/"/>
+    </url>
+    <url>
+        <loc>https://ucm.readthedocs.io/zh/user-guide/support-matrix/assessment/</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://ucm.readthedocs.io/zh/user-guide/support-matrix/assessment/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ucm.readthedocs.io/user-guide/support-matrix/assessment/"/>
+    </url>
+</urlset>
