@@ -14,7 +14,7 @@ Use it when:
 
 The wizard is driven by a compatibility dataset maintained by UCM developers. It covers:
 
-- **Engines and versions**: vLLM, vLLM-Ascend and SGLang. The wizard offers the latest 10 real upstream release tags per engine, each carrying its UCM validation status: versions declared by the integration patches are supported, while newer upstream releases without UCM validation (for example vLLM `v0.30.0`) are listed as unverified. Release candidates and post releases map to their base version, so `v0.26.0rc1` counts as `v0.26.0`; older releases can be entered through *Other* and are matched against the maintained tag list.
+- **Engines and versions**: vLLM, vLLM-Ascend and SGLang. The wizard offers the latest 10 real upstream release tags per engine, each carrying its UCM validation status: validated versions are supported, while versions without a validation conclusion (for example vLLM `v0.30.0` or `v0.28.0`) are listed as unverified. Release candidates and post releases map to their base version, so `v0.26.0rc1` counts as `v0.26.0`; older releases can be entered through *Other* and are matched against the maintained tag list.
 - **Compute devices**: representative CUDA and CANN devices from the support matrix, such as H100, H20, L40, L20, 910B and 910C.
 - **Models**: per-engine integration status for DeepSeek, Qwen, GLM, MiniMax and Kimi families.
 
