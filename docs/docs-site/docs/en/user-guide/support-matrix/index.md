@@ -2,7 +2,7 @@
 
 <div class="ucm-support-matrix" markdown="1">
 
-Prefix Cache integration status by model. All three engine columns describe compatibility recorded for the development branch (main). Check [installation](../quick_start/index.md) for released combinations and verify the target runtime.
+Prefix Cache integration status by model. All three engine columns describe compatibility recorded for the development branch (main). Check [installation](../quick_start/index.md) for released combinations and verify the target runtime. For a step-by-step check of a specific engine, version, device and model combination, use the [compatibility assessment](assessment.md).
 
 ## Model compatibility
 

@@ -2,7 +2,7 @@
 
 <div class="ucm-support-matrix" markdown="1">
 
-本页展示各模型的 Prefix Cache 集成状态。三个引擎列均对应开发分支（main）的兼容性记录；具体发布组合见[安装](../quick_start/index.md)，目标环境仍需完成运行验证。
+本页展示各模型的 Prefix Cache 集成状态。三个引擎列均对应开发分支（main）的兼容性记录；具体发布组合见[安装](../quick_start/index.md)，目标环境仍需完成运行验证。如需逐步核对特定引擎、版本、推理卡与模型的组合，请使用[兼容性评估](assessment.md)。
 
 ## 模型兼容性
 

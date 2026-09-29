@@ -86,6 +86,7 @@ plugins:
             Home: 首页
             User Guide: 用户指南
             Support Matrix: 支持范围
+            Compatibility Assessment: 兼容性评估
             Quickstart: 快速开始
             Cache Configuration: 缓存配置
             Filesystem Pipeline: 文件系统流水线
@@ -172,6 +173,7 @@ nav:
       - user-guide/index.md
       - Quickstart: user-guide/quick_start/index.md
       - Support Matrix: user-guide/support-matrix/index.md
+      - Compatibility Assessment: user-guide/support-matrix/assessment.md
       - Model Tour:
           - user-guide/model-tour/index.md
           - GLM: user-guide/model-tour/glm/index.md

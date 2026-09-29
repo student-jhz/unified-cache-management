@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+  {{ super() }}
+  <div style="margin: 20px 0;">
+    <iframe id="ucm-assessment-frame"
+            src="{{ 'assets/compatibility_assessment.html' | url }}?lang={{ config.theme.language | default('en') }}"
+            style="width: 100%; height: 900px; border: none; display: block;"
+            title="{{ page.title }}"></iframe>
+  </div>
+  <script>
+    (function () {
+      var frame = document.getElementById("ucm-assessment-frame");
+      window.addEventListener("message", function (event) {
+        if (event.source !== frame.contentWindow) return;
+        var data = event.data || {};
+        if (data.type === "ucm-assessment-height" && data.height > 0) {
+          frame.style.height = Math.ceil(data.height) + "px";
+        } else if (data.type === "ucm-assessment-scroll") {
+          frame.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+      });
+    })();
+  </script>
+{% endblock %}
